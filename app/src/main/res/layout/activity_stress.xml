@@ -5,6 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
     android:id="@+id/stress_layout"
+    android:layout_weight="0"
     android:orientation="vertical">
 
     <TextView
@@ -21,5 +22,40 @@
         android:text="@string/stress_text_tension"
         android:id="@+id/stress_text_tension"
         android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <SeekBar
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/stress_seek_level"
+            android:rotation="270"
+            android:max="100" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="bottom">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stress_button_save"
+            android:id="@+id/stress_button_save"
+            android:layout_gravity="bottom|right" />
+
+    </LinearLayout>
 
 </LinearLayout>
