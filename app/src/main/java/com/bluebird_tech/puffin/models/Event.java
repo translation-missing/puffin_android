@@ -9,21 +9,81 @@ public class Event {
     @DatabaseField(generatedId = true)
     private Long id;
 
-    @DatabaseField
+    @DatabaseField(canBeNull = false)
     private String measurement;
 
-    @DatabaseField
+    @DatabaseField(canBeNull = false)
     private String fields;
 
     @DatabaseField
     private String tags;
-
-    @DatabaseField
+    @DatabaseField(canBeNull = false)
     private Date createdAt;
 
-    @DatabaseField
+    @DatabaseField(canBeNull = false)
     private Date updatedAt;
 
     @DatabaseField
     private Date deletedAt;
+
+    /* required */
+    Event() {
+    }
+
+    /* generated getters/setters */
+    public Date getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(Date deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(String measurement) {
+        this.measurement = measurement;
+    }
+
+    public String getFields() {
+        return fields;
+    }
+
+    public void setFields(String fields) {
+        this.fields = fields;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }
