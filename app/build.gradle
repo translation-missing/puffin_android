@@ -8,6 +8,7 @@ apt {
         //resourcePackageName android.defaultConfig.applicationId
     }
 }
+
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
@@ -19,17 +20,30 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+    }
 }
 
-def AAVersion = '3.2'
+repositories {
+    maven {
+        url 'http://repo.spring.io/milestone'
+    }
+}
+
+def AAVersion = '3.3.2'
 dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
+    compile "org.springframework.android:spring-android-rest-template:2.0.0.M1"
     compile 'com.j256.ormlite:ormlite-core:4.48'
     compile 'com.j256.ormlite:ormlite-android:4.48'
     apt "org.androidannotations:androidannotations:$AAVersion"
