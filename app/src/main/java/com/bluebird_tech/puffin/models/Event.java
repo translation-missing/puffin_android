@@ -14,6 +14,7 @@ public class Event {
       event.setFields(tension);
       event.setCreatedAt(now);
       event.setUpdatedAt(now);
+      event.setMeasuredAt(now);
 
       return event;
     }
@@ -38,6 +39,9 @@ public class Event {
 
     @DatabaseField
     private Date deletedAt;
+
+    @DatabaseField
+    private Date measuredAt;
 
     /* required */
     public Event() {
@@ -97,6 +101,14 @@ public class Event {
     }
 
     public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
+      this.updatedAt = updatedAt;
+    }
+
+    public Date getMeasuredAt() {
+      return measuredAt;
+    }
+
+    public void setMeasuredAt(Date measuredAt) {
+      this.measuredAt = measuredAt;
     }
 }
