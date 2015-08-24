@@ -1,17 +1,26 @@
 package com.bluebird_tech.puffin;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.bluebird_tech.puffin.models.DatabaseHelper;
+import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 
-public class StressActivity extends AppCompatActivity {
+public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stress);
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_stress);
+
+//      findViewById(R.id.clickButton).setOnClickListener(new View.OnClickListener() {
+//        public void onClick(View view) {
+//          click();
+//        }
+//      });
+
+//      updateScreenValue();
     }
 
     @Override
@@ -35,4 +44,56 @@ public class StressActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+	// @Override
+	// public void onCreate(Bundle savedInstanceState) {
+	// public static void callMe(Context c, Integer clickCounterId) {
+		// Intent intent = new Intent(c, CounterScreen.class);
+		// intent.putExtra(CLICK_COUNTER_ID, clickCounterId);
+		// c.startActivity(intent);
+	// }
+
+//	private void fillText(int resId, String text) {
+//		TextView textView = (TextView) findViewById(resId);
+//		textView.setText(text);
+//	}
+
+//	private void click() {
+//		int value = countValue.incrementAndGet();
+//
+//		AsyncTask<Integer, Void, Void> asyncTask = new AsyncTask<Integer, Void, Void>() {
+//
+//			@Override
+//			protected Void doInBackground(Integer... integers) {
+//				Integer countId = integers[0];
+//				Integer countValue = integers[1];
+//
+//				try {
+//					Dao<ClickCount, Integer> dao = getHelper().getClickDao();
+//					ClickCount clickCount = dao.queryForId(countId);
+//					if (clickCount.getValue() < countValue) {
+//						clickCount.changeValue(countValue);
+//						dao.update(clickCount);
+//					}
+//				} catch (SQLException e) {
+//					throw new RuntimeException(e);
+//				}
+//
+//				return null;
+//			}
+//
+//			@Override
+//			protected void onPostExecute(Void aVoid) {
+//				updateScreenValue();
+//				MediaPlayer mp = MediaPlayer.create(CounterScreen.this, R.raw.click);
+//				mp.start();
+//			}
+//		};
+//
+//		asyncTask.execute(clickCounterid, value);
+//	}
+
+//	private void updateScreenValue() {
+//		((TextView) findViewById(R.id.countValue)).setText(Integer.toString(countValue.get()));
+//	}
 }

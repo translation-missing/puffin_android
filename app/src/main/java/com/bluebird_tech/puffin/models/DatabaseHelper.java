@@ -1,25 +1,30 @@
-package com.bluebird_tech.puffin.helpers;
+package com.bluebird_tech.puffin.models;
 
 import android.content.Context;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.bluebird_tech.puffin.R;
-import com.bluebird_tech.puffin.models.Event;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
+import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import java.sql.SQLException;
+
+/**
+ * @see http://stackoverflow.com/q/17298773
+ */
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
   /* c&p start */
 	private static final String DATABASE_NAME = "puffin.db";
 	private static final int DATABASE_VERSION = 1;
 
-	private Dao<ClickGroup, Integer> groupDao;
-	private Dao<ClickCount, Integer> clickDao;
+	private Dao<Event, Integer> eventDao;
 
 	public DatabaseHelper(Context context) {
+    // first time:
+    // super(context, DATABASE_NAME, null, DATABASE_VERSION, 1);
 		super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
 	}
   /* c&p end */
