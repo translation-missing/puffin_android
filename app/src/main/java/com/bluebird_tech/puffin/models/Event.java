@@ -6,6 +6,18 @@ import com.j256.ormlite.field.DatabaseField;
 
 @DatabaseTable(tableName = "events")
 public class Event {
+    public static Event fromTension(String tension) {
+      Date now = new Date();
+      Event event = new Event();
+
+      event.setMeasurement("tension");
+      event.setFields(tension);
+      event.setCreatedAt(now);
+      event.setUpdatedAt(now);
+
+      return event;
+    }
+
     @DatabaseField(generatedId = true)
     private Long id;
 
@@ -17,6 +29,7 @@ public class Event {
 
     @DatabaseField
     private String tags;
+
     @DatabaseField(canBeNull = false)
     private Date createdAt;
 

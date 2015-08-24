@@ -1,33 +1,29 @@
 package com.bluebird_tech.puffin;
 
-import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bluebird_tech.puffin.models.DatabaseHelper;
 import com.bluebird_tech.puffin.models.Event;
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.Dao;
 
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.SeekBarProgressChange;
+import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
 @EActivity(R.layout.activity_stress)
-public class StressActivity
-    extends OrmLiteBaseActivity<DatabaseHelper> {
-//    implements SeekBar.OnSeekBarChangeListener {
+public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
   private static final String TAG = StressActivity.class.getSimpleName();
 
   @ViewById(R.id.stress_seek_level)
@@ -35,143 +31,41 @@ public class StressActivity
 
   @ViewById(R.id.stress_text_level)
   TextView level;
-//  SeekBar stress_seek_level; // inject R.id.stress_seek_level
 
-//  private SeekBar bar;
-//  private TextView level;
+  @ViewById(R.id.stress_button_save)
+  Button save_button;
 
-//  @Override
-//  protected void onCreate(Bundle savedInstanceState) {
-//    super.onCreate(savedInstanceState);
-//    setContentView(R.layout.activity_stress);
-//
-//    bar = (SeekBar)findViewById(R.id.stress_seek_level);
-//    bar.setOnSeekBarChangeListener(this);
-//
-//    level = (TextView)findViewById(R.id.stress_text_level);
-////      stress_button_save
-//    findViewById(R.id.stress_button_save).setOnClickListener(new View.OnClickListener() {
-//      public void onClick(View view) {
-//        click();
-//      }
-//    });
-
-
-//      updateScreenValue();
-//  }
-
-//  @Override
-//  public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
   @SeekBarProgressChange(R.id.stress_seek_level)
   void onProgressChangedOnSeekBar(SeekBar seekBar, int progress, boolean b) {
     level.setText(Integer.toString(progress));
   }
 
-//  @Override
-//  public void onStartTrackingTouch(SeekBar seekBar) {
-//  }
-//
-//  @Override
-//  public void onStopTrackingTouch(SeekBar seekBar) {
-//  }
-
-//  @Override
-//  public boolean onCreateOptionsMenu(Menu menu) {
-//    // Inflate the menu; this adds items to the action bar if it is present.
-//    getMenuInflater().inflate(R.menu.menu_stress, menu);
-//    return true;
-//  }
-
-//  @Override
-//  public boolean onOptionsItemSelected(MenuItem item) {
-//    // Handle action bar item clicks here. The action bar will
-//    // automatically handle clicks on the Home/Up button, so long
-//    // as you specify a parent activity in AndroidManifest.xml.
-//    int id = item.getItemId();
-//
-//    //noinspection SimplifiableIfStatement
-//    if (id == R.id.action_settings) {
-//      return true;
-//    }
-//
-//    return super.onOptionsItemSelected(item);
-//  }
-
-  // @Override
-  // public void onCreate(Bundle savedInstanceState) {
-  // public static void callMe(Context c, Integer clickCounterId) {
-  // Intent intent = new Intent(c, CounterScreen.class);
-  // intent.putExtra(CLICK_COUNTER_ID, clickCounterId);
-  // c.startActivity(intent);
-  // }
-
-//	private void fillText(int resId, String text) {
-//		TextView textView = (TextView) findViewById(resId);
-//		textView.setText(text);
-//	}
-
   @Click(R.id.stress_button_save)
-  void saveTension() {
-    Log.v("app", "Klicketyklick!" + bar.getProgress());
+  void clickSaveTension() {
+    String tension = Integer.toString(bar.getProgress());
+    save_button.setEnabled(false);
+    saveTensionInBackground(tension);
+  }
+
+  @Background
+  void saveTensionInBackground(String tension) {
+    Event event = Event.fromTension(tension);
+    saveEventInDatabase(event);
+    showResult();
+  }
+
+  @UiThread
+  void showResult() {
+    save_button.setEnabled(true);
+    Toast.makeText(this, "❤️", Toast.LENGTH_SHORT).show();
+  }
+
+  private void saveEventInDatabase(Event event) {
     try {
       Dao<Event, Integer> dao = getHelper().getEventDao();
-
-      Date now = new Date();
-      Event event = new Event();
-      event.setMeasurement("tension");
-      event.setFields("" + bar.getProgress());
-      event.setCreatedAt(now);
-      event.setUpdatedAt(now);
-//        dao.createOrUpdate(event);
       dao.create(event);
-
-      List<Event> results = dao.queryBuilder().query();
-      for (Event e: results) {
-        Log.d(TAG, "" + e.getMeasurement() + e.getFields() + e.getCreatedAt().toString() + e.getId());
-      }
-
-//      Log.d(TAG, results);
-
     } catch (SQLException e) {
       throw new RuntimeException(e);
     }
   }
-//	private void click() {
-//		int value = countValue.incrementAndGet();
-//
-//		AsyncTask<Integer, Void, Void> asyncTask = new AsyncTask<Integer, Void, Void>() {
-//
-//			@Override
-//			protected Void doInBackground(Integer... integers) {
-//				Integer countId = integers[0];
-//				Integer countValue = integers[1];
-//
-//				try {
-//					Dao<ClickCount, Integer> dao = getHelper().getClickDao();
-//					ClickCount clickCount = dao.queryForId(countId);
-//					if (clickCount.getValue() < countValue) {
-//						clickCount.changeValue(countValue);
-//						dao.update(clickCount);
-//					}
-//				} catch (SQLException e) {
-//					throw new RuntimeException(e);
-//				}
-//
-//				return null;
-//			}
-//
-//			@Override
-//			protected void onPostExecute(Void aVoid) {
-//				updateScreenValue();
-//				MediaPlayer mp = MediaPlayer.create(CounterScreen.this, R.raw.click);
-//				mp.start();
-//			}
-//		};
-//
-//		asyncTask.execute(clickCounterid, value);
-//	}
-
-//	private void updateScreenValue() {
-//		((TextView) findViewById(R.id.countValue)).setText(Integer.toString(countValue.get()));
-//	}
 }
