@@ -13,73 +13,89 @@ import com.bluebird_tech.puffin.models.Event;
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.Dao;
 
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.SeekBarProgressChange;
+import org.androidannotations.annotations.ViewById;
+
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
+@EActivity(R.layout.activity_stress)
 public class StressActivity
-    extends OrmLiteBaseActivity<DatabaseHelper>
-    implements SeekBar.OnSeekBarChangeListener {
+    extends OrmLiteBaseActivity<DatabaseHelper> {
+//    implements SeekBar.OnSeekBarChangeListener {
   private static final String TAG = StressActivity.class.getSimpleName();
 
-  private SeekBar bar;
-  private TextView level;
+  @ViewById(R.id.stress_seek_level)
+  SeekBar bar;
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_stress);
+  @ViewById(R.id.stress_text_level)
+  TextView level;
+//  SeekBar stress_seek_level; // inject R.id.stress_seek_level
 
-    bar = (SeekBar)findViewById(R.id.stress_seek_level);
-    bar.setOnSeekBarChangeListener(this);
+//  private SeekBar bar;
+//  private TextView level;
 
-    level = (TextView)findViewById(R.id.stress_text_level);
-//      stress_button_save
-    findViewById(R.id.stress_button_save).setOnClickListener(new View.OnClickListener() {
-      public void onClick(View view) {
-        click();
-      }
-    });
+//  @Override
+//  protected void onCreate(Bundle savedInstanceState) {
+//    super.onCreate(savedInstanceState);
+//    setContentView(R.layout.activity_stress);
+//
+//    bar = (SeekBar)findViewById(R.id.stress_seek_level);
+//    bar.setOnSeekBarChangeListener(this);
+//
+//    level = (TextView)findViewById(R.id.stress_text_level);
+////      stress_button_save
+//    findViewById(R.id.stress_button_save).setOnClickListener(new View.OnClickListener() {
+//      public void onClick(View view) {
+//        click();
+//      }
+//    });
+
 
 //      updateScreenValue();
-  }
+//  }
 
-  @Override
-  public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+//  @Override
+//  public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+  @SeekBarProgressChange(R.id.stress_seek_level)
+  void onProgressChangedOnSeekBar(SeekBar seekBar, int progress, boolean b) {
     level.setText(Integer.toString(progress));
   }
 
-  @Override
-  public void onStartTrackingTouch(SeekBar seekBar) {
-  }
+//  @Override
+//  public void onStartTrackingTouch(SeekBar seekBar) {
+//  }
+//
+//  @Override
+//  public void onStopTrackingTouch(SeekBar seekBar) {
+//  }
 
-  @Override
-  public void onStopTrackingTouch(SeekBar seekBar) {
-  }
+//  @Override
+//  public boolean onCreateOptionsMenu(Menu menu) {
+//    // Inflate the menu; this adds items to the action bar if it is present.
+//    getMenuInflater().inflate(R.menu.menu_stress, menu);
+//    return true;
+//  }
 
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
-    getMenuInflater().inflate(R.menu.menu_stress, menu);
-    return true;
-  }
-
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
-    int id = item.getItemId();
-
-    //noinspection SimplifiableIfStatement
-    if (id == R.id.action_settings) {
-      return true;
-    }
-
-    return super.onOptionsItemSelected(item);
-  }
+//  @Override
+//  public boolean onOptionsItemSelected(MenuItem item) {
+//    // Handle action bar item clicks here. The action bar will
+//    // automatically handle clicks on the Home/Up button, so long
+//    // as you specify a parent activity in AndroidManifest.xml.
+//    int id = item.getItemId();
+//
+//    //noinspection SimplifiableIfStatement
+//    if (id == R.id.action_settings) {
+//      return true;
+//    }
+//
+//    return super.onOptionsItemSelected(item);
+//  }
 
   // @Override
   // public void onCreate(Bundle savedInstanceState) {
@@ -94,23 +110,13 @@ public class StressActivity
 //		textView.setText(text);
 //	}
 
-  private void click() {
+  @Click(R.id.stress_button_save)
+  void saveTension() {
     Log.v("app", "Klicketyklick!" + bar.getProgress());
     try {
       Dao<Event, Integer> dao = getHelper().getEventDao();
-//        ClickCount clickCount = dao.queryForId(countId);
-//        if (clickCount.getValue() < countValue) {
-//          clickCount.changeValue(countValue);
-//          dao.update()
 
-
-//        > Account acc = new Account();
-//        >
-//        > acc.setName("Example");
-//        >
-//        > AccountDao.createOrupdate(acc);
-
-       now = new Date();
+      Date now = new Date();
       Event event = new Event();
       event.setMeasurement("tension");
       event.setFields("" + bar.getProgress());
@@ -122,14 +128,9 @@ public class StressActivity
       List<Event> results = dao.queryBuilder().query();
       for (Event e: results) {
         Log.d(TAG, "" + e.getMeasurement() + e.getFields() + e.getCreatedAt().toString() + e.getId());
-        System.out.println(e.toString());
       }
 
-
 //      Log.d(TAG, results);
-
-
-
 
     } catch (SQLException e) {
       throw new RuntimeException(e);
