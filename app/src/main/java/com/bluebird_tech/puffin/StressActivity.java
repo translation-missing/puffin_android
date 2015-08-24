@@ -3,16 +3,28 @@ package com.bluebird_tech.puffin;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.bluebird_tech.puffin.models.DatabaseHelper;
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 
-public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
+public class StressActivity
+  extends OrmLiteBaseActivity<DatabaseHelper>
+  implements SeekBar.OnSeekBarChangeListener {
+
+    private SeekBar bar;
+    private TextView level;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_stress);
+
+      bar = (SeekBar)findViewById(R.id.stress_seek_level);
+      bar.setOnSeekBarChangeListener(this);
+
+      level = (TextView)findViewById(R.id.stress_text_level);
 
 //      findViewById(R.id.clickButton).setOnClickListener(new View.OnClickListener() {
 //        public void onClick(View view) {
@@ -21,6 +33,19 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 //      });
 
 //      updateScreenValue();
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+        level.setText(Integer.toString(progress));
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
     }
 
     @Override
