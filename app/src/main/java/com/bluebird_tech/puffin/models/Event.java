@@ -27,7 +27,7 @@ public class Event {
     private Date deletedAt;
 
     /* required */
-    Event() {
+    public Event() {
     }
 
     /* generated getters/setters */
