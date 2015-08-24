@@ -1,6 +1,5 @@
 package com.bluebird_tech.puffin;
 
-import android.util.Log;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -22,8 +21,6 @@ import org.androidannotations.annotations.rest.RestService;
 import org.springframework.web.client.RestClientException;
 
 import java.sql.SQLException;
-import java.util.Date;
-import java.util.List;
 
 @EActivity(R.layout.activity_stress)
 public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {

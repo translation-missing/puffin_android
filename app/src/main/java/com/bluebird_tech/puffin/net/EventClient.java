@@ -8,8 +8,8 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 
 @Rest(
   rootUrl = "http://glacial-lake-1827.herokuapp.com",
-  converters = { MappingJackson2HttpMessageConverter.class }
-  // interceptors = { DebugLoggingInterceptor.class }
+  converters = { MappingJackson2HttpMessageConverter.class },
+  interceptors = { LoggingRequestInterceptor.class }
 )
 public interface EventClient {
   @Post("/events")
