@@ -17,46 +17,46 @@ import java.sql.SQLException;
  */
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
   /* c&p start */
-	private static final String DATABASE_NAME = "puffin.db";
-	private static final int DATABASE_VERSION = 1;
+  private static final String DATABASE_NAME = "puffin.db";
+  private static final int DATABASE_VERSION = 2;
 
-	private Dao<Event, Integer> eventDao;
+  private Dao<Event, Integer> eventDao;
 
-	public DatabaseHelper(Context context) {
+  public DatabaseHelper(Context context) {
     // first time:
     // super(context, DATABASE_NAME, null, DATABASE_VERSION, 1);
-		super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
-	}
+    super(context, DATABASE_NAME, null, DATABASE_VERSION, R.raw.ormlite_config);
+  }
   /* c&p end */
 
-	@Override
-	public void onCreate(SQLiteDatabase sqliteDatabase,
-						 ConnectionSource connectionSource) {
-		try {
-			TableUtils.createTable(connectionSource, Event.class);
-		} catch (SQLException e) {
-			Log.e(DatabaseHelper.class.getName(), "Unable to create datbases", e);
-		}
-	}
+  @Override
+  public void onCreate(SQLiteDatabase sqliteDatabase,
+                       ConnectionSource connectionSource) {
+    try {
+      TableUtils.createTable(connectionSource, Event.class);
+    } catch (SQLException e) {
+      Log.e(DatabaseHelper.class.getName(), "Unable to create datbases", e);
+    }
+  }
 
-	@Override
-	public void onUpgrade(SQLiteDatabase sqliteDatabase,
-      ConnectionSource connectionSource, int oldVer, int newVer) {
-		try {
+  @Override
+  public void onUpgrade(SQLiteDatabase sqliteDatabase,
+                        ConnectionSource connectionSource, int oldVer, int newVer) {
+    try {
       // TODO: migrate, don't drop!
-			TableUtils.dropTable(connectionSource, Event.class, true);
-			onCreate(sqliteDatabase, connectionSource);
-		} catch (SQLException e) {
-			Log.e(DatabaseHelper.class.getName(),
-          "Unable to upgrade database from version " + oldVer + " to new "
-					+ newVer, e);
-		}
-	}
+      TableUtils.dropTable(connectionSource, Event.class, true);
+      onCreate(sqliteDatabase, connectionSource);
+    } catch (SQLException e) {
+      Log.e(DatabaseHelper.class.getName(),
+        "Unable to upgrade database from version " + oldVer + " to new "
+          + newVer, e);
+    }
+  }
 
-	public Dao<Event, Integer> getEventDao() throws SQLException {
-		if (eventDao == null) {
-			eventDao = getDao(Event.class);
-		}
-		return eventDao;
-	}
+  public Dao<Event, Integer> getEventDao() throws SQLException {
+    if (eventDao == null) {
+      eventDao = getDao(Event.class);
+    }
+    return eventDao;
+  }
 }

@@ -24,7 +24,13 @@ public class LoggingRequestInterceptor implements ClientHttpRequestInterceptor {
     Log.d(TAG, "URI     = " + request.getURI());
     Log.d(TAG, "METHOD  = " + request.getMethod());
     Log.d(TAG, "BODY    = " + new String(body));
+    Log.d(TAG, "response BODY = " + convertStreamToString(response.getBody()));
 
     return response;
+  }
+
+  static String convertStreamToString(java.io.InputStream is) {
+    java.util.Scanner s = new java.util.Scanner(is).useDelimiter("\\A");
+    return s.hasNext() ? s.next() : "";
   }
 }

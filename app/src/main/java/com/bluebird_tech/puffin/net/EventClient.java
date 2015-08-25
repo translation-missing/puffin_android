@@ -8,6 +8,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 
 @Rest(
   rootUrl = "http://glacial-lake-1827.herokuapp.com",
+//  rootUrl = "http://192.168.178.31:49100",
   converters = { MappingJackson2HttpMessageConverter.class },
   interceptors = { LoggingRequestInterceptor.class }
 )
