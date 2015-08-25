@@ -47,6 +47,7 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
   void clickSaveTension() {
     String tension = Integer.toString(bar.getProgress());
     save_button.setEnabled(false);
+//    finish();
     saveTensionInBackground(tension);
   }
 
@@ -60,6 +61,7 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
   @UiThread
   void showResult(boolean success) {
+    finish();
     save_button.setEnabled(true);
     String msg = success ? "❤️" : "\uD83D\uDC80";
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
