@@ -1,10 +1,10 @@
 package com.bluebird_tech.puffin.models;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.j256.ormlite.table.DatabaseTable;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+import java.util.Date;
 
 /**
  * @todo globally change date format
@@ -23,6 +23,16 @@ public class Event {
 
     return event;
   }
+
+//  @JsonProperty("deviceId")
+//  private String getDeviceId() {
+//    String android_id = Settings.Secure.getString(
+//      getApplicationContext().getContentResolver(),
+//      Settings.Secure.ANDROID_ID
+//    );
+//    Log.d("foo", android_id);
+//    return android_id;
+//  }
 
   @DatabaseField(generatedId = true)
   private Long id;
