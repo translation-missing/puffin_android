@@ -7,8 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import org.androidannotations.annotations.SystemService;
-
 public class BootReceiver extends BroadcastReceiver {
   private static final String TAG = BootReceiver.class.getSimpleName();
 
