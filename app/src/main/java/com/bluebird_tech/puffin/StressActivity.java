@@ -53,7 +53,7 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
   @Background
   void saveTensionInBackground(String tension) {
-    Event event = Event.fromTension(tension);
+    Event event = Event.fromTension(this, tension);
     saveEventInDatabase(event);
     boolean success = uploadEvent(event);
     showResult(success);

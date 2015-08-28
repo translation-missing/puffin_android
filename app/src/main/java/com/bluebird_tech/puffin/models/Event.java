@@ -1,6 +1,11 @@
 package com.bluebird_tech.puffin.models;
 
+import android.content.Context;
+import android.provider.Settings;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -10,8 +15,11 @@ import java.util.Date;
  * @todo globally change date format
  */
 @DatabaseTable(tableName = "events")
+@JsonIgnoreProperties({"id"})
 public class Event {
-  public static Event fromTension(String tension) {
+  private Context ctx;
+
+  public static Event fromTension(Context ctx, String tension) {
     Date now = new Date();
     Event event = new Event();
 
@@ -20,19 +28,23 @@ public class Event {
     event.setCreatedAt(now);
     event.setUpdatedAt(now);
     event.setMeasuredAt(now);
+    event.setCtx(ctx);
 
     return event;
   }
 
-//  @JsonProperty("deviceId")
-//  private String getDeviceId() {
-//    String android_id = Settings.Secure.getString(
-//      getApplicationContext().getContentResolver(),
-//      Settings.Secure.ANDROID_ID
-//    );
-//    Log.d("foo", android_id);
-//    return android_id;
-//  }
+  @JsonProperty("deviceId")
+  private String getDeviceId() {
+    if (ctx == null)
+      return "unknown";
+
+    String android_id = Settings.Secure.getString(
+      ctx.getApplicationContext().getContentResolver(),
+      Settings.Secure.ANDROID_ID
+    );
+
+    return android_id;
+  }
 
   @DatabaseField(generatedId = true)
   private Long id;
@@ -66,7 +78,11 @@ public class Event {
   public Event() {
   }
 
-    /* generated getters/setters */
+  public void setCtx(Context ctx) {
+    this.ctx = ctx;
+  }
+
+  /* generated getters/setters */
 
   public Long getId() {
     return id;
