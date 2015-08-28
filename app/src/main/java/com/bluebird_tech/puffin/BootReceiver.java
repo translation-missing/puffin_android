@@ -12,7 +12,6 @@ import org.androidannotations.annotations.SystemService;
 public class BootReceiver extends BroadcastReceiver {
   private static final String TAG = BootReceiver.class.getSimpleName();
 
-  @SystemService
   private AlarmManager alarmManager;
   private PendingIntent alarmIntent;
 
@@ -35,6 +34,8 @@ public class BootReceiver extends BroadcastReceiver {
 //    int every_two_hours = 2 * 60 * 60 * 1000; // millis
     int every_two_hours = 10 * 1000; // millis
 
+    alarmManager =
+      (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
     alarmManager.setInexactRepeating(
       AlarmManager.ELAPSED_REALTIME_WAKEUP,
       1, // NOTE: like setExactRepeating when not using AlarmManager.INTERVAL_..
