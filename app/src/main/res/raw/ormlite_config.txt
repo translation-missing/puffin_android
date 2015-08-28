@@ -1,0 +1,36 @@
+#
+# generated on 2015/08/25 09:26:24
+#
+# --table-start--
+dataClass=com.bluebird_tech.puffin.models.Event
+tableName=events
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=measurement
+canBeNull=false
+# --field-end--
+# --field-start--
+fieldName=fields
+canBeNull=false
+# --field-end--
+# --field-start--
+fieldName=tags
+# --field-end--
+# --field-start--
+fieldName=createdAt
+canBeNull=false
+# --field-end--
+# --field-start--
+fieldName=updatedAt
+canBeNull=false
+# --field-end--
+# --field-start--
+fieldName=measuredAt
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

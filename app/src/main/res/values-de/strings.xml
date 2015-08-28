@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Puffin</string>
+    <string name="action_settings">Einstellungen</string>
+
+    <string name="stress_text_tension">Anspannung</string>
+    <string name="stress_button_save">Speichern</string>
+
+    <string name="tension_input_notification_title_template">Puffin</string>
+    <string name="tension_input_notification_placeholder_text_template">
+       Anspannung messen
+    </string>
+</resources>

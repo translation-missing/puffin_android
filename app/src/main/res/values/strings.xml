@@ -3,4 +3,12 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="stress_text_tension">Tension</string>
+    <string name="stress_button_save">Save</string>
+
+    <string name="tension_input_notification_title_template">Puffin</string>
+    <string name="tension_input_notification_placeholder_text_template">
+       May I get your tension?
+    </string>
 </resources>
