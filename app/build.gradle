@@ -10,13 +10,13 @@ apt {
 }
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion '23.0.0'
 
     defaultConfig {
         applicationId "com.bluebird_tech.puffin"
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -44,14 +44,15 @@ repositories {
 
 def AAVersion = '3.3.2'
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.1'
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.0.0'
     compile 'com.fasterxml.jackson.core:jackson-core:2.6.1'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.6.1'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.1'
     compile 'org.springframework.android:spring-android-rest-template:2.0.0.M1'
     compile 'com.j256.ormlite:ormlite-core:4.48'
     compile 'com.j256.ormlite:ormlite-android:4.48'
-    apt "org.androidannotations:androidannotations:$AAVersion"
-    compile "org.androidannotations:androidannotations-api:$AAVersion"
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:support-v4:23.0.0'
 }

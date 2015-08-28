@@ -1,5 +1,6 @@
 package com.bluebird_tech.puffin;
 
+import android.content.Intent;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
