@@ -24,7 +24,7 @@ public class BootReceiver extends BroadcastReceiver {
     }
   }
 
-  private void setupAlarms(Context context) {
+  public void setupAlarms(Context context) {
     Intent my_intent = new Intent(context, RepeatingAlarmReceiver_.class);
     my_intent.setAction(RepeatingAlarmReceiver_.ACTIONS_SCHEDULE_ALARM);
     alarmIntent = PendingIntent.getBroadcast(context, 0, my_intent, 0);
