@@ -1,5 +1,7 @@
 package com.bluebird_tech.puffin;
 
+import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -47,7 +49,6 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
   void clickSaveTension() {
     String tension = Integer.toString(bar.getProgress());
     save_button.setEnabled(false);
-//    finish();
     saveTensionInBackground(tension);
   }
 
@@ -56,20 +57,20 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
     Event event = Event.fromTension(this, tension);
     saveEventInDatabase(event);
     loadTensionListActivity();
-    boolean success = uploadEvent(event);
-    showResult(success);
+    sendTensionEventCreatedIntent(uploadEvent(event));
+  }
+
+  private void sendTensionEventCreatedIntent(boolean success) {
+    sendBroadcast(new Intent("com.bluebird_tech.puffin.TENSION_EVENT_CREATED")
+      .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+      .putExtra("tensionEventCreated", success)
+    );
   }
 
   @UiThread
   void loadTensionListActivity() {
     TensionListActivity_.intent(this).start();
     finish();
-  }
-
-  @UiThread
-  void showResult(boolean success) {
-    String msg = success ? "❤️" : "\uD83D\uDC80";
-    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
   }
 
   private void saveEventInDatabase(Event event) {
