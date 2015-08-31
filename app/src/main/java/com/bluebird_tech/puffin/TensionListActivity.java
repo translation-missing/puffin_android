@@ -1,5 +1,6 @@
 package com.bluebird_tech.puffin;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -10,6 +11,7 @@ import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.ViewById;
@@ -35,5 +37,10 @@ public class TensionListActivity extends AppCompatActivity {
   @ItemClick
   void tensionListItemClicked(Event event) {
     makeText(this, event.getMeasurement() + ", value = " + event.getFields(), Toast.LENGTH_SHORT).show();
+  }
+
+  @Click
+  void fabClicked() {
+    StressActivity_.intent(this).start();
   }
 }
