@@ -1,5 +1,6 @@
 package com.bluebird_tech.puffin;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -58,6 +59,11 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
     saveEventInDatabase(event);
     boolean success = uploadEvent(event);
     showResult(success);
+  }
+
+  protected void onStart() {
+    BootReceiver receiver = new BootReceiver();
+    receiver.setupAlarms(this);
   }
 
   @UiThread
