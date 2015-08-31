@@ -1,6 +1,5 @@
 package com.bluebird_tech.puffin;
 
-import android.content.Intent;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -20,8 +19,6 @@ import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.rest.RestService;
 import org.springframework.web.client.RestClientException;
-
-import com.bluebird_tech.puffin.TensionListActivity_;
 
 import java.sql.SQLException;
 

@@ -19,6 +19,9 @@ import java.util.Date;
 public class Event {
   private Context ctx;
 
+  public static final String FIELD_MEASUREMENT = "measurement";
+  public static final String FIELD_MEASURED_AT = "measured_at";
+
   public static Event fromTension(Context ctx, String tension) {
     Date now = new Date();
     Event event = new Event();
@@ -49,7 +52,11 @@ public class Event {
   @DatabaseField(generatedId = true)
   private Long id;
 
-  @DatabaseField(canBeNull = false)
+  @DatabaseField(
+    canBeNull = false,
+    index = true,
+    columnName = FIELD_MEASUREMENT
+  )
   private String measurement;
 
   @DatabaseField(canBeNull = false)
@@ -70,7 +77,7 @@ public class Event {
 //    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
 //    private Date deletedAt;
 
-  @DatabaseField
+  @DatabaseField(index = true, columnName = Event.FIELD_MEASURED_AT)
   @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
   private Date measuredAt;
 
