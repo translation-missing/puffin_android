@@ -68,7 +68,9 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
     );
   }
 
+  @Override
   protected void onStart() {
+    super.onStart();
     BootReceiver receiver = new BootReceiver();
     receiver.setupAlarms(this);
   }
