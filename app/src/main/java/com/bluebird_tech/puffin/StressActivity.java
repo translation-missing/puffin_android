@@ -1,12 +1,9 @@
 package com.bluebird_tech.puffin;
 
-import android.content.BroadcastReceiver;
 import android.content.Intent;
-import android.support.design.widget.Snackbar;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bluebird_tech.puffin.models.DatabaseHelper;
 import com.bluebird_tech.puffin.models.Event;

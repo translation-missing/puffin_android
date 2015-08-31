@@ -16,7 +16,6 @@ import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_tension_list)
-//public class TensionListActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 public class TensionListActivity extends AppCompatActivity {
   private static final String TAG = TensionListActivity.class.getSimpleName();
 
