@@ -1,5 +1,6 @@
 package com.bluebird_tech.puffin;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.widget.Button;
@@ -65,6 +66,11 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
       .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
       .putExtra("tensionEventCreated", success)
     );
+  }
+
+  protected void onStart() {
+    BootReceiver receiver = new BootReceiver();
+    receiver.setupAlarms(this);
   }
 
   @UiThread
