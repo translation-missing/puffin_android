@@ -30,12 +30,16 @@
                 </action>
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".RepeatingAlarmReceiver_"
             android:enabled="true"
             android:exported="true" >
         </receiver>
+
+        <activity
+            android:name=".TensionListActivity_"
+            android:label="@string/title_activity_tension_list" >
+        </activity>
     </application>
 
 </manifest>

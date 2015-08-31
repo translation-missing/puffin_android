@@ -21,6 +21,8 @@ import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.rest.RestService;
 import org.springframework.web.client.RestClientException;
 
+import com.bluebird_tech.puffin.TensionListActivity_;
+
 import java.sql.SQLException;
 
 @EActivity(R.layout.activity_stress)
@@ -56,14 +58,19 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
   void saveTensionInBackground(String tension) {
     Event event = Event.fromTension(this, tension);
     saveEventInDatabase(event);
+    loadTensionListActivity();
     boolean success = uploadEvent(event);
     showResult(success);
   }
 
   @UiThread
-  void showResult(boolean success) {
+  void loadTensionListActivity() {
+    TensionListActivity_.intent(this).start();
     finish();
-    save_button.setEnabled(true);
+  }
+
+  @UiThread
+  void showResult(boolean success) {
     String msg = success ? "❤️" : "\uD83D\uDC80";
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
   }
