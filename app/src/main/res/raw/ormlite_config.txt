@@ -16,7 +16,7 @@ canBeNull=false
 indexName=events_measurement_idx
 # --field-end--
 # --field-start--
-fieldName=fields
+fieldName=value
 canBeNull=false
 # --field-end--
 # --field-start--

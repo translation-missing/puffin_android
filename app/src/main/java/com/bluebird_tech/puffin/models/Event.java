@@ -22,12 +22,12 @@ public class Event {
   public static final String FIELD_MEASUREMENT = "measurement";
   public static final String FIELD_MEASURED_AT = "measured_at";
 
-  public static Event fromTension(Context ctx, String tension) {
+  public static Event fromTension(Context ctx, Float tension) {
     Date now = new Date();
     Event event = new Event();
 
     event.setMeasurement("tension");
-    event.setFields(tension);
+    event.setValue(tension);
     event.setCreatedAt(now);
     event.setUpdatedAt(now);
     event.setMeasuredAt(now);
@@ -60,7 +60,7 @@ public class Event {
   private String measurement;
 
   @DatabaseField(canBeNull = false)
-  private String fields;
+  private Float value;
 
   @DatabaseField
   private String tags;
@@ -107,12 +107,10 @@ public class Event {
     this.measurement = measurement;
   }
 
-  public String getFields() {
-    return fields;
-  }
+  public Float getValue() { return value; }
 
-  public void setFields(String fields) {
-    this.fields = fields;
+  public void setValue(Float value) {
+    this.value = value;
   }
 
   public String getTags() {
