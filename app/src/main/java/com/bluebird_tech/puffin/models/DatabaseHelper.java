@@ -18,7 +18,7 @@ import java.sql.SQLException;
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
   /* c&p start */
   private static final String DATABASE_NAME = "puffin.db";
-  private static final int DATABASE_VERSION = 2;
+  private static final int DATABASE_VERSION = 3;
 
   private Dao<Event, Integer> eventDao;
 
@@ -35,7 +35,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     try {
       TableUtils.createTable(connectionSource, Event.class);
     } catch (SQLException e) {
-      Log.e(DatabaseHelper.class.getName(), "Unable to create datbases", e);
+      Log.e(DatabaseHelper.class.getName(), "Unable to create databases", e);
     }
   }
 
