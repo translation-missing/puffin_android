@@ -36,8 +36,8 @@ public class BootReceiver extends BroadcastReceiver {
       return;
     }
 
-//    int every_two_hours = 2 * 60 * 60 * 1000; // millis
-    int every_two_hours = 30 * 1000; // millis
+    int every_two_hours = 2 * 60 * 60 * 1000; // millis
+//    int every_two_hours = 30 * 1000; // millis
 
     alarmIntent = PendingIntent.getBroadcast(context, 0, my_intent, 0);
 
