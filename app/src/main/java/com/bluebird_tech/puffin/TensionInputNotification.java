@@ -47,29 +47,16 @@ public class TensionInputNotification {
 
     // This image is used as the notification's large icon (thumbnail).
     // TODO: Remove this if your notification has no relevant thumbnail.
-    final Bitmap picture = BitmapFactory.decodeResource(res, R.drawable.example_picture);
+    final Bitmap picture = BitmapFactory.decodeResource(res, R.mipmap.ic_launcher);
 
-
-//    final String ticker = exampleString;
-//    final String title = res.getString(
-//      R.string.tension_input_notification_title_template, exampleString);
-//    final String text = res.getString(
-//      R.string.tension_input_notification_placeholder_text_template, exampleString);
     final String title =
       res.getString(R.string.tension_input_notification_title_template);
     final String text =
       res.getString(R.string.tension_input_notification_placeholder_text_template);
 
     final NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
-
-      // Set appropriate defaults for the notification light, sound,
-      // and vibration.
       .setDefaults(Notification.DEFAULT_ALL)
-
-        // Set required fields, including the small icon, the
-        // notification title, and text.
-//      .setSmallIcon(R.drawable.ic_stat_tension_input) // TODO: fixme :-)
-      .setSmallIcon(R.drawable.tension_input_notification_logo)
+      .setSmallIcon(R.drawable.ic_notification_small_icon)
       .setContentTitle(title)
       .setContentText(text)
 
