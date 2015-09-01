@@ -74,7 +74,9 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
   @UiThread
   void loadTensionListActivity() {
-    TensionListActivity_.intent(this).start();
+    TensionListActivity_.intent(this)
+      .flags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+      .start();
     finish();
   }
 
