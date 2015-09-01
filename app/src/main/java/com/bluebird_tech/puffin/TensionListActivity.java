@@ -36,11 +36,6 @@ public class TensionListActivity extends AppCompatActivity {
   @ItemClick
   void tensionListItemClicked(Event event) {
     Log.d(TAG, new SimpleDateFormat().format(event.getMeasuredAt()));
-    Snackbar.make(
-      tensionList,
-      event.getMeasurement() + ", value = " + event.getFields(),
-      Snackbar.LENGTH_LONG
-    ).show();
   }
 
   @Click
