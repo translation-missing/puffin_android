@@ -55,7 +55,7 @@ public class TensionListActivity extends AppCompatActivity {
   @UiThread
   void showTensionEventCreated(boolean value) {
     String msg = value ? "❤️" : "\uD83D\uDC80";
-    Log.d(TAG, "POSTing result msg: " + mslg);
+    Log.d(TAG, "POSTing result msg: " + msg);
 //    Snackbar.make(tensionList, msg, Snackbar.LENGTH_SHORT).show();
   }
 
