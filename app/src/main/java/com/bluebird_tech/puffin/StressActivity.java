@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.bluebird_tech.puffin.models.DatabaseHelper;
 import com.bluebird_tech.puffin.models.Event;
 import com.bluebird_tech.puffin.net.EventClient;
+import com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar;
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.Dao;
 
@@ -30,6 +31,7 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
   EventClient eventClient;
 
   @ViewById(R.id.stress_seek_level)
+//  VerticalSeekBar bar;
   SeekBar bar;
 
   @ViewById(R.id.stress_text_level)
