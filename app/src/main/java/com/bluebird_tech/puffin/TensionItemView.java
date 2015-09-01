@@ -19,7 +19,7 @@ public class TensionItemView extends LinearLayout {
   TextView measuredAt;
 
   @ViewById
-  TextView fields;
+  TextView value;
 
   @ViewById
   TextView separator;
@@ -31,7 +31,7 @@ public class TensionItemView extends LinearLayout {
   public void bind(Event event, Date previousDate) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
     measuredAt.setText(dateFormat.format(event.getMeasuredAt()));
-    fields.setText(Integer.toString(Math.round(event.getValue())));
+    value.setText(Integer.toString(Math.round(event.getValue())));
 
     if(isNewDay(event.getMeasuredAt(), previousDate)) {
       showSeparator(event.getMeasuredAt());
