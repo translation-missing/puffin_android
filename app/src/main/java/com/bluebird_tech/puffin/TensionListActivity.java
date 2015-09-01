@@ -2,6 +2,7 @@ package com.bluebird_tech.puffin;
 
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.bluebird_tech.puffin.models.Event;
@@ -14,6 +15,8 @@ import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.Receiver;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
+
+import java.text.SimpleDateFormat;
 
 @EActivity(R.layout.activity_tension_list)
 public class TensionListActivity extends AppCompatActivity {
@@ -32,6 +35,7 @@ public class TensionListActivity extends AppCompatActivity {
 
   @ItemClick
   void tensionListItemClicked(Event event) {
+    Log.d(TAG, new SimpleDateFormat().format(event.getMeasuredAt()));
     Snackbar.make(
       tensionList,
       event.getMeasurement() + ", value = " + event.getFields(),

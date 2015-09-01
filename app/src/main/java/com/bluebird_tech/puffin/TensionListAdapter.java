@@ -18,6 +18,7 @@ import org.androidannotations.annotations.OrmLiteDao;
 import org.androidannotations.annotations.RootContext;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @EBean
@@ -37,9 +38,7 @@ public class TensionListAdapter extends BaseAdapter {
       QueryBuilder<Event, Integer> queryBuilder = eventDao.queryBuilder();
       queryBuilder.where().eq(Event.FIELD_MEASUREMENT, "tension");
       queryBuilder.orderBy(Event.FIELD_MEASURED_AT, false);
-//      queryBuilder.selectColumns(Event.FIELD_MEASUREMENT, Event.FIELD_MEASURED_AT);
       events = queryBuilder.query();
-//      events = eventDao.queryForAll();
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -54,7 +53,11 @@ public class TensionListAdapter extends BaseAdapter {
       tensionItemView = (TensionItemView) convertView;
     }
 
-    tensionItemView.bind(getItem(position));
+    Date previousDate = null;
+    if (position > 0)
+      previousDate = getItem(position - 1).getMeasuredAt();
+
+    tensionItemView.bind(getItem(position), previousDate);
 
     return tensionItemView;
   }
