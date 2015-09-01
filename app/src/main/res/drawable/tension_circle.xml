@@ -3,23 +3,11 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
        android:shape="oval">
 
-    <!-- TODO: material -->
     <solid android:color="#c5c5c5"/>
 
-    <!--<stroke-->
-    <!--android:width="2dp"-->
-    <!--android:color="#C5C5C5" />-->
-
     <corners
-        android:bottomLeftRadius="30dp"
-        android:bottomRightRadius="30dp"
-        android:topLeftRadius="30dp"
-        android:topRightRadius="30dp" />
+        android:bottomLeftRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:topLeftRadius="20dp"
+        android:topRightRadius="20dp" />
 </shape>
-
-<!--<shape xmlns:android="http://schemas.android.com/apk/res/android"-->
-       <!--android:shape="oval">-->
-<!--<corners android:radius="10dip"/>-->
-<!--<stroke android:color="@color/red" android:width="2dip"/>-->
-<!--<solid android:color="@android:color/transparent"/>-->
-<!--</shape>-->
