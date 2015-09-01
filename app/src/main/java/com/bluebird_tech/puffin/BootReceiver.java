@@ -19,18 +19,27 @@ public class BootReceiver extends BroadcastReceiver {
   @Override
   public void onReceive(Context context, Intent intent) {
     if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
-      Log.d(TAG, "Setup alarms...");
       setupAlarms(context);
     }
   }
 
   public void setupAlarms(Context context) {
+    Log.d(TAG, "Setup alarms...");
+
     Intent my_intent = new Intent(context, RepeatingAlarmReceiver_.class);
     my_intent.setAction(RepeatingAlarmReceiver_.ACTIONS_SCHEDULE_ALARM);
-    alarmIntent = PendingIntent.getBroadcast(context, 0, my_intent, 0);
+    alarmIntent = PendingIntent.getBroadcast(context, 0, my_intent, PendingIntent.FLAG_NO_CREATE);
 
-    int every_two_hours = 2 * 60 * 60 * 1000; // millis
-//    int every_two_hours = 10 * 1000; // millis
+    if (alarmIntent != null) {
+      // do nothing
+      Log.d(TAG, "Alarm exists. Nothing to do :-)");
+      return;
+    }
+
+//    int every_two_hours = 2 * 60 * 60 * 1000; // millis
+    int every_two_hours = 30 * 1000; // millis
+
+    alarmIntent = PendingIntent.getBroadcast(context, 0, my_intent, 0);
 
     alarmManager =
       (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
