@@ -35,12 +35,6 @@
         android:gravity="center"
         android:layout_weight="1">
 
-        <!--<com.bluebird_tech.puffin.widget.VerticalSeekBar-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="fill_parent"-->
-            <!--android:id="@+id/stress_seek_level"-->
-            <!--android:max="100" />-->
-
         <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper
             android:layout_width="wrap_content"
             android:layout_height="fill_parent">
