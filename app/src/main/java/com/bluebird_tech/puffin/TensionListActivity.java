@@ -55,7 +55,8 @@ public class TensionListActivity extends AppCompatActivity {
   @UiThread
   void showTensionEventCreated(boolean value) {
     String msg = value ? "❤️" : "\uD83D\uDC80";
-    Snackbar.make(tensionList, msg, Snackbar.LENGTH_SHORT).show();
+    Log.d(TAG, "POSTing result msg: " + mslg);
+//    Snackbar.make(tensionList, msg, Snackbar.LENGTH_SHORT).show();
   }
 
   @Receiver(actions="com.bluebird_tech.puffin.TENSION_EVENT_CREATED")
