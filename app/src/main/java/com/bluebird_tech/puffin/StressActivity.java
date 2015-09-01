@@ -47,14 +47,14 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
   @Click(R.id.stress_button_save)
   void clickSaveTension() {
-    String tension = Integer.toString(bar.getProgress());
+    Float tension = (float) bar.getProgress();
     save_button.setEnabled(false);
 //    finish();
     saveTensionInBackground(tension);
   }
 
   @Background
-  void saveTensionInBackground(String tension) {
+  void saveTensionInBackground(Float tension) {
     Event event = Event.fromTension(this, tension);
     saveEventInDatabase(event);
     boolean success = uploadEvent(event);
@@ -64,6 +64,7 @@ public class StressActivity extends OrmLiteBaseActivity<DatabaseHelper> {
   protected void onStart() {
     BootReceiver receiver = new BootReceiver();
     receiver.setupAlarms(this);
+    super.onStart();
   }
 
   @UiThread
