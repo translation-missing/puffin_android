@@ -27,13 +27,29 @@ public class RepeatingAlarmReceiver extends AbstractBroadcastReceiver {
    */
   @ReceiverAction
   void scheduleAlarm(Context context) {
+    if (alarmExists(context)) {
+      Log.d(TAG, "Alarm exists, doing nothing");
+      return;
+    }
+
+    PendingIntent pendingIntent =
+      PendingIntent.getBroadcast(context, 0, notificationIntent(context), 0);
+
+    alarmManager.cancel(pendingIntent);
     if(withinAlarmRange()) {
       alarmManager.set(
         AlarmManager.ELAPSED_REALTIME_WAKEUP,
         millis_from_now(),
-        PendingIntent.getBroadcast(context, 0, notificationIntent(context), 0)
+        pendingIntent
       );
     }
+  }
+
+  private boolean alarmExists(Context context) {
+    PendingIntent pending =
+      PendingIntent.getBroadcast(context, 0, notificationIntent(context),
+        PendingIntent.FLAG_NO_CREATE);
+    return pending != null;
   }
 
   private Boolean withinAlarmRange() {
@@ -64,8 +80,8 @@ public class RepeatingAlarmReceiver extends AbstractBroadcastReceiver {
   }
 
   private int millis_from_now() {
-    // int minutes_from_now = 1 + new SecureRandom().nextInt(60);
-    int minutes_from_now = 1 + new SecureRandom().nextInt(1);
+    int minutes_from_now = 1 + new SecureRandom().nextInt(60);
+    // int minutes_from_now = 1 + new SecureRandom().nextInt(1);
 
     int millis_from_now = minutes_from_now * 60 * 1000;
     Log.d(TAG, "millis: " + millis_from_now);

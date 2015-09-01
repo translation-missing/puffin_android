@@ -28,6 +28,15 @@ public class TensionListActivity extends AppCompatActivity {
   @Bean
   TensionListAdapter adapter;
 
+  @Override
+  protected void onStart() {
+    super.onStart();
+
+    // Setup the alarms
+    BootReceiver receiver = new BootReceiver();
+    receiver.setupAlarms(this);
+  }
+
   @AfterViews
   void bindAdapter() {
     tensionList.setAdapter(adapter);

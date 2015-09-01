@@ -29,8 +29,8 @@ public class BootReceiver extends BroadcastReceiver {
     my_intent.setAction(RepeatingAlarmReceiver_.ACTIONS_SCHEDULE_ALARM);
     alarmIntent = PendingIntent.getBroadcast(context, 0, my_intent, 0);
 
-//    int every_two_hours = 2 * 60 * 60 * 1000; // millis
-    int every_two_hours = 10 * 1000; // millis
+    int every_two_hours = 2 * 60 * 60 * 1000; // millis
+//    int every_two_hours = 10 * 1000; // millis
 
     alarmManager =
       (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
