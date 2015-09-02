@@ -6,9 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-/**
- * Created by opahk on 02/09/15.
- */
 public class RepeatingAlarmScheduler {
 
   private static final String TAG = RepeatingAlarmScheduler.class.getSimpleName();
@@ -21,7 +18,7 @@ public class RepeatingAlarmScheduler {
     Intent my_intent = new Intent(context, RepeatingAlarmReceiver_.class);
     my_intent.setAction(RepeatingAlarmReceiver_.ACTIONS_SCHEDULE_ALARM);
 
-    alarmIntent = PendingIntent.getBroadcast(context, 0, my_intent, PendingIntent.FLAG_NO_CREATE);
+    alarmIntent = PendingIntent.getBroadcast(context.getApplicationContext(), 0, my_intent, PendingIntent.FLAG_NO_CREATE);
     if (alarmIntent != null) {
       Log.d(TAG, "Alarm exists. Nothing to do :-)");
       return;
@@ -31,7 +28,7 @@ public class RepeatingAlarmScheduler {
       BuildConfig.TENSION_INPUT_REPEATING_MINUTES * 60 * 1000;
     Log.d(TAG, "tension_input_repeating_millis = " + tension_input_wait_millis);
 
-    alarmIntent = PendingIntent.getBroadcast(context, 0, my_intent, 0);
+    alarmIntent = PendingIntent.getBroadcast(context.getApplicationContext(), 0, my_intent, 0);
 
     alarmManager =
       (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);

@@ -38,7 +38,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField BOOLEAN, LOG_HTTP_REQUESTS, FALSE
-            buildConfigField INTEGER, TENSION_INPUT_REPEATING_MINUTES, "120"
+            buildConfigField INTEGER, TENSION_INPUT_REPEATING_MINUTES, "90"
             buildConfigField INTEGER, TENSION_INPUT_RANDOM_MINUTES, "60"
         }
     }
