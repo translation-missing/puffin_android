@@ -29,20 +29,12 @@ public class EventUploaderService extends IntentService {
   @RestService
   EventClient eventClient;
 
-//  @Bean
-//  ErrorHandler errorHandler;
-
   @OrmLiteDao(helper = DatabaseHelper.class, model = Event.class)
   Dao<Event, Integer> eventDao;
 
   public EventUploaderService() {
     super(EventUploaderService.class.getSimpleName());
   }
-
-//  @AfterInject
-//  void afterInject() {
-//    eventClient.setRestErrorHandler(errorHandler);
-//  }
 
   @Override
   protected void onHandleIntent(Intent intent) {
