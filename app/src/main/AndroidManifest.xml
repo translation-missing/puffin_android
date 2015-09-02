@@ -43,9 +43,15 @@
             android:label="@string/title_activity_tension_list">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".EventUploaderService_"
+            android:exported="false" >
+        </service>
     </application>
 
 </manifest>

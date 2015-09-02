@@ -59,14 +59,7 @@ public class StressActivity extends AppCompatActivity {
     Event event = Event.fromTension(this, tension);
     saveEventInDatabase(event);
     loadTensionListActivity();
-    sendTensionEventCreatedIntent(uploadEvent(event));
-  }
-
-  private void sendTensionEventCreatedIntent(boolean success) {
-    sendBroadcast(new Intent("com.bluebird_tech.puffin.TENSION_EVENT_CREATED")
-        .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-        .putExtra("tensionEventCreated", success)
-    );
+    EventUploaderService_.intent(getApplication()).start();
   }
 
   @UiThread
@@ -82,16 +75,6 @@ public class StressActivity extends AppCompatActivity {
       eventDao.create(event);
     } catch (SQLException e) {
       throw new RuntimeException(e);
-    }
-  }
-
-  private boolean uploadEvent(Event event) {
-    try {
-      eventClient.createEvent(event);
-      return true;
-    } catch (RestClientException e) {
-      e.printStackTrace();
-      return false;
     }
   }
 }
