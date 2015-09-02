@@ -9,9 +9,6 @@ import android.util.Log;
 import java.security.SecureRandom;
 import java.util.Calendar;
 
-/**
- * Created by opahk on 01/09/15.
- */
 public class RandomAlarmScheduler {
 
   private static final String TAG =
@@ -23,7 +20,9 @@ public class RandomAlarmScheduler {
    * Schedule an alarm sometime between now and in 60 minutes.
    */
   void scheduleAlarm(Context context) {
-    if(withinAlarmRange()) {
+    alarmManager =
+      (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+    if (withinAlarmRange()) {
       alarmManager.set(
         AlarmManager.ELAPSED_REALTIME_WAKEUP,
         millis_from_now(),
