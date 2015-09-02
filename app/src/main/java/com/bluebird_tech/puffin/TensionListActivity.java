@@ -33,8 +33,8 @@ public class TensionListActivity extends AppCompatActivity {
     super.onStart();
 
     // Setup the alarms
-    BootReceiver receiver = new BootReceiver();
-    receiver.setupAlarms(this);
+    RepeatingAlarmScheduler scheduler = new RepeatingAlarmScheduler();
+    scheduler.setupAlarms(this);
   }
 
   @AfterViews
