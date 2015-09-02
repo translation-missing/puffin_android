@@ -6,8 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import java.security.SecureRandom;
 import java.util.Calendar;
+import java.util.Random;
 
 public class RandomAlarmScheduler {
 
@@ -55,7 +55,7 @@ public class RandomAlarmScheduler {
 
   private int millis_from_now() {
     int minutes_from_now =
-      1 + new SecureRandom().nextInt(BuildConfig.TENSION_INPUT_RANDOM_MINUTES);
+      1 + new Random().nextInt(BuildConfig.TENSION_INPUT_RANDOM_MINUTES);
     int millis_from_now = minutes_from_now * 60 * 1000;
     Log.d(TAG, "min = " + minutes_from_now + ", millis: " + millis_from_now);
     return millis_from_now;
