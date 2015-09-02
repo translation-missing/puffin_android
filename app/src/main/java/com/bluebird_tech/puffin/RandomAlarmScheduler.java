@@ -54,7 +54,8 @@ public class RandomAlarmScheduler {
   }
 
   private int millis_from_now() {
-    int minutes_from_now = 1 + new SecureRandom().nextInt(60);
+    int minutes_from_now =
+      1 + new SecureRandom().nextInt(BuildConfig.TENSION_INPUT_RANDOM_MINUTES);
     int millis_from_now = minutes_from_now * 60 * 1000;
     Log.d(TAG, "min = " + minutes_from_now + ", millis: " + millis_from_now);
     return millis_from_now;

@@ -25,18 +25,21 @@ android {
         def TRUE = "true"
         def FALSE = "false"
         def LOG_HTTP_REQUESTS = "LOG_HTTP_REQUESTS"
-        def TENSION_INPUT_WAIT_MINUTES = "TENSION_INPUT_WAIT_MINUTES"
+        def TENSION_INPUT_REPEATING_MINUTES = "TENSION_INPUT_REPEATING_MINUTES"
+        def TENSION_INPUT_RANDOM_MINUTES = "TENSION_INPUT_RANDOM_MINUTES"
 
         debug {
             buildConfigField BOOLEAN, LOG_HTTP_REQUESTS, TRUE
-            buildConfigField INTEGER, TENSION_INPUT_WAIT_MINUTES, "1"
+            buildConfigField INTEGER, TENSION_INPUT_REPEATING_MINUTES, "2"
+            buildConfigField INTEGER, TENSION_INPUT_RANDOM_MINUTES, "2"
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField BOOLEAN, LOG_HTTP_REQUESTS, FALSE
-            buildConfigField INTEGER, TENSION_INPUT_WAIT_MINUTES, "120"
+            buildConfigField INTEGER, TENSION_INPUT_REPEATING_MINUTES, "120"
+            buildConfigField INTEGER, TENSION_INPUT_RANDOM_MINUTES, "60"
         }
     }
     packagingOptions {

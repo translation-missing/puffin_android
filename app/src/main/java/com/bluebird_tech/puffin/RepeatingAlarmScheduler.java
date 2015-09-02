@@ -27,9 +27,9 @@ public class RepeatingAlarmScheduler {
       return;
     }
 
-    int tension_input_wait_minutes = BuildConfig.TENSION_INPUT_WAIT_MINUTES;
-    int tension_input_wait_millis = tension_input_wait_minutes * 60 * 1000;
-    Log.d(TAG, "tension_input_wait_millis = " + tension_input_wait_millis);
+    int tension_input_wait_millis =
+      BuildConfig.TENSION_INPUT_REPEATING_MINUTES * 60 * 1000;
+    Log.d(TAG, "tension_input_repeating_millis = " + tension_input_wait_millis);
 
     alarmIntent = PendingIntent.getBroadcast(context, 0, my_intent, 0);
 
