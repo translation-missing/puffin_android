@@ -1,5 +1,7 @@
 package com.bluebird_tech.puffin.models;
 
+import java.util.Date;
+
 import android.content.Context;
 import android.provider.Settings;
 
@@ -9,15 +11,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-import java.util.Date;
-
-/**
- * @todo globally change date format
- */
 @DatabaseTable(tableName = "events")
-@JsonIgnoreProperties({"id"})
+@JsonIgnoreProperties({"id", Event.FIELD_UPLOADED_AT})
 public class Event {
   private Context ctx;
+
+  public static final String FIELD_MEASUREMENT = "measurement";
+  public static final String FIELD_MEASURED_AT = "measured_at";
+  public static final String FIELD_UPLOADED_AT = "uploaded_at";
 
   public static Event fromTension(Context ctx, Float tension) {
     Date now = new Date();
@@ -49,7 +50,11 @@ public class Event {
   @DatabaseField(generatedId = true)
   private Long id;
 
-  @DatabaseField(canBeNull = false)
+  @DatabaseField(
+    canBeNull = false,
+    index = true,
+    columnName = FIELD_MEASUREMENT
+  )
   private String measurement;
 
   @DatabaseField(canBeNull = false)
@@ -59,20 +64,19 @@ public class Event {
   private String tags;
 
   @DatabaseField(canBeNull = false)
-  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
   private Date createdAt;
 
   @DatabaseField(canBeNull = false)
-  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
   private Date updatedAt;
 
-//    @DatabaseField
-//    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-//    private Date deletedAt;
-
-  @DatabaseField
-  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+  @DatabaseField(index = true, columnName = Event.FIELD_MEASURED_AT)
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
   private Date measuredAt;
+
+  @DatabaseField(canBeNull = true, index = true, columnName = FIELD_UPLOADED_AT)
+  private Date uploadedAt;
 
   /* required */
   public Event() {
@@ -100,7 +104,9 @@ public class Event {
     this.measurement = measurement;
   }
 
-  public Float getValue() { return value; }
+  public Float getValue() {
+    return value;
+  }
 
   public void setValue(Float value) {
     this.value = value;
@@ -138,11 +144,11 @@ public class Event {
     this.measuredAt = measuredAt;
   }
 
-//    public Date getDeletedAt() {
-//        return deletedAt;
-//    }
-//
-//    public void setDeletedAt(Date deletedAt) {
-//        this.deletedAt = deletedAt;
-//    }
+  public Date getUploadedAt() {
+    return uploadedAt;
+  }
+
+  public void setUploadedAt(Date uploadedAt) {
+    this.uploadedAt = uploadedAt;
+  }
 }

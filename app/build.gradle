@@ -12,7 +12,6 @@ apt {
 android {
     compileSdkVersion 23
     buildToolsVersion '23.0.0'
-
     defaultConfig {
         applicationId "com.bluebird_tech.puffin"
         minSdkVersion 15
@@ -20,14 +19,29 @@ android {
         versionCode 1
         versionName "1.0"
     }
-
     buildTypes {
+        def BOOLEAN = "boolean"
+        def INTEGER = "int"
+        def TRUE = "true"
+        def FALSE = "false"
+        def LOG_HTTP_REQUESTS = "LOG_HTTP_REQUESTS"
+        def TENSION_INPUT_REPEATING_MINUTES = "TENSION_INPUT_REPEATING_MINUTES"
+        def TENSION_INPUT_RANDOM_MINUTES = "TENSION_INPUT_RANDOM_MINUTES"
+
+        debug {
+            buildConfigField BOOLEAN, LOG_HTTP_REQUESTS, TRUE
+            buildConfigField INTEGER, TENSION_INPUT_REPEATING_MINUTES, "2"
+            buildConfigField INTEGER, TENSION_INPUT_RANDOM_MINUTES, "2"
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField BOOLEAN, LOG_HTTP_REQUESTS, FALSE
+            buildConfigField INTEGER, TENSION_INPUT_REPEATING_MINUTES, "90"
+            buildConfigField INTEGER, TENSION_INPUT_RANDOM_MINUTES, "60"
         }
     }
-
     packagingOptions {
         exclude 'META-INF/notice.txt'
         exclude 'META-INF/license.txt'
@@ -44,10 +58,9 @@ repositories {
 
 def AAVersion = '3.3.2'
 dependencies {
-    apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
-    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.0.0'
+    compile 'com.android.support:design:23.0.0'
     compile 'com.fasterxml.jackson.core:jackson-core:2.6.1'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.6.1'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.1'
@@ -55,4 +68,7 @@ dependencies {
     compile 'com.j256.ormlite:ormlite-core:4.48'
     compile 'com.j256.ormlite:ormlite-android:4.48'
     compile 'com.android.support:support-v4:23.0.0'
+    compile 'com.h6ah4i.android.widget.verticalseekbar:verticalseekbar:0.5.2'
+    apt "org.androidannotations:androidannotations:$AAVersion"
+    compile fileTree(include: ['*.jar'], dir: 'libs')
 }

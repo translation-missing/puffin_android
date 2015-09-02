@@ -10,4 +10,5 @@
     <string name="tension_input_notification_placeholder_text_template">
        Anspannung messen
     </string>
+    <string name="title_activity_tension_list">Puffin</string>
 </resources>
