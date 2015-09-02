@@ -25,8 +25,15 @@
                 </action>
             </intent-filter>
         </receiver>
+
         <receiver
             android:name=".RepeatingAlarmReceiver_"
+            android:enabled="true"
+            android:exported="true" >
+        </receiver>
+
+        <receiver
+            android:name=".RandomAlarmReceiver_"
             android:enabled="true"
             android:exported="true" >
         </receiver>
