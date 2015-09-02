@@ -1,7 +1,6 @@
 package com.bluebird_tech.puffin;
 
 import android.app.IntentService;
-import android.app.NotificationManager;
 import android.content.Intent;
 
 import com.bluebird_tech.puffin.models.DatabaseHelper;
@@ -12,7 +11,6 @@ import com.j256.ormlite.stmt.QueryBuilder;
 
 import org.androidannotations.annotations.EService;
 import org.androidannotations.annotations.OrmLiteDao;
-import org.androidannotations.annotations.SystemService;
 import org.androidannotations.annotations.rest.RestService;
 import org.springframework.web.client.RestClientException;
 
@@ -22,9 +20,6 @@ import java.util.List;
 
 @EService
 public class EventUploaderService extends IntentService {
-
-  @SystemService
-  NotificationManager notificationManager;
 
   @RestService
   EventClient eventClient;
