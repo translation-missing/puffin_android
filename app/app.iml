@@ -98,8 +98,8 @@
     <orderEntry type="library" exported="" name="jackson-databind-2.6.1" level="project" />
     <orderEntry type="library" exported="" name="androidannotations-api-3.3.2" level="project" />
     <orderEntry type="library" exported="" name="ormlite-android-4.48" level="project" />
-    <orderEntry type="library" exported="" name="ormlite-core-4.48" level="project" />
     <orderEntry type="library" exported="" name="spring-android-rest-template-2.0.0.M1" level="project" />
+    <orderEntry type="library" exported="" name="ormlite-core-4.48" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-23.0.0" level="project" />
     <orderEntry type="library" exported="" name="jackson-annotations-2.6.1" level="project" />
     <orderEntry type="library" exported="" name="verticalseekbar-0.5.2" level="project" />
