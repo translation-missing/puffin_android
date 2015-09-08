@@ -46,6 +46,13 @@
         </com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper>
     </LinearLayout>
 
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/note"/>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
