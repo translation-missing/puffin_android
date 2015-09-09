@@ -5,6 +5,5 @@ public class EventTest extends TestCase {
   public void testGetDeviceId() throws Exception {
     Event event = new Event();
     assertEquals("unknown", event.getDeviceId());
-    assertEquals("hallo", "welt");
   }
 }
