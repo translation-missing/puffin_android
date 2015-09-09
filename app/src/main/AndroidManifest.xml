@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".StressActivity_"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:parentActivityName="com.bluebird_tech.puffin.TensionListActivity_" >
         </activity>
 
         <receiver
