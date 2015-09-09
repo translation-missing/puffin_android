@@ -93,8 +93,7 @@ public class TensionInputNotification {
           context,
           0,
           new Intent(context, StressActivity_.class),
-//          new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com")),
-          PendingIntent.FLAG_UPDATE_CURRENT))
+          PendingIntent.FLAG_CANCEL_CURRENT))
 
         // Show expanded text content on devices running Android 4.1 or
         // later.
