@@ -9,6 +9,6 @@ test:
         background: true
         parallel: true
     - circle-android wait-for-boot
-    - ./gradlew gradlew connectedCheck --continue
+    - TERM=dumb ./gradlew connectedCheck --continue
     - cp -r puffin_android/app/build/outputs $CIRCLE_ARTIFACTS
     - cp -r puffin_android/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
