@@ -1,0 +1,9 @@
+test:
+  override:
+    - emulator -avd circleci-android22 -no-audio -no-window:
+        background: true
+        parallel: true
+    - circle-android wait-for-boot
+    - ./gradlew gradlew connectedCheck --continue
+    - cp -r puffin_android/app/build/outputs $CIRCLE_ARTIFACTS
+    - cp -r puffin_android/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
