@@ -1,6 +1,7 @@
 dependencies:
-  pre:
+  override:
     - echo y | android update sdk --no-ui --all --filter "android-23"
+    - ./gradlew dependencies -d
 test:
   override:
     - emulator -avd circleci-android22 -no-audio -no-window:
