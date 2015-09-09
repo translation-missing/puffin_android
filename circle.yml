@@ -2,10 +2,11 @@ dependencies:
   pre:
     - echo y | android update sdk --no-ui --all --filter "android-23"
     - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.0"
+    - android create avd -n my-android23 -t 23
     # - TERM=dumb ./gradlew dependencies -d
 test:
   override:
-    - emulator -avd circleci-android22 -no-audio -no-window:
+    - emulator -avd my-android23 -no-audio -no-window:
         background: true
         parallel: true
     - circle-android wait-for-boot
