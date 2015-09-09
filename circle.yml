@@ -16,7 +16,7 @@ test:
         background: true
         parallel: true
     - circle-android wait-for-boot
-    - TERM=dumb ./gradlew connectedCheck --continue --stacktrace --info:
+    - TERM=dumb ./gradlew connectedAndroidTest --continue --stacktrace --info:
         timeout: 1200
     - cp -r app/build/reports $CIRCLE_ARTIFACTS
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
