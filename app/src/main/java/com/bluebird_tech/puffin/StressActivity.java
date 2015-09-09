@@ -1,6 +1,7 @@
 package com.bluebird_tech.puffin;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -41,6 +42,15 @@ public class StressActivity extends AppCompatActivity {
 
   @ViewById(R.id.stress_button_save)
   Button save_button;
+
+  private ActionBar actionBar;
+
+  @Override
+  protected void onStart() {
+    super.onStart();
+    actionBar = getSupportActionBar();
+    actionBar.setDisplayHomeAsUpEnabled(true);
+  }
 
   @SeekBarProgressChange(R.id.stress_seek_level)
   void onProgressChangedOnSeekBar(SeekBar seekBar, int progress, boolean b) {
