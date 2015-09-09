@@ -1,17 +1,22 @@
+# machine:
+  # environment:
+    # GRADLE_OPTS: -Xmx512m
+  # java:
+    # version: oraclejdk7
 dependencies:
   pre:
     - echo y | android update sdk --no-ui --all --filter "android-23"
     - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.0"
-    - android create avd -n my-android23 -t 23
     # - TERM=dumb ./gradlew dependencies -d
 test:
+  pre:
+    - mksdcard 256M ~/circleci-android22-sdcard
   override:
-    - emulator -avd my-android23 -no-audio -no-window:
+    - emulator -avd circleci-android22 -no-audio -no-window -dns-server 8.8.4.4 -sdcard ~/circleci-android22-sdcard:
         background: true
         parallel: true
     - circle-android wait-for-boot
-    - TERM=dumb ./gradlew connectedCheck --continue --stacktrace
-    - ls -lah
+    - TERM=dumb ./gradlew connectedCheck --continue --stacktrace --info:
+        timeout: 1200
     - cp -r app/build/reports $CIRCLE_ARTIFACTS
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
-    - cp -r app/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
