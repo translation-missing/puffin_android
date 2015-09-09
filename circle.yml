@@ -1,14 +1,16 @@
 dependencies:
-  override:
+  pre:
     - echo y | android update sdk --no-ui --all --filter "android-23"
     - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.0"
-    - TERM=dumb ./gradlew dependencies -d
+    # - TERM=dumb ./gradlew dependencies -d
 test:
   override:
     - emulator -avd circleci-android22 -no-audio -no-window:
         background: true
         parallel: true
     - circle-android wait-for-boot
-    - TERM=dumb ./gradlew connectedCheck --continue
-    - cp -r puffin_android/app/build/outputs $CIRCLE_ARTIFACTS
-    - cp -r puffin_android/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
+    - TERM=dumb ./gradlew connectedCheck --continue --stacktrace
+    - ls -lah
+    - cp -r app/build/reports $CIRCLE_ARTIFACTS
+    - cp -r app/build/outputs $CIRCLE_ARTIFACTS
+    - cp -r app/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
