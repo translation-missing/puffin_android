@@ -1,5 +1,6 @@
 machine:
-  # environment:
+  environment:
+    ADB_INSTALL_TIMEOUT: 8 # minutes (2 minutes by default)
     # GRADLE_OPTS: -Xmx512m
   java:
     version: oraclejdk7
