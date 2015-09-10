@@ -15,6 +15,7 @@ test:
     - emulator -avd circleci-android22 -no-audio -no-window -dns-server 8.8.4.4 -sdcard ~/circleci-android22-sdcard:
         background: true
         parallel: true
+    - cat `which circle-android`
     - circle-android wait-for-boot
     - TERM=dumb ./gradlew connectedAndroidTest --continue --info -PdisablePreDex:
         timeout: 1200
