@@ -7,12 +7,15 @@ import android.content.Intent;
 import android.util.Log;
 
 import org.androidannotations.annotations.EBean;
+import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import java.util.Calendar;
 import java.util.Random;
 
 @EBean
 public class RandomAlarmScheduler {
+  @Pref
+  Preferences_ preferences;
 
   private static final String TAG =
     RandomAlarmScheduler.class.getSimpleName();
@@ -43,16 +46,21 @@ public class RandomAlarmScheduler {
   private Calendar startCalendar() {
     Calendar calendar = Calendar.getInstance();
     calendar.setTimeInMillis(System.currentTimeMillis());
-    calendar.set(Calendar.HOUR_OF_DAY, 7);
-    calendar.set(Calendar.MINUTE, 0);
+    calendar.set(Calendar.HOUR_OF_DAY,
+      preferences.tensionInputStartHour().get());
+    calendar.set(Calendar.MINUTE,
+      preferences.tensionInputStartMinute().get());
     return calendar;
   }
 
   private Calendar endCalendar() {
     Calendar calendar = Calendar.getInstance();
     calendar.setTimeInMillis(System.currentTimeMillis());
-    calendar.set(Calendar.HOUR_OF_DAY, 19);
-    calendar.set(Calendar.MINUTE, 0);
+    calendar.set(Calendar.HOUR_OF_DAY,
+      preferences.tensionInputEndHour().get());
+
+    calendar.set(Calendar.MINUTE,
+      preferences.tensionInputEndMinute().get());
     return calendar;
   }
 

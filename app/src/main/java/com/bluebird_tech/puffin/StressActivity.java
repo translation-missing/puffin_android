@@ -20,7 +20,6 @@ import org.androidannotations.annotations.SeekBarProgressChange;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.rest.RestService;
-import org.springframework.web.client.RestClientException;
 
 import java.sql.SQLException;
 
