@@ -6,8 +6,9 @@ machine:
     version: oraclejdk7
 dependencies:
   pre:
-    - echo $ANDROID_HOME
-    - echo y | android update sdk --no-ui --all --filter "tools,platform-tools,android-23,build-tools-23.0.0,extra-google-m2repository,extra-google-google_play_services,extra-android-support,extra-android-m2repository"
+    # - echo y | android update sdk --no-ui --all --filter "tools,platform-tools,android-23,build-tools-23.0.0,extra-google-m2repository,extra-google-google_play_services,extra-android-support,extra-android-m2repository"
+    - echo y | android update sdk --no-ui --all --filter "android-23"
+    - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.0"
     # - TERM=dumb ./gradlew dependencies -d
 test:
   pre:
@@ -16,9 +17,9 @@ test:
     - emulator -avd circleci-android22 -no-audio -no-window -dns-server 8.8.4.4 -sdcard ~/circleci-android22-sdcard:
         background: true
         parallel: true
-    - cat `which circle-android`
     - circle-android wait-for-boot
-    - TERM=dumb ./gradlew connectedAndroidTest --continue --info -PdisablePreDex:
+    # - TERM=dumb ./gradlew connectedAndroidTest --continue --info -PdisablePreDex:
+    - TERM=dumb ./gradlew connectedAndroidTest --continue:
         timeout: 1200
     - cp -r app/build/reports $CIRCLE_ARTIFACTS
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
