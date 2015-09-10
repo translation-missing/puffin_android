@@ -4,8 +4,11 @@ import org.androidannotations.annotations.sharedpreferences.DefaultInt;
 import org.androidannotations.annotations.sharedpreferences.DefaultString;
 import org.androidannotations.annotations.sharedpreferences.SharedPref;
 
-@SharedPref
-public interface Preferences {
+@SharedPref(value=SharedPref.Scope.UNIQUE)
+public interface AppPreferences {
+  @DefaultString("test")
+  String foo();
+
   @DefaultInt(7)
   int tensionInputStartHour();
 

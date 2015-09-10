@@ -16,6 +16,7 @@ import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.Receiver;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import java.text.SimpleDateFormat;
 
@@ -29,9 +30,15 @@ public class TensionListActivity extends AppCompatActivity {
   @Bean
   TensionListAdapter adapter;
 
+  @Pref
+  AppPreferences_ prefs;
+
   @Override
   protected void onStart() {
     super.onStart();
+
+    Log.d(TAG, "-======!!!!!!!!! " + prefs.foo().get());
+    Log.d(TAG, "-======!!!!!!!!! " + prefs.tensionInputStartHour().get());
 
     // Setup the alarms
     RepeatingAlarmScheduler scheduler = new RepeatingAlarmScheduler();

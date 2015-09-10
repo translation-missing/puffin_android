@@ -15,12 +15,15 @@ import java.util.Random;
 @EBean
 public class RandomAlarmScheduler {
   @Pref
-  Preferences_ preferences;
+  AppPreferences_ prefs;
 
   private static final String TAG =
     RandomAlarmScheduler.class.getSimpleName();
 
   AlarmManager alarmManager;
+
+  public RandomAlarmScheduler() {
+  }
 
   /**
    * Schedule an alarm sometime between now and in 60 minutes.
@@ -46,10 +49,11 @@ public class RandomAlarmScheduler {
   private Calendar startCalendar() {
     Calendar calendar = Calendar.getInstance();
     calendar.setTimeInMillis(System.currentTimeMillis());
+    Log.d(TAG, "starthour exists: " + prefs.tensionInputStartHour().exists());
     calendar.set(Calendar.HOUR_OF_DAY,
-      preferences.tensionInputStartHour().get());
+      prefs.tensionInputStartHour().getOr(7));
     calendar.set(Calendar.MINUTE,
-      preferences.tensionInputStartMinute().get());
+      prefs.tensionInputStartMinute().get());
     return calendar;
   }
 
@@ -57,10 +61,10 @@ public class RandomAlarmScheduler {
     Calendar calendar = Calendar.getInstance();
     calendar.setTimeInMillis(System.currentTimeMillis());
     calendar.set(Calendar.HOUR_OF_DAY,
-      preferences.tensionInputEndHour().get());
+      prefs.tensionInputStartHour().getOr(19));
 
     calendar.set(Calendar.MINUTE,
-      preferences.tensionInputEndMinute().get());
+      prefs.tensionInputEndMinute().getOr(0));
     return calendar;
   }
 
