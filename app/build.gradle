@@ -22,16 +22,19 @@ android {
     buildTypes {
         def BOOLEAN = "boolean"
         def INTEGER = "int"
+        def STRING = "String"
         def TRUE = "true"
         def FALSE = "false"
         def LOG_HTTP_REQUESTS = "LOG_HTTP_REQUESTS"
         def TENSION_INPUT_REPEATING_MINUTES = "TENSION_INPUT_REPEATING_MINUTES"
         def TENSION_INPUT_RANDOM_MINUTES = "TENSION_INPUT_RANDOM_MINUTES"
+        def API_URL = "API_URL"
 
         debug {
             buildConfigField BOOLEAN, LOG_HTTP_REQUESTS, TRUE
             buildConfigField INTEGER, TENSION_INPUT_REPEATING_MINUTES, "2"
             buildConfigField INTEGER, TENSION_INPUT_RANDOM_MINUTES, "2"
+            buildConfigField STRING, API_URL, "\"https://glacial-lake-1827.herokuapp.com\""
         }
 
         release {
@@ -40,6 +43,7 @@ android {
             buildConfigField BOOLEAN, LOG_HTTP_REQUESTS, FALSE
             buildConfigField INTEGER, TENSION_INPUT_REPEATING_MINUTES, "90"
             buildConfigField INTEGER, TENSION_INPUT_RANDOM_MINUTES, "45"
+            buildConfigField STRING, API_URL, "\"https://glacial-lake-1827.herokuapp.com\""
         }
     }
     packagingOptions {
