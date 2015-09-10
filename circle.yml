@@ -1,12 +1,12 @@
-# machine:
+machine:
   # environment:
     # GRADLE_OPTS: -Xmx512m
-  # java:
-    # version: oraclejdk7
+  java:
+    version: oraclejdk7
 dependencies:
   pre:
-    - echo y | android update sdk --no-ui --all --filter "android-23"
-    - echo y | android update sdk --no-ui --all --filter "build-tools-23.0.0"
+    - echo $ANDROID_HOME
+    - echo y | android update sdk --no-ui --all --filter "tools,platform-tools,android-23,build-tools-23.0.0,extra-google-m2repository,extra-google-google_play_services,extra-android-support,extra-android-m2repository"
     # - TERM=dumb ./gradlew dependencies -d
 test:
   pre:
@@ -16,7 +16,7 @@ test:
         background: true
         parallel: true
     - circle-android wait-for-boot
-    - TERM=dumb ./gradlew connectedAndroidTest --continue --stacktrace --info:
+    - TERM=dumb ./gradlew connectedAndroidTest --continue --info -PdisablePreDex:
         timeout: 1200
     - cp -r app/build/reports $CIRCLE_ARTIFACTS
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
