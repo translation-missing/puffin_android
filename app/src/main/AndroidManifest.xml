@@ -15,6 +15,7 @@
             android:name=".StressActivity_"
             android:label="@string/app_name"
             android:parentActivityName=".TensionListActivity_" >
+
         </activity>
 
         <receiver
@@ -53,7 +54,7 @@
         </service>
 
         <activity
-            android:name=".SettingsActivity"
+            android:name=".SettingsActivity_"
             android:label="@string/title_activity_settings"
             android:parentActivityName=".TensionListActivity_" >
             <meta-data

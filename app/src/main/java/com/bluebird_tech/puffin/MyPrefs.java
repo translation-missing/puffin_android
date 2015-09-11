@@ -5,9 +5,10 @@ import org.androidannotations.annotations.sharedpreferences.DefaultString;
 import org.androidannotations.annotations.sharedpreferences.SharedPref;
 
 @SharedPref(value=SharedPref.Scope.UNIQUE)
-public interface AppPreferences {
-  @DefaultString("test")
-  String foo();
+public interface MyPrefs {
+//  @DefaultString(value = "07:00", keyRes = R.string.preferences_tension_input_start)
+  @DefaultString("07:00")
+  String tensionInputStart();
 
   @DefaultInt(7)
   int tensionInputStartHour();
