@@ -20,12 +20,14 @@ public class Event {
   public static final String FIELD_MEASURED_AT = "measured_at";
   public static final String FIELD_UPLOADED_AT = "uploaded_at";
 
-  public static Event fromTension(Context ctx, Float tension) {
+  public static Event fromTensionAndNote(
+        Context ctx, Float tension, String note) {
     Date now = new Date();
     Event event = new Event();
 
     event.setMeasurement("tension");
     event.setValue(tension);
+    event.setNote(note);
     event.setCreatedAt(now);
     event.setUpdatedAt(now);
     event.setMeasuredAt(now);
@@ -62,6 +64,9 @@ public class Event {
 
   @DatabaseField
   private String tags;
+
+  @DatabaseField
+  private String note;
 
   @DatabaseField(canBeNull = false)
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
@@ -151,4 +156,13 @@ public class Event {
   public void setUploadedAt(Date uploadedAt) {
     this.uploadedAt = uploadedAt;
   }
+
+  public String getNote() {
+    return note;
+  }
+
+  public void setNote(String note) {
+    this.note = note;
+  }
+
 }
