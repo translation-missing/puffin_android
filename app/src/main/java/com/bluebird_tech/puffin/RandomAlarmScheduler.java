@@ -11,19 +11,17 @@ import android.util.Log;
 import com.bluebird_tech.puffin.models.StringTime;
 
 import org.androidannotations.annotations.EBean;
-import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import java.util.Calendar;
 import java.util.Random;
-import java.util.prefs.Preferences;
 
 @EBean
 public class RandomAlarmScheduler {
+
   private static final String TAG =
     RandomAlarmScheduler.class.getSimpleName();
 
   AlarmManager alarmManager;
-  Context context;
   SharedPreferences prefs;
 
   /**

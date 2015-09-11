@@ -1,6 +1,6 @@
 package com.bluebird_tech.puffin;
 
-// Original: https://raw.githubusercontent.com/commonsguy/cw-lunchlist/master/19-Alarm/LunchList/src/apt/tutorial/TimePreference.java
+// see: http://stackoverflow.com/q/5533078
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,7 +9,6 @@ import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TimePicker;
-import java.util.Date;
 
 public class TimePreference extends DialogPreference {
   private int lastHour = 0;
@@ -23,7 +22,6 @@ public class TimePreference extends DialogPreference {
 
   public static int getMinute(String time) {
     String[] pieces = time.split(":");
-
     return(Integer.parseInt(pieces[1]));
   }
 

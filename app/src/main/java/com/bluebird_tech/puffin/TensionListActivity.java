@@ -1,9 +1,6 @@
 package com.bluebird_tech.puffin;
 
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
@@ -20,7 +17,6 @@ import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.Receiver;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
-import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import java.text.SimpleDateFormat;
 
@@ -34,8 +30,6 @@ public class TensionListActivity extends AppCompatActivity {
 
   @Bean
   TensionListAdapter adapter;
-
-  SharedPreferences prefs;
 
   @Override
   protected void onStart() {
