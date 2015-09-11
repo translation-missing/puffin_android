@@ -35,7 +35,7 @@ public class Event {
   }
 
   @JsonProperty("deviceId")
-  private String getDeviceId() {
+  public String getDeviceId() {
     if (ctx == null)
       return "unknown";
 
