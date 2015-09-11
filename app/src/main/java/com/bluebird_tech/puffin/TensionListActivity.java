@@ -1,7 +1,6 @@
 package com.bluebird_tech.puffin;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
@@ -13,12 +12,15 @@ import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ItemClick;
+import org.androidannotations.annotations.OptionsItem;
+import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.Receiver;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import java.text.SimpleDateFormat;
 
+@OptionsMenu(R.menu.menu_tension_list)
 @EActivity(R.layout.activity_tension_list)
 public class TensionListActivity extends AppCompatActivity {
   private static final String TAG = TensionListActivity.class.getSimpleName();
@@ -32,7 +34,6 @@ public class TensionListActivity extends AppCompatActivity {
   @Override
   protected void onStart() {
     super.onStart();
-
     // Setup the alarms
     RepeatingAlarmScheduler scheduler = new RepeatingAlarmScheduler();
     scheduler.setupAlarms(this);
@@ -63,5 +64,10 @@ public class TensionListActivity extends AppCompatActivity {
   @Receiver(actions="com.bluebird_tech.puffin.TENSION_EVENT_CREATED")
   void tensionEventCreated(@Receiver.Extra("tensionEventCreated") boolean value) {
     showTensionEventCreated(value);
+  }
+
+  @OptionsItem
+  void actionSettings() {
+    SettingsActivity_.intent(this).start();
   }
 }

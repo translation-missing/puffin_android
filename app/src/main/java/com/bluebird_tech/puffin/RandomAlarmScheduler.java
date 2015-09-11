@@ -4,7 +4,11 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
+
+import com.bluebird_tech.puffin.models.StringTime;
 
 import org.androidannotations.annotations.EBean;
 
@@ -18,11 +22,13 @@ public class RandomAlarmScheduler {
     RandomAlarmScheduler.class.getSimpleName();
 
   AlarmManager alarmManager;
+  SharedPreferences prefs;
 
   /**
    * Schedule an alarm sometime between now and in 60 minutes.
    */
   void scheduleAlarm(Context context) {
+    prefs = PreferenceManager.getDefaultSharedPreferences(context);
     alarmManager =
       (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
     if (withinAlarmRange()) {
@@ -41,18 +47,27 @@ public class RandomAlarmScheduler {
   }
 
   private Calendar startCalendar() {
+    StringTime startTime =
+      new StringTime(prefs.getString("tension_input_start", "07:00"));
+    Log.d(TAG,
+      "Prefs: start: " + startTime.getHour() + ":" + startTime.getMinute());
+
     Calendar calendar = Calendar.getInstance();
     calendar.setTimeInMillis(System.currentTimeMillis());
-    calendar.set(Calendar.HOUR_OF_DAY, 7);
-    calendar.set(Calendar.MINUTE, 0);
+    calendar.set(Calendar.HOUR_OF_DAY, startTime.getHour());
+    calendar.set(Calendar.MINUTE, startTime.getMinute());
     return calendar;
   }
 
   private Calendar endCalendar() {
+    StringTime endTime =
+      new StringTime(prefs.getString("tension_input_end", "19:00"));
+    Log.d(TAG, "Prefs: end: " + endTime.getHour() + ":" + endTime.getMinute());
+
     Calendar calendar = Calendar.getInstance();
     calendar.setTimeInMillis(System.currentTimeMillis());
-    calendar.set(Calendar.HOUR_OF_DAY, 19);
-    calendar.set(Calendar.MINUTE, 0);
+    calendar.set(Calendar.HOUR_OF_DAY, endTime.getHour());
+    calendar.set(Calendar.MINUTE, endTime.getMinute());
     return calendar;
   }
 
