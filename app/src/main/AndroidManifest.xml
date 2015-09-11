@@ -27,13 +27,11 @@
                 </action>
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".RepeatingAlarmReceiver_"
             android:enabled="true"
             android:exported="true" >
         </receiver>
-
         <receiver
             android:name=".RandomAlarmReceiver_"
             android:enabled="true"
@@ -42,7 +40,7 @@
 
         <activity
             android:name=".TensionListActivity_"
-            android:label="@string/title_activity_tension_list">
+            android:label="@string/title_activity_tension_list" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,6 +52,15 @@
             android:name=".EventUploaderService_"
             android:exported="false" >
         </service>
+
+        <activity
+            android:name=".SettingsActivity_"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".TensionListActivity_" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bluebird_tech.puffin.TensionListActivity_" />
+        </activity>
     </application>
 
 </manifest>
