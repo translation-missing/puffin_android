@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -40,6 +41,9 @@ public class StressActivity extends AppCompatActivity {
   @ViewById(R.id.stress_text_level)
   TextView level;
 
+  @ViewById
+  EditText note;
+
   @ViewById(R.id.stress_button_save)
   Button save_button;
 
@@ -61,12 +65,12 @@ public class StressActivity extends AppCompatActivity {
   void clickSaveTension() {
     Float tension = (float) bar.getProgress();
     save_button.setEnabled(false);
-    saveTensionInBackground(tension);
+    saveTensionInBackground(tension, note.getText().toString());
   }
 
   @Background
-  void saveTensionInBackground(Float tension) {
-    Event event = Event.fromTension(this, tension);
+  void saveTensionInBackground(Float tension, String theNote) {
+    Event event = Event.fromTensionAndNote(this, tension, theNote);
     saveEventInDatabase(event);
     loadTensionListActivity();
     EventUploaderService_.intent(getApplication()).start();

@@ -18,7 +18,7 @@ import java.sql.SQLException;
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
   /* c&p start */
   private static final String DATABASE_NAME = "puffin.db";
-  private static final int DATABASE_VERSION = 6;
+  private static final int DATABASE_VERSION = 8;
 
   private Dao<Event, Integer> eventDao;
 
