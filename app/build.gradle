@@ -64,6 +64,9 @@ repositories {
     maven {
         url 'http://repo.spring.io/milestone'
     }
+    maven {
+        url "https://jitpack.io"
+    }
 }
 
 def AAVersion = '3.3.2'
@@ -81,4 +84,5 @@ dependencies {
     compile 'com.j256.ormlite:ormlite-android:4.48'
     compile 'com.android.support:support-v4:23.0.1'
     compile 'com.h6ah4i.android.widget.verticalseekbar:verticalseekbar:0.5.2'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.1.3'
 }
