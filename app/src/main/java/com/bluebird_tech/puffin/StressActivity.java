@@ -2,7 +2,11 @@ package com.bluebird_tech.puffin;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -53,6 +57,31 @@ public class StressActivity extends AppCompatActivity {
     super.onStart();
     actionBar = getSupportActionBar();
     actionBar.setDisplayHomeAsUpEnabled(true);
+  }
+
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the menu items for use in the action bar
+    MenuInflater inflater = getMenuInflater();
+    inflater.inflate(R.menu.menu_stress, menu);
+    return super.onCreateOptionsMenu(menu);
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle presses on the action bar items
+    switch (item.getItemId()) {
+      case R.id.action_info:
+        openInfo();
+        return true;
+      default:
+        return super.onOptionsItemSelected(item);
+    }
+  }
+
+  void openInfo() {
+    TensionInfoFragment fragment = new TensionInfoFragment();
+    fragment.show(getSupportFragmentManager(), "missiles");
   }
 
   @SeekBarProgressChange(R.id.stress_seek_level)
