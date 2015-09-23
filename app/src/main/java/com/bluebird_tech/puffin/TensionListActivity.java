@@ -61,7 +61,7 @@ public class TensionListActivity extends AppCompatActivity {
     if (events.size() > 0) {
       init = events.get(events.size() - 1).getMeasuredAt().getTime();
     }
-    return ((int) ((event.getMeasuredAt().getTime() - init) / resolution)) - 1;
+    return ((int) ((event.getMeasuredAt().getTime() - init) / resolution));
   }
 
   void setupChart() {
@@ -73,7 +73,7 @@ public class TensionListActivity extends AppCompatActivity {
 
     for (Event event: events) {
       Entry entry = new Entry(event.getValue(), chartIndex(event, events));
-      valsComp1.add(entry);
+      valsComp1.add(0, entry); // reverse order
     }
 
     LineDataSet dataSet = new LineDataSet(valsComp1, "Tension");
@@ -84,8 +84,8 @@ public class TensionListActivity extends AppCompatActivity {
     dataSet.setLineWidth(4f);
     dataSet.setCircleSize(5f);
     dataSet.setDrawCircles(true);
-    dataSet.setDrawCubic(true);
-    dataSet.setCubicIntensity(0.05f);
+    // dataSet.setDrawCubic(true);
+    // dataSet.setCubicIntensity(0.05f);
     dataSet.setColors(new int[]{R.color.primary}, this);
     dataSet.setCircleColor(ContextCompat.getColor(this, R.color.primary));
 
@@ -99,7 +99,7 @@ public class TensionListActivity extends AppCompatActivity {
       long exit = events.get(0).getMeasuredAt().getTime();
       long init = events.get(events.size() - 1).getMeasuredAt().getTime();
       int xSize = (int) Math.max(Math.ceil((exit - init) / resolution), events.size());
-      for (int i = 0; i < xSize; i++) {
+      for (int i = 0; i <= xSize; i++) {
         xVals.add(df.format(new Date(init + i * resolution)));
       }
     }
