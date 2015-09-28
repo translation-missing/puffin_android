@@ -12,4 +12,6 @@
        May I get your tension?
     </string>
     <string name="title_activity_tension_list">Puffin</string>
+    <string name="dialog_message">unter 30 ist awesome</string>
+    <string name="dialog_title">Erklärung</string>
 </resources>

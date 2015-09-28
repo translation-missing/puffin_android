@@ -16,6 +16,8 @@ import com.j256.ormlite.dao.Dao;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.OptionsItem;
+import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.OrmLiteDao;
 import org.androidannotations.annotations.SeekBarProgressChange;
 import org.androidannotations.annotations.UiThread;
@@ -24,6 +26,7 @@ import org.androidannotations.annotations.rest.RestService;
 
 import java.sql.SQLException;
 
+@OptionsMenu(R.menu.menu_stress)
 @EActivity(R.layout.activity_stress)
 public class StressActivity extends AppCompatActivity {
   private static final String TAG = StressActivity.class.getSimpleName();
@@ -53,6 +56,12 @@ public class StressActivity extends AppCompatActivity {
     super.onStart();
     actionBar = getSupportActionBar();
     actionBar.setDisplayHomeAsUpEnabled(true);
+  }
+
+  @OptionsItem
+  void actionInfo() {
+    TensionInfoFragment fragment = new TensionInfoFragment();
+    fragment.show(getSupportFragmentManager(), "missiles");
   }
 
   @SeekBarProgressChange(R.id.stress_seek_level)

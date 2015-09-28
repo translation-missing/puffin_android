@@ -67,6 +67,10 @@ public class TensionListAdapter extends BaseAdapter {
     return events.size();
   }
 
+  public List<Event> getItems() {
+    return events;
+  }
+
   @Override
   public Event getItem(int position) {
     return events.get(position);
