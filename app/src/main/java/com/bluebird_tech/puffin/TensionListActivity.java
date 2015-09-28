@@ -1,7 +1,5 @@
 package com.bluebird_tech.puffin;
 
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -48,11 +46,10 @@ public class TensionListActivity extends AppCompatActivity {
   @Override
   protected void onStart() {
     super.onStart();
-    // Setup the alarms
     RepeatingAlarmScheduler scheduler = new RepeatingAlarmScheduler();
     scheduler.setupAlarms(this);
-
     setupChart();
+    getSupportActionBar().setTitle(R.string.title_activity_tension_list);
   }
 
   int chartIndex(Event event, List<Event> events) {
@@ -86,6 +83,7 @@ public class TensionListActivity extends AppCompatActivity {
     dataSet.setDrawCircles(true);
     // dataSet.setDrawCubic(true);
     // dataSet.setCubicIntensity(0.05f);
+    dataSet.setDrawCircleHole(false);
     dataSet.setColors(new int[]{R.color.primary}, this);
     dataSet.setCircleColor(ContextCompat.getColor(this, R.color.primary));
 
