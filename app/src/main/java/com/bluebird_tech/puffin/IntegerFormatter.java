@@ -4,18 +4,15 @@ import com.github.mikephil.charting.utils.ValueFormatter;
 
 import java.text.DecimalFormat;
 
-/**
- * Created by opahk on 16/09/15.
- */
 public class IntegerFormatter implements ValueFormatter {
-  private DecimalFormat mFormat;
+  private DecimalFormat format;
 
   public IntegerFormatter() {
-    mFormat = new DecimalFormat("##0"); // use one decimal
+    format = new DecimalFormat("##0"); // use one decimal
   }
 
   @Override
   public String getFormattedValue(float value) {
-    return mFormat.format(value);
+    return format.format(value);
   }
 }
