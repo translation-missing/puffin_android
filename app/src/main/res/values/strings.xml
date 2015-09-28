@@ -8,21 +8,8 @@
     <string name="stress_note_hint">Note</string>
 
     <string name="tension_input_notification_title_template">Puffin</string>
-    <string name="tension_input_notification_placeholder_text_template">
-       How are you?
-    </string>
+    <string name="tension_input_notification_placeholder_text_template">How are you?</string>
     <string name="title_activity_tension_list">Overview</string>
-    <string name="dialog_message">
-        Pay attention to your...
-        
-        Thoughts
-        How fast are your thoughts? Can you control them?
-        
-        Body
-        Do your shoulders or your chops feel tense or relaxed?
-        
-        Breathing
-        How fast or shallow is your breathing?
-    </string>
+    <string name="dialog_message">Pay attention to your...\n\n<b>Thoughts</b>\nHow fast are your thoughts? Can you control them?\n\n<b>Body</b>\nDo your shoulders or your chops feel tense or relaxed?\n\n<b>Breathing</b>\nHow fast or shallow is your breathing?</string>
     <string name="dialog_title">Tips</string>
 </resources>
