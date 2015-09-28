@@ -1,11 +1,16 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.bluebird_tech.puffin.TimePreference
-        android:key="tension_input_start"
-        android:title="@string/preferences_tension_input_start_title"
-        android:summary="@string/preferences_tension_input_start_summary"/>
+    <PreferenceCategory
+        android:key="tension_input_reminders"
+        android:title="@string/preferences_tension_input_reminders">
 
-    <com.bluebird_tech.puffin.TimePreference
-        android:key="tension_input_end"
-        android:title="@string/preferences_tension_input_end_title"
-        android:summary="@string/preferences_tension_input_end_summary"/>
+        <com.bluebird_tech.puffin.TimePreference
+            android:key="tension_input_start"
+            android:title="@string/preferences_tension_input_start_title"
+            android:summary="@string/preferences_tension_input_start_summary"/>
+
+        <com.bluebird_tech.puffin.TimePreference
+            android:key="tension_input_end"
+            android:title="@string/preferences_tension_input_end_title"
+            android:summary="@string/preferences_tension_input_end_summary"/>
+    </PreferenceCategory>
 </PreferenceScreen>
