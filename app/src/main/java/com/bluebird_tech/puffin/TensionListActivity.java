@@ -83,7 +83,7 @@ public class TensionListActivity extends AppCompatActivity {
     dataSet.setDrawCircles(true);
     // dataSet.setDrawCubic(true);
     // dataSet.setCubicIntensity(0.05f);
-    dataSet.setDrawCircleHole(false);
+    // dataSet.setDrawCircleHole(false);
     dataSet.setColors(new int[]{R.color.primary}, this);
     dataSet.setCircleColor(ContextCompat.getColor(this, R.color.primary));
 
