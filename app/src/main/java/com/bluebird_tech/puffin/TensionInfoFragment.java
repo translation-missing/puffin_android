@@ -14,7 +14,9 @@ public class TensionInfoFragment extends DialogFragment {
   public Dialog onCreateDialog(Bundle savedInstanceState) {
     // Use the Builder class for convenient dialog construction
     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-    builder.setMessage(R.string.dialog_message)
+    builder
+      .setTitle(R.string.dialog_title)
+      .setMessage(R.string.dialog_message)
       .setPositiveButton("OK", new DialogInterface.OnClickListener() {
         public void onClick(DialogInterface dialog, int id) {
           // FIRE ZE MISSILES!
