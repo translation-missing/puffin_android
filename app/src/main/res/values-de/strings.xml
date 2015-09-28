@@ -9,7 +9,20 @@
 
     <string name="tension_input_notification_title_template">Puffin</string>
     <string name="tension_input_notification_placeholder_text_template">
-       Anspannung messen
+       Wie läuft's?
     </string>
-    <string name="title_activity_tension_list">Puffin</string>
+    <string name="title_activity_tension_list">Übersicht</string>
+    <string name="dialog_message">
+        Achte auf...
+        
+        deine Gedanken
+        Wie schnell sind deine Gedanken? Kannst du sie steuern?
+        
+        deinen Körper
+        Wie angespannt oder locker sind deine Schultern oder dein Kiefer?
+        
+        deine Atmung
+        Wie schnell oder flach atmest du?
+    </string>
+    <string name="dialog_title">Tipps</string>
 </resources>
