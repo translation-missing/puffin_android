@@ -2,11 +2,7 @@ package com.bluebird_tech.puffin;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -20,6 +16,8 @@ import com.j256.ormlite.dao.Dao;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.OptionsItem;
+import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.OrmLiteDao;
 import org.androidannotations.annotations.SeekBarProgressChange;
 import org.androidannotations.annotations.UiThread;
@@ -28,6 +26,7 @@ import org.androidannotations.annotations.rest.RestService;
 
 import java.sql.SQLException;
 
+@OptionsMenu(R.menu.menu_stress)
 @EActivity(R.layout.activity_stress)
 public class StressActivity extends AppCompatActivity {
   private static final String TAG = StressActivity.class.getSimpleName();
@@ -59,27 +58,8 @@ public class StressActivity extends AppCompatActivity {
     actionBar.setDisplayHomeAsUpEnabled(true);
   }
 
-  @Override
-  public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu items for use in the action bar
-    MenuInflater inflater = getMenuInflater();
-    inflater.inflate(R.menu.menu_stress, menu);
-    return super.onCreateOptionsMenu(menu);
-  }
-
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle presses on the action bar items
-    switch (item.getItemId()) {
-      case R.id.action_info:
-        openInfo();
-        return true;
-      default:
-        return super.onOptionsItemSelected(item);
-    }
-  }
-
-  void openInfo() {
+  @OptionsItem
+  void actionInfo() {
     TensionInfoFragment fragment = new TensionInfoFragment();
     fragment.show(getSupportFragmentManager(), "missiles");
   }
