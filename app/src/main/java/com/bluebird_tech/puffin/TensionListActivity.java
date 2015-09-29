@@ -1,5 +1,7 @@
 package com.bluebird_tech.puffin;
 
+import io.fabric.sdk.android.Fabric;
+import com.crashlytics.android.Crashlytics;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -46,6 +48,7 @@ public class TensionListActivity extends AppCompatActivity {
   @Override
   protected void onStart() {
     super.onStart();
+    Fabric.with(this, new Crashlytics());
     RepeatingAlarmScheduler scheduler = new RepeatingAlarmScheduler();
     scheduler.setupAlarms(this);
     setupChart();
