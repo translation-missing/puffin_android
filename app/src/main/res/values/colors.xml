@@ -5,4 +5,8 @@
   <color name="accent">#e59464</color>
   <color name="text_primary">#D9FFFFFF</color>
   <color name="text_secondary">#D9000000</color>
+
+  <color name="tension_level_low">#ff81c784</color> <!-- green 300 -->
+  <color name="tension_level_middle">#ffffb74d</color> <!-- orange 300 -->
+  <color name="tension_level_high">#ffe53935</color> <!-- red 600 -->
 </resources>
