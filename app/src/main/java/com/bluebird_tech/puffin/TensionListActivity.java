@@ -1,13 +1,16 @@
 package com.bluebird_tech.puffin;
 
-import io.fabric.sdk.android.Fabric;
-import com.crashlytics.android.Crashlytics;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import android.util.Log;
 import android.widget.ListView;
-
-import com.bluebird_tech.puffin.models.Event;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
@@ -16,7 +19,6 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
@@ -27,16 +29,12 @@ import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.Receiver;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import com.bluebird_tech.puffin.models.Event;
 
 @OptionsMenu(R.menu.menu_tension_list)
 @EActivity(R.layout.activity_tension_list)
-public class TensionListActivity extends AppCompatActivity {
+public class TensionListActivity extends AppCompatActivity
+  implements DatePickerFragment.OnDateSetListener {
   private static final String TAG = TensionListActivity.class.getSimpleName();
 
   @ViewById
@@ -48,7 +46,7 @@ public class TensionListActivity extends AppCompatActivity {
   @Override
   protected void onStart() {
     super.onStart();
-    Fabric.with(this, new Crashlytics());
+    Fabric.with(this, new Crashlytics()); /* TODO: user opt-in... */
     RepeatingAlarmScheduler scheduler = new RepeatingAlarmScheduler();
     scheduler.setupAlarms(this);
     setupChart();
@@ -64,6 +62,7 @@ public class TensionListActivity extends AppCompatActivity {
     return ((int) ((event.getMeasuredAt().getTime() - init) / resolution));
   }
 
+  // TODO: extract
   void setupChart() {
     LineChart chart = (LineChart) findViewById(R.id.chart);
 
@@ -160,5 +159,17 @@ public class TensionListActivity extends AppCompatActivity {
   @OptionsItem
   void actionSettings() {
     SettingsActivity_.intent(this).start();
+  }
+
+  @OptionsItem
+  void actionCalendar() {
+    DatePickerFragment newFragment = new DatePickerFragment();
+    newFragment.show(getSupportFragmentManager(), "datePicker");
+  }
+
+  @Override
+  public void onDateSet(int year, int month, int day) {
+    Log.d(TAG, String.format("%04d%02d%02d", year, month + 1, day));
+    // XXX: load new day
   }
 }
