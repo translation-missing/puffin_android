@@ -1,6 +1,7 @@
 package com.bluebird_tech.puffin;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.bluebird_tech.puffin.models.DatabaseHelper;
 import com.bluebird_tech.puffin.models.Event;
 import com.bluebird_tech.puffin.net.EventClient;
+import com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar;
 import com.j256.ormlite.dao.Dao;
 
 import org.androidannotations.annotations.Background;
@@ -38,7 +40,7 @@ public class StressActivity extends AppCompatActivity {
   Dao<Event, Integer> eventDao;
 
   @ViewById(R.id.stress_seek_level)
-  SeekBar bar;
+  VerticalSeekBar bar;
 
   @ViewById(R.id.stress_text_level)
   TextView level;
@@ -56,6 +58,7 @@ public class StressActivity extends AppCompatActivity {
     super.onStart();
     actionBar = getSupportActionBar();
     actionBar.setDisplayHomeAsUpEnabled(true);
+    colorizeSeekbar(0);
   }
 
   @OptionsItem
@@ -64,9 +67,21 @@ public class StressActivity extends AppCompatActivity {
     fragment.show(getSupportFragmentManager(), "missiles");
   }
 
+  void colorizeSeekbar(int progress) {
+    int color = getResources().getColor(R.color.tension_level_low);
+    if ((30 <= progress) && (progress < 70)) {
+      color = getResources().getColor(R.color.tension_level_middle);
+    } else if (70 <= progress) {
+      color = getResources().getColor(R.color.tension_level_high);
+    }
+    bar.getProgressDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
+    bar.getThumb().setColorFilter(color, PorterDuff.Mode.SRC_IN);
+  }
+
   @SeekBarProgressChange(R.id.stress_seek_level)
   void onProgressChangedOnSeekBar(SeekBar seekBar, int progress, boolean b) {
     level.setText(Integer.toString(progress));
+    colorizeSeekbar(progress);
   }
 
   @Click(R.id.stress_button_save)
