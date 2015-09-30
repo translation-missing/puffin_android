@@ -1,21 +1,17 @@
 package com.bluebird_tech.puffin;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GestureDetectorCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.bluebird_tech.puffin.models.Event;
 import com.crashlytics.android.Crashlytics;
-import io.fabric.sdk.android.Fabric;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
@@ -24,6 +20,7 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
@@ -34,13 +31,23 @@ import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.Receiver;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
-import com.bluebird_tech.puffin.models.Event;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import io.fabric.sdk.android.Fabric;
 
 @OptionsMenu(R.menu.menu_tension_list)
 @EActivity(R.layout.activity_tension_list)
 public class TensionListActivity extends AppCompatActivity
   implements DatePickerFragment.OnDateSetListener {
   private static final String TAG = TensionListActivity.class.getSimpleName();
+
+  private GestureDetectorCompat detector;
 
   @ViewById
   ListView tensionList;
@@ -71,6 +78,8 @@ public class TensionListActivity extends AppCompatActivity
     getSupportActionBar().setTitle(R.string.title_activity_tension_list);
     changeDate(new Date());
     setupChart();
+//    detector = new GestureDetectorCompat(this, new MyGestureListener());
+    detector = new GestureDetectorCompat(getBaseContext(), new MyGestureListener());
   }
 
   int chartIndex(Event event, List<Event> events) {
@@ -218,5 +227,48 @@ public class TensionListActivity extends AppCompatActivity
     cal.setTime(date);
     cal.add(Calendar.DATE, -1);
     changeDate(cal.getTime());
+  }
+
+  @Override
+  public boolean onTouchEvent(MotionEvent event) {
+    detector.onTouchEvent(event);
+    return super.onTouchEvent(event);
+  }
+
+  @Override
+  public boolean dispatchTouchEvent(MotionEvent ev){
+    super.dispatchTouchEvent(ev);
+    return detector.onTouchEvent(ev);
+  }
+
+  class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+    private static final String DEBUG_TAG = "Gestures";
+
+    @Override
+    public boolean onDown(MotionEvent event) {
+      Log.d(DEBUG_TAG,"onDown: " + event.toString());
+      return true;
+    }
+
+//    @Override
+//    public boolean onScroll (MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+//
+//
+//      if (e1.getX() < 5.0f) {
+//        //your code
+//        Log.d(DEBUG_TAG,"onScroll: e1" + e1.toString());
+//        Log.d(DEBUG_TAG,"onScroll: e2" + e2.toString());
+//        return true;
+//      }
+//
+//      return false;
+//    }
+
+    @Override
+    public boolean onFling(MotionEvent event1, MotionEvent event2,
+                           float velocityX, float velocityY) {
+      Log.d(DEBUG_TAG, "onFling: " + event1.toString()+event2.toString());
+      return true;
+    }
   }
 }
