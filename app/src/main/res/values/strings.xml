@@ -13,4 +13,6 @@
     <string name="title_activity_tension_list">Overview</string>
     <string name="dialog_message">Pay attention to your...\n\n<b>Thoughts</b>\nHow fast are your thoughts? Can you control them?\n\n<b>Body</b>\nDo your shoulders or your chops feel tense or relaxed?\n\n<b>Breathing</b>\nHow fast or shallow is your breathing?</string>
     <string name="dialog_title">Tips</string>
+    <string name="tension_yesterday">yesterday</string>
+    <string name="tension_tomorrow">tomorrow</string>
 </resources>

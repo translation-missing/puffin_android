@@ -6,9 +6,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
+
 import com.crashlytics.android.Crashlytics;
 import io.fabric.sdk.android.Fabric;
 import com.github.mikephil.charting.charts.LineChart;
@@ -40,6 +43,15 @@ public class TensionListActivity extends AppCompatActivity
   @ViewById
   ListView tensionList;
 
+  @ViewById
+  ImageButton yesterdayButton;
+
+  @ViewById
+  ImageButton tomorrowButton;
+
+  @ViewById
+  TextView currentDate;
+
   @Bean
   TensionListAdapter adapter;
 
@@ -51,6 +63,7 @@ public class TensionListActivity extends AppCompatActivity
     scheduler.setupAlarms(this);
     setupChart();
     getSupportActionBar().setTitle(R.string.title_activity_tension_list);
+
   }
 
   int chartIndex(Event event, List<Event> events) {
@@ -170,6 +183,12 @@ public class TensionListActivity extends AppCompatActivity
   @Override
   public void onDateSet(int year, int month, int day) {
     Log.d(TAG, String.format("%04d%02d%02d", year, month + 1, day));
+    Date date = new Date(year, month, day);
+
+//    currentDate.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(date));
+    DateFormat df = android.text.format.DateFormat.getMediumDateFormat(this);
+    currentDate.setText(df.format(date));
+
     // XXX: load new day
   }
 }
