@@ -10,6 +10,15 @@
     <string name="tension_input_notification_title_template">Puffin</string>
     <string name="tension_input_notification_placeholder_text_template">Wie geht\'s?</string>
     <string name="title_activity_tension_list">Übersicht</string>
-    <string name="dialog_message">Zur Anspannungseinschätzung achte auf...\n\n<b>deine Gedanken</b>\nWie schnell sind deine Gedanken? Kannst du sie steuern?\n\n<b>deinen Körper</b>\nWie angespannt oder locker sind deine Schultern oder dein Kiefer?\n\n<b>deine Atmung</b>\nWie schnell oder flach atmest du?</string>
-    <string name="dialog_title">Tipps</string>
+    <string name="dialog_title">Anspannungsskala</string>
+    <string name="dialog_message">
+        <b>70-100 - Hochspannung</b>\nDie Anspannung ist nicht länger aushaltbar, kein klares Denken möglich, Kontrollverlust\n\n
+        <b>30-30 - mittlere Anspannung</b>\nDu kannst deine Anspannung deutlich wahrnehmen, fühlst dich leicht bis sehr unruhig\n\n
+        <b>0-29 - niedrige Anspannung</b>\nDu fühlst dich entspannt und ausgeglichen\n\n\n
+        <b>Tipps</b>
+        Zur Anspannungseinschätzung achte auf...\n\n
+        <b>deine Gedanken</b>\nWie schnell sind deine Gedanken? Kannst du sie steuern?\n\n
+        <b>deinen Körper</b>\nWie angespannt oder locker sind deine Muskeln, deine Schultern oder dein Kiefer?\n\n
+        <b>deine Atmung</b>\nWie schnell oder flach atmest du?
+    </string>
 </resources>
