@@ -67,13 +67,7 @@ public class TensionListAdapter extends BaseAdapter {
     } else {
       tensionItemView = (TensionItemView) convertView;
     }
-
-    Date previousDate = null;
-    if (position > 0)
-      previousDate = getItem(position - 1).getMeasuredAt();
-
-    tensionItemView.bind(getItem(position), previousDate);
-
+    tensionItemView.bind(getItem(position));
     return tensionItemView;
   }
 

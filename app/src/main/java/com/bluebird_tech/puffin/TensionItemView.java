@@ -1,6 +1,9 @@
 package com.bluebird_tech.puffin;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,34 +27,26 @@ public class TensionItemView extends LinearLayout {
   @ViewById
   TextView note;
 
-  @ViewById
-  TextView separator;
-
   public TensionItemView(Context context) {
     super(context);
   }
 
-  public void bind(Event event, Date previousDate) {
+  public void bind(Event event) {
     SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
     measuredAt.setText(dateFormat.format(event.getMeasuredAt()));
     value.setText(Integer.toString(Math.round(event.getValue())));
     note.setText(event.getNote());
+    setCircleBackgroundColor(Math.round(event.getValue()));
+  }
 
-    if(isNewDay(event.getMeasuredAt(), previousDate)) {
-      showSeparator(event.getMeasuredAt());
+  private void setCircleBackgroundColor(int tension) {
+    int color = getResources().getColor(R.color.tension_level_low);
+    if ((30 <= tension) && (tension < 70)) {
+      color = getResources().getColor(R.color.tension_level_middle);
+    } else if (70 <= tension) {
+      color = getResources().getColor(R.color.tension_level_high);
     }
-  }
-
-  private boolean isNewDay(Date now, Date previous) {
-    if (previous == null)
-      return true;
-    return (now.getDay() != previous.getDay());
-  }
-
-  private void showSeparator(Date date) {
-    separator.setText(
-      SimpleDateFormat.getDateInstance(DateFormat.LONG).format(date)
-    );
-    separator.setVisibility(VISIBLE);
+    Drawable bg = value.getBackground();
+    bg.setColorFilter(color, PorterDuff.Mode.SRC_IN);
   }
 }
