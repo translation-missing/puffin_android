@@ -7,9 +7,18 @@
     <string name="stress_button_save">Save</string>
     <string name="stress_note_hint">Note</string>
 
-    <string name="tension_input_notification_title_template">Puffin</string>
+    <string name="tension_input_notification_title_template">How do you feel?</string>
     <string name="tension_input_notification_placeholder_text_template">How are you?</string>
     <string name="title_activity_tension_list">Overview</string>
-    <string name="dialog_message">Pay attention to your...\n\n<b>Thoughts</b>\nHow fast are your thoughts? Can you control them?\n\n<b>Body</b>\nDo your shoulders or your chops feel tense or relaxed?\n\n<b>Breathing</b>\nHow fast or shallow is your breathing?</string>
-    <string name="dialog_title">Tips</string>
+    <string name="dialog_title">Tension scale</string>
+    <string name="dialog_message">
+        <b>70-100 - High tension</b>\nYou can barely stand the tension. Clear thinking is not possible. Loss of control.\n\n
+        <b>30-69 - Medium tension</b>\nYou can clearly notice your tension and feel uneasy.\n\n
+        <b>0-29 - Low tension</b>\nYou are relaxed and well-balanced.\n\n\n
+        <b>Tension assessment</b>\n
+        Pay attention to your...\n\n
+        <b>Thoughts</b>\nHow fast are your thoughts? Can you control them?\n\n
+        <b>Body</b>\nDo your shoulders or your chops feel tense or relaxed?\n\n
+        <b>Breathing</b>\nHow fast or shallow is your breathing?
+    </string>
 </resources>
