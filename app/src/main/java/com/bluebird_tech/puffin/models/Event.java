@@ -8,6 +8,7 @@ import android.provider.Settings;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -76,7 +77,11 @@ public class Event {
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
   private Date updatedAt;
 
-  @DatabaseField(index = true, columnName = Event.FIELD_MEASURED_AT)
+  @DatabaseField(
+    index = true,
+    columnName = Event.FIELD_MEASURED_AT)
+//    dataType = DataType.DATE_STRING,
+//    format = "y-M-d H:m:s")
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
   private Date measuredAt;
 

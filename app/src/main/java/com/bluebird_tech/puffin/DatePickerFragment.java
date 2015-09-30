@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.widget.DatePicker;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class DatePickerFragment
   extends DialogFragment
@@ -40,11 +43,20 @@ public class DatePickerFragment
     return dialog;
   }
 
+  // FIXME: month + 1. use calendar...
   public void onDateSet(DatePicker view, int year, int month, int day) {
-    listener.onDateSet(year, month, day);
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+    Date date = null;
+    try {
+      date = sdf.parse(String.format("%04d%02d%02d", year, month + 1, day));
+    } catch (ParseException e) {
+      e.printStackTrace();
+    }
+
+    listener.onDateSet(date);
   }
 
   public interface OnDateSetListener {
-    public void onDateSet(int year, int month, int day);
+    public void onDateSet(Date date);
   }
 }

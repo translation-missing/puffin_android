@@ -1,8 +1,10 @@
 package com.bluebird_tech.puffin;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import android.util.Log;
@@ -52,6 +54,11 @@ public class TensionListActivity extends AppCompatActivity
   @ViewById
   TextView currentDate;
 
+  Date date;
+
+  @ViewById
+  LineChart chart;
+
   @Bean
   TensionListAdapter adapter;
 
@@ -61,9 +68,9 @@ public class TensionListActivity extends AppCompatActivity
     Fabric.with(this, new Crashlytics()); /* TODO: user opt-in... */
     RepeatingAlarmScheduler scheduler = new RepeatingAlarmScheduler();
     scheduler.setupAlarms(this);
-    setupChart();
     getSupportActionBar().setTitle(R.string.title_activity_tension_list);
-
+    changeDate(new Date());
+    setupChart();
   }
 
   int chartIndex(Event event, List<Event> events) {
@@ -77,8 +84,6 @@ public class TensionListActivity extends AppCompatActivity
 
   // TODO: extract
   void setupChart() {
-    LineChart chart = (LineChart) findViewById(R.id.chart);
-
     List<Event> events = adapter.getItems();
 
     ArrayList<Entry> valsComp1 = new ArrayList<Entry>();
@@ -181,14 +186,37 @@ public class TensionListActivity extends AppCompatActivity
   }
 
   @Override
-  public void onDateSet(int year, int month, int day) {
-    Log.d(TAG, String.format("%04d%02d%02d", year, month + 1, day));
-    Date date = new Date(year, month, day);
+  public void onDateSet(Date date) {
+    changeDate(date);
+  }
 
-//    currentDate.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(date));
+  private void changeDate(Date date) {
+    this.date = date;
+    updateList();
+    setupChart();
+
     DateFormat df = android.text.format.DateFormat.getMediumDateFormat(this);
     currentDate.setText(df.format(date));
+  }
 
-    // XXX: load new day
+  private void updateList() {
+    adapter.updateDate(date);
+    adapter.notifyDataSetChanged();
+  }
+
+  @Click
+  void tomorrowButtonClicked() {
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(date);
+    cal.add(Calendar.DATE, 1);
+    changeDate(cal.getTime());
+  }
+
+  @Click
+  void yesterdayButtonClicked() {
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(date);
+    cal.add(Calendar.DATE, -1);
+    changeDate(cal.getTime());
   }
 }
