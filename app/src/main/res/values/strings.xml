@@ -11,8 +11,32 @@
     <string name="tension_input_notification_title_template">Puffin</string>
     <string name="tension_input_notification_placeholder_text_template">How are you?</string>
     <string name="title_activity_tension_list">Overview</string>
-    <string name="dialog_message">Pay attention to your...\n\n<b>Thoughts</b>\nHow fast are your thoughts? Can you control them?\n\n<b>Body</b>\nDo your shoulders or your chops feel tense or relaxed?\n\n<b>Breathing</b>\nHow fast or shallow is your breathing?</string>
-    <string name="dialog_title">Tips</string>
+    <string name="dialog_title">Tension scale</string>
+    <string name="dialog_message">
+      <![CDATA[
+      <h2>Tension scale</h2>
+      <h4><font color="#e53935">0-100 - High tension</font></h4>
+      <p>You can barely stand the tension. Clear thinking is not possible. Loss of control.</p>
+
+      <h4><font color="#ffb74d">30-69 - Medium tension</font></h4>
+      <p>You can clearly notice your tension and feel uneasy.</p>
+
+      <h4><font color="#81c784">0-29 - Low tension</font></h4>
+      <p>You are relaxed and well-balanced.</p>
+
+      <h2>Tension assessment</h2>
+      <p>Pay attention to your...</p>
+
+      <h4>Thoughts</h4>
+      <p>How fast are your thoughts? Can you control them?</p>
+
+      <h4>Body</h4>
+      <p>Do your shoulders or your chops feel tense or relaxed?</p>
+
+      <h4>Breathing</h4>
+      <p>How fast or shallow is your breathing?</p>
+      ]]>
+    </string>
     <string name="tension_yesterday">yesterday</string>
     <string name="tension_tomorrow">tomorrow</string>
 </resources>

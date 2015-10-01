@@ -11,8 +11,31 @@
     <string name="tension_input_notification_title_template">Puffin</string>
     <string name="tension_input_notification_placeholder_text_template">Wie geht\'s?</string>
     <string name="title_activity_tension_list">Übersicht</string>
-    <string name="dialog_message">Zur Anspannungseinschätzung achte auf...\n\n<b>deine Gedanken</b>\nWie schnell sind deine Gedanken? Kannst du sie steuern?\n\n<b>deinen Körper</b>\nWie angespannt oder locker sind deine Schultern oder dein Kiefer?\n\n<b>deine Atmung</b>\nWie schnell oder flach atmest du?</string>
-    <string name="dialog_title">Tipps</string>
+    <string name="dialog_message">
+      <![CDATA[
+      <h2>Anspannungsskala</h2>
+      <h4><font color="#e53935">70-100 - Hochspannung</font></h4>
+      <p>Die Anspannung ist nicht länger aushaltbar, kein klares Denken möglich, Kontrollverlust</p>
+
+      <h4><font color="#ffb74d">30-30 - mittlere Anspannung</font></h4>
+      <p>Du kannst deine Anspannung deutlich wahrnehmen, fühlst dich leicht bis sehr unruhig</p>
+
+      <h4><font color="#81c784">0-29 - niedrige Anspannung</font></h4>
+      <p>Du fühlst dich entspannt und ausgeglichen</p>
+
+      <h2>Tipps</h2>
+      <p>Zur Anspannungseinschätzung achte auf...</p>
+
+      <h4>deine Gedanken</h4>
+      <p>Wie schnell sind deine Gedanken? Kannst du sie steuern?</p>
+
+      <h4>deinen Körper</h4>
+      <p>Wie angespannt oder locker sind deine Muskeln, deine Schultern oder dein Kiefer?</p>
+
+      <h4>deine Atmung</h4>
+      <p>Wie schnell oder flach atmest du?</p>
+      ]]>
+    </string>
     <string name="tension_yesterday">Gestern</string>
     <string name="tension_tomorrow">Morgen</string>
 </resources>

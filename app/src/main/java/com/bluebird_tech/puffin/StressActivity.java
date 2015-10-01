@@ -1,6 +1,5 @@
 package com.bluebird_tech.puffin;
 
-import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
