@@ -12,5 +12,13 @@
             android:key="tension_input_end"
             android:title="@string/preferences_tension_input_end_title"
             android:summary="@string/preferences_tension_input_end_summary"/>
+
+        <ListPreference
+            android:key="tension_input_interval"
+            android:title="@string/preferences_tension_input_interval_title"
+            android:summary="%s"
+            android:defaultValue="90"
+            android:entries="@array/tension_input_interval_keys"
+            android:entryValues="@array/tension_input_interval_values" />
     </PreferenceCategory>
 </PreferenceScreen>
