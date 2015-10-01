@@ -2,6 +2,7 @@ package com.bluebird_tech.puffin;
 
 import android.content.Intent;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
@@ -58,7 +59,7 @@ public class StressActivity extends AppCompatActivity {
     super.onStart();
     actionBar = getSupportActionBar();
     actionBar.setDisplayHomeAsUpEnabled(true);
-    colorizeSeekbar(0);
+    rainbow(0);
   }
 
   @OptionsItem
@@ -67,7 +68,7 @@ public class StressActivity extends AppCompatActivity {
     fragment.show(getSupportFragmentManager(), "missiles");
   }
 
-  void colorizeSeekbar(int progress) {
+  void rainbow(int progress) {
     int color = getResources().getColor(R.color.tension_level_low);
     if ((30 <= progress) && (progress < 70)) {
       color = getResources().getColor(R.color.tension_level_middle);
@@ -76,12 +77,13 @@ public class StressActivity extends AppCompatActivity {
     }
     bar.getProgressDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
     bar.getThumb().setColorFilter(color, PorterDuff.Mode.SRC_IN);
+    actionBar.setBackgroundDrawable(new ColorDrawable(color));
   }
 
   @SeekBarProgressChange(R.id.stress_seek_level)
   void onProgressChangedOnSeekBar(SeekBar seekBar, int progress, boolean b) {
     level.setText(Integer.toString(progress));
-    colorizeSeekbar(progress);
+    rainbow(progress);
   }
 
   @Click(R.id.stress_button_save)
