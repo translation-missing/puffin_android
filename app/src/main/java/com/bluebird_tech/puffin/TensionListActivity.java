@@ -113,8 +113,9 @@ public class TensionListActivity extends AppCompatActivity
     // dataSet.setDrawCubic(true);
     // dataSet.setCubicIntensity(0.05f);
     // dataSet.setDrawCircleHole(false);
-    dataSet.setColors(new int[]{R.color.primary}, this);
-    dataSet.setCircleColor(ContextCompat.getColor(this, R.color.primary));
+    dataSet.setColors(new int[]{R.color.material_grey_600}, this);
+    dataSet.setCircleColor(
+      ContextCompat.getColor(this, R.color.material_grey_600));
 
     ArrayList<LineDataSet> dataSets = new ArrayList<LineDataSet>();
     dataSets.add(dataSet);
@@ -139,7 +140,8 @@ public class TensionListActivity extends AppCompatActivity
     legend.setEnabled(false);
 
     XAxis xAxis = chart.getXAxis();
-    xAxis.setPosition(XAxisPosition.BOTTOM);
+//    xAxis.setPosition(XAxisPosition.BOTTOM);
+    xAxis.setEnabled(false);
 
     YAxis leftAxis = chart.getAxisLeft();
     leftAxis.setStartAtZero(true);
