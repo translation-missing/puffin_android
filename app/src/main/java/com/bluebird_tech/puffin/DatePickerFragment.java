@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class DatePickerFragment
   extends DialogFragment
@@ -43,17 +44,10 @@ public class DatePickerFragment
     return dialog;
   }
 
-  // FIXME: month + 1. use calendar...
   public void onDateSet(DatePicker view, int year, int month, int day) {
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-    Date date = null;
-    try {
-      date = sdf.parse(String.format("%04d%02d%02d", year, month + 1, day));
-    } catch (ParseException e) {
-      e.printStackTrace();
-    }
-
-    listener.onDateSet(date);
+    Calendar calendar = GregorianCalendar.getInstance();
+    calendar.set(year, month, day);
+    listener.onDateSet(calendar.getTime());
   }
 
   public interface OnDateSetListener {
