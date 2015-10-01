@@ -250,25 +250,21 @@ public class TensionListActivity extends AppCompatActivity
       return true;
     }
 
-//    @Override
-//    public boolean onScroll (MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-//
-//
-//      if (e1.getX() < 5.0f) {
-//        //your code
-//        Log.d(DEBUG_TAG,"onScroll: e1" + e1.toString());
-//        Log.d(DEBUG_TAG,"onScroll: e2" + e2.toString());
-//        return true;
-//      }
-//
-//      return false;
-//    }
-
     @Override
     public boolean onFling(MotionEvent event1, MotionEvent event2,
                            float velocityX, float velocityY) {
-      Log.d(DEBUG_TAG, "onFling: " + event1.toString()+event2.toString());
-      return true;
+      int x_max = tensionList.getWidth();
+
+      if (event1.getX() < 40.0f && event1.getX() < event2.getX()) {
+        Log.d(DEBUG_TAG, "left fling: " + event1.getX());
+        yesterdayButtonClicked();
+        return true;
+      } else if (event1.getX() > (x_max - 40.0f) && event1.getX() > event2.getX()) {
+        Log.d(DEBUG_TAG, "right fling: " + event1.getX());
+        tomorrowButtonClicked();
+        return true;
+      }
+      return false;
     }
   }
 }
