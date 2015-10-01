@@ -77,11 +77,7 @@ public class Event {
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
   private Date updatedAt;
 
-  @DatabaseField(
-    index = true,
-    columnName = Event.FIELD_MEASURED_AT)
-//    dataType = DataType.DATE_STRING,
-//    format = "y-M-d H:m:s")
+  @DatabaseField(index = true, columnName = Event.FIELD_MEASURED_AT)
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
   private Date measuredAt;
 

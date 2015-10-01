@@ -244,27 +244,15 @@ public class TensionListActivity extends AppCompatActivity
   }
 
   class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
-    private static final String DEBUG_TAG = "Gestures";
-
     @Override
-    public boolean onDown(MotionEvent event) {
-      Log.d(DEBUG_TAG,"onDown: " + event.toString());
-      return true;
-    }
-
-    @Override
-    public boolean onFling(MotionEvent event1, MotionEvent event2,
-                           float velocityX, float velocityY) {
+    public boolean onFling(MotionEvent e1, MotionEvent e2,
+                           float _velocityX, float _velocityY) {
       int x_max = tensionList.getWidth();
 
-      if (event1.getX() < 40.0f && event1.getX() < event2.getX()) {
-        Log.d(DEBUG_TAG, "left fling: " + event1.getX());
-        yesterdayButtonClicked();
-        return true;
-      } else if (event1.getX() > (x_max - 40.0f) && event1.getX() > event2.getX()) {
-        Log.d(DEBUG_TAG, "right fling: " + event1.getX());
-        tomorrowButtonClicked();
-        return true;
+      if (e1.getX() < 40.0f && e1.getX() < e2.getX()) {
+        yesterdayButtonClicked(); return true;
+      } else if (e1.getX() > (x_max - 40.0f) && e1.getX() > e2.getX()) {
+        tomorrowButtonClicked(); return true;
       }
       return false;
     }

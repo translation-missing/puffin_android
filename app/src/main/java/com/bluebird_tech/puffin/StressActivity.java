@@ -59,7 +59,7 @@ public class StressActivity extends AppCompatActivity {
     super.onStart();
     actionBar = getSupportActionBar();
     actionBar.setDisplayHomeAsUpEnabled(true);
-    rainbow(0);
+    colorize(0);
   }
 
   @OptionsItem
@@ -68,7 +68,7 @@ public class StressActivity extends AppCompatActivity {
     fragment.show(getSupportFragmentManager(), "missiles");
   }
 
-  void rainbow(int progress) {
+  void colorize(int progress) {
     int color = getResources().getColor(R.color.tension_level_low);
     if ((30 <= progress) && (progress < 70)) {
       color = getResources().getColor(R.color.tension_level_middle);
@@ -83,7 +83,7 @@ public class StressActivity extends AppCompatActivity {
   @SeekBarProgressChange(R.id.stress_seek_level)
   void onProgressChangedOnSeekBar(SeekBar seekBar, int progress, boolean b) {
     level.setText(Integer.toString(progress));
-    rainbow(progress);
+    colorize(progress);
   }
 
   @Click(R.id.stress_button_save)
@@ -103,9 +103,9 @@ public class StressActivity extends AppCompatActivity {
 
   @UiThread
   void loadTensionListActivity() {
-    TensionListActivity_.intent(this)
-      .flags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
-      .start();
+//    TensionListActivity_.intent(this)
+//      .flags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+//      .start();
     finish();
   }
 
