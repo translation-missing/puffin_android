@@ -1,9 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context="com.bluebird_tech.puffin.TensionListActivity">
+      tools:context="com.bluebird_tech.puffin.TensionListActivity_">
+
+    <item android:id="@+id/action_calendar"
+          android:title="@string/action_calendar"
+          android:orderInCategory="100"
+          android:icon="@drawable/ic_action_editor_insert_invitation"
+          app:showAsAction="ifRoom"/>
+
     <item android:id="@+id/action_settings"
           android:title="@string/action_settings"
           android:orderInCategory="100"
-          app:showAsAction="never"/>
+          android:icon="@drawable/ic_action_action_settings"
+          app:showAsAction="ifRoom"/>
 </menu>

@@ -1,13 +1,17 @@
 package com.bluebird_tech.puffin;
 
-import io.fabric.sdk.android.Fabric;
-import com.crashlytics.android.Crashlytics;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.bluebird_tech.puffin.models.Event;
+import com.crashlytics.android.Crashlytics;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
@@ -31,16 +35,36 @@ import org.androidannotations.annotations.ViewById;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import io.fabric.sdk.android.Fabric;
+
 @OptionsMenu(R.menu.menu_tension_list)
 @EActivity(R.layout.activity_tension_list)
-public class TensionListActivity extends AppCompatActivity {
+public class TensionListActivity extends AppCompatActivity
+  implements DatePickerFragment.OnDateSetListener {
   private static final String TAG = TensionListActivity.class.getSimpleName();
+
+  private GestureDetectorCompat detector;
 
   @ViewById
   ListView tensionList;
+
+  @ViewById
+  ImageButton yesterdayButton;
+
+  @ViewById
+  ImageButton tomorrowButton;
+
+  @ViewById
+  TextView currentDate;
+
+  Date date;
+
+  @ViewById
+  LineChart chart;
 
   @Bean
   TensionListAdapter adapter;
@@ -48,11 +72,14 @@ public class TensionListActivity extends AppCompatActivity {
   @Override
   protected void onStart() {
     super.onStart();
-    Fabric.with(this, new Crashlytics());
+    Fabric.with(this, new Crashlytics()); /* TODO: user opt-in... */
     RepeatingAlarmScheduler scheduler = new RepeatingAlarmScheduler();
     scheduler.setupAlarms(this);
-    setupChart();
     getSupportActionBar().setTitle(R.string.title_activity_tension_list);
+    changeDate(new Date());
+    setupChart();
+//    detector = new GestureDetectorCompat(this, new MyGestureListener());
+    detector = new GestureDetectorCompat(getBaseContext(), new MyGestureListener());
   }
 
   int chartIndex(Event event, List<Event> events) {
@@ -64,9 +91,8 @@ public class TensionListActivity extends AppCompatActivity {
     return ((int) ((event.getMeasuredAt().getTime() - init) / resolution));
   }
 
+  // TODO: extract
   void setupChart() {
-    LineChart chart = (LineChart) findViewById(R.id.chart);
-
     List<Event> events = adapter.getItems();
 
     ArrayList<Entry> valsComp1 = new ArrayList<Entry>();
@@ -87,8 +113,9 @@ public class TensionListActivity extends AppCompatActivity {
     // dataSet.setDrawCubic(true);
     // dataSet.setCubicIntensity(0.05f);
     // dataSet.setDrawCircleHole(false);
-    dataSet.setColors(new int[]{R.color.primary}, this);
-    dataSet.setCircleColor(ContextCompat.getColor(this, R.color.primary));
+    dataSet.setColors(new int[]{R.color.material_grey_600}, this);
+    dataSet.setCircleColor(
+      ContextCompat.getColor(this, R.color.material_grey_600));
 
     ArrayList<LineDataSet> dataSets = new ArrayList<LineDataSet>();
     dataSets.add(dataSet);
@@ -113,7 +140,8 @@ public class TensionListActivity extends AppCompatActivity {
     legend.setEnabled(false);
 
     XAxis xAxis = chart.getXAxis();
-    xAxis.setPosition(XAxisPosition.BOTTOM);
+//    xAxis.setPosition(XAxisPosition.BOTTOM);
+    xAxis.setEnabled(false);
 
     YAxis leftAxis = chart.getAxisLeft();
     leftAxis.setStartAtZero(true);
@@ -160,5 +188,73 @@ public class TensionListActivity extends AppCompatActivity {
   @OptionsItem
   void actionSettings() {
     SettingsActivity_.intent(this).start();
+  }
+
+  @OptionsItem
+  void actionCalendar() {
+    DatePickerFragment newFragment = new DatePickerFragment();
+    newFragment.show(getSupportFragmentManager(), "datePicker");
+  }
+
+  @Override
+  public void onDateSet(Date date) {
+    changeDate(date);
+  }
+
+  private void changeDate(Date date) {
+    this.date = date;
+    updateList();
+    setupChart();
+
+    DateFormat df = android.text.format.DateFormat.getMediumDateFormat(this);
+    currentDate.setText(df.format(date));
+  }
+
+  private void updateList() {
+    adapter.updateDate(date);
+    adapter.notifyDataSetChanged();
+  }
+
+  @Click
+  void tomorrowButtonClicked() {
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(date);
+    cal.add(Calendar.DATE, 1);
+    changeDate(cal.getTime());
+  }
+
+  @Click
+  void yesterdayButtonClicked() {
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(date);
+    cal.add(Calendar.DATE, -1);
+    changeDate(cal.getTime());
+  }
+
+  @Override
+  public boolean onTouchEvent(MotionEvent event) {
+    detector.onTouchEvent(event);
+    return super.onTouchEvent(event);
+  }
+
+  @Override
+  public boolean dispatchTouchEvent(MotionEvent ev){
+    super.dispatchTouchEvent(ev);
+    return detector.onTouchEvent(ev);
+  }
+
+  class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2,
+                           float _velocityX, float _velocityY) {
+      int x_max = tensionList.getWidth();
+
+      if (e1.getX() < 40.0f && e1.getX() < e2.getX()) {
+        yesterdayButtonClicked(); return true;
+      } else if (e1.getX() > (x_max - 40.0f) && e1.getX() > e2.getX()) {
+        tomorrowButtonClicked(); return true;
+      }
+      return false;
+    }
   }
 }

@@ -8,16 +8,15 @@ import android.widget.BaseAdapter;
 import com.bluebird_tech.puffin.models.DatabaseHelper;
 import com.bluebird_tech.puffin.models.Event;
 import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
 
 import org.androidannotations.annotations.AfterInject;
-import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.OrmLiteDao;
 import org.androidannotations.annotations.RootContext;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -25,6 +24,8 @@ import java.util.List;
 public class TensionListAdapter extends BaseAdapter {
 
   List<Event> events;
+
+  Date date;
 
   @OrmLiteDao(helper = DatabaseHelper.class)
   Dao<Event, Integer> eventDao;
@@ -34,9 +35,23 @@ public class TensionListAdapter extends BaseAdapter {
 
   @AfterInject
   void initAdapter() {
+    if (this.date == null)
+      this.date = new Date();
+    queryDatabase();
+  }
+
+  public void updateDate(Date date) {
+    this.date = date;
+    queryDatabase();
+  }
+
+  // TODO: generalize date queries
+  void queryDatabase() {
+    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     try {
       QueryBuilder<Event, Integer> queryBuilder = eventDao.queryBuilder();
-      queryBuilder.where().eq(Event.FIELD_MEASUREMENT, "tension");
+      queryBuilder.where().eq(Event.FIELD_MEASUREMENT, "tension").and()
+        .raw("substr(measured_at, 0, 11) = '" + df.format(date) + "'");
       queryBuilder.orderBy(Event.FIELD_MEASURED_AT, false);
       events = queryBuilder.query();
     } catch (SQLException e) {
@@ -52,13 +67,7 @@ public class TensionListAdapter extends BaseAdapter {
     } else {
       tensionItemView = (TensionItemView) convertView;
     }
-
-    Date previousDate = null;
-    if (position > 0)
-      previousDate = getItem(position - 1).getMeasuredAt();
-
-    tensionItemView.bind(getItem(position), previousDate);
-
+    tensionItemView.bind(getItem(position));
     return tensionItemView;
   }
 

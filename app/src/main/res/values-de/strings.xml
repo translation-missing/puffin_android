@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Puffin</string>
+    <string name="action_calendar">Kalender</string>
     <string name="action_settings">Einstellungen</string>
 
     <string name="stress_text_tension">Anspannung</string>
@@ -12,4 +13,6 @@
     <string name="title_activity_tension_list">Übersicht</string>
     <string name="dialog_message">Zur Anspannungseinschätzung achte auf...\n\n<b>deine Gedanken</b>\nWie schnell sind deine Gedanken? Kannst du sie steuern?\n\n<b>deinen Körper</b>\nWie angespannt oder locker sind deine Schultern oder dein Kiefer?\n\n<b>deine Atmung</b>\nWie schnell oder flach atmest du?</string>
     <string name="dialog_title">Tipps</string>
+    <string name="tension_yesterday">Gestern</string>
+    <string name="tension_tomorrow">Morgen</string>
 </resources>

@@ -15,7 +15,40 @@
         android:fitsSystemWindows="true"
         android:orientation="vertical">
 
+        <!-- android:background="@color/primary" -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/yesterday_button"
+                android:src="@drawable/ic_action_hardware_keyboard_arrow_left"
+                android:background="?android:selectableItemBackground"
+                android:contentDescription="@string/tension_yesterday"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+                android:id="@+id/current_date"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+
+            <ImageButton
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:id="@+id/tomorrow_button"
+                android:src="@drawable/ic_action_hardware_keyboard_arrow_right"
+                android:background="?android:selectableItemBackground"
+                android:contentDescription="@string/tension_tomorrow"/>
+        </LinearLayout>
+
         <com.github.mikephil.charting.charts.LineChart
+            android:layout_margin="16dp"
             android:id="@+id/chart"
             android:layout_width="match_parent"
             android:layout_height="200dp" />

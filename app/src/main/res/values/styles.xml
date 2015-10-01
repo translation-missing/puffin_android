@@ -4,6 +4,20 @@
         <item name="android:icon">@drawable/ic_action_add</item>
     </style>
 
+    <!-- .o0( styling date picker dialogs: http://stackoverflow.com/a/29014475 ) -->
+
+    <!--
+    <style name="MyDatePickerStyle" parent="@android:style/Widget.Material.Light.DatePicker">
+        <item name="android:headerBackground">@color/tension_level_high</item>
+    </style>
+    -->
+
+    <style name="MyDatePickerDialogTheme" parent="android:Theme.Material.Dialog">
+        <item name="android:colorAccent">@color/accent</item>
+        <!-- No need to override 'datePickerStyle' -->
+        <!-- <item name="android:datePickerStyle">@style/MyDatePickerStyle</item> -->
+    </style>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:colorPrimary">@color/primary</item>
         <item name="android:colorPrimaryDark">@color/primary_dark</item>
@@ -12,5 +26,6 @@
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
         <item name="android:actionBarStyle">@style/AppTheme.ActionBarStyle</item>
+        <item name="android:datePickerDialogTheme">@style/MyDatePickerDialogTheme</item>
     </style>
 </resources>
