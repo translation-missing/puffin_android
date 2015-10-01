@@ -39,9 +39,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
   }
 
-//  @Override
-//  public void onUpgrade(SQLiteDatabase sqliteDatabase,
-//                        ConnectionSource connectionSource, int oldVer, int newVer) {
+  @Override
+  public void onUpgrade(SQLiteDatabase sqliteDatabase,
+                        ConnectionSource connectionSource, int oldVer, int newVer) {
 //    try {
 //      // TODO: migrate, don't drop!
 //      TableUtils.dropTable(connectionSource, Event.class, true);
@@ -51,7 +51,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 //        "Unable to upgrade database from version " + oldVer + " to new "
 //          + newVer, e);
 //    }
-//  }
+  }
 
   public Dao<Event, Integer> getEventDao() throws SQLException {
     if (eventDao == null) {

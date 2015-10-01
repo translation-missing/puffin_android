@@ -6,4 +6,7 @@
     <string name="preferences_tension_input_end_title">Ende</string>
     <string name="preferences_tension_input_start_summary">07:00</string>
     <string name="preferences_tension_input_end_summary">19:00</string>
+    <string name="preferences_tension_input_interval_title">Interval</string>
+    <string name="preferences_tension_input_interval_summary">90 Minuten</string>
+    <string name="preferences_tension_input_interval">preferences_tension_input_interval</string>
 </resources>

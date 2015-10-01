@@ -33,7 +33,7 @@ android {
 
         debug {
             buildConfigField BOOLEAN, LOG_HTTP_REQUESTS, TRUE
-            buildConfigField INTEGER, TENSION_INPUT_REPEATING_MINUTES, "2"
+            buildConfigField STRING, TENSION_INPUT_REPEATING_MINUTES, "\"2\""
             buildConfigField INTEGER, TENSION_INPUT_RANDOM_MINUTES, "2"
             buildConfigField STRING, API_URL, "\"https://glacial-lake-1827.herokuapp.com\""
         }
@@ -42,8 +42,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField BOOLEAN, LOG_HTTP_REQUESTS, FALSE
-            buildConfigField INTEGER, TENSION_INPUT_REPEATING_MINUTES, "90"
-            buildConfigField INTEGER, TENSION_INPUT_RANDOM_MINUTES, "45"
+            buildConfigField STRING, TENSION_INPUT_REPEATING_MINUTES, "\"90\""
+            buildConfigField INTEGER, TENSION_INPUT_RANDOM_MINUTES, "30"
             buildConfigField STRING, API_URL, "\"https://glacial-lake-1827.herokuapp.com\""
         }
     }
