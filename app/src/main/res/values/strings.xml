@@ -15,7 +15,7 @@
     <string name="dialog_message">
       <![CDATA[
       <h2>Tension scale</h2>
-      <h4><font color="#e53935">0-100 - High tension</font></h4>
+      <h4><font color="#e53935">70-100 - High tension</font></h4>
       <p>You can barely stand the tension. Clear thinking is not possible. Loss of control.</p>
 
       <h4><font color="#ffb74d">30-69 - Medium tension</font></h4>
