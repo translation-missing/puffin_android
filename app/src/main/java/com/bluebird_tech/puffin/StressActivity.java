@@ -42,7 +42,7 @@ public class StressActivity extends AppCompatActivity {
   Dao<Event, Integer> eventDao;
 
   @Extra
-  Date notificationShownAt;
+  Long notificationShownAt;
 
   private Date notificationAcceptedAt;
 
@@ -105,8 +105,14 @@ public class StressActivity extends AppCompatActivity {
   @Background
   void saveTensionInBackground(Float tension, String theNote) {
     Event event = Event.fromTensionAndNote(this, tension, theNote);
-    event.setNotificationShownAt(notificationShownAt);
-    event.setNotificationAcceptedAt(notificationAcceptedAt);
+
+    if (notificationShownAt != null) {
+      Date date = new Date();
+      date.setTime(notificationShownAt);
+      event.setNotificationShownAt(date);
+      event.setNotificationAcceptedAt(notificationAcceptedAt);
+    }
+
     saveEventInDatabase(event);
     loadTensionListActivity();
     EventUploaderService_.intent(getApplication()).start();
