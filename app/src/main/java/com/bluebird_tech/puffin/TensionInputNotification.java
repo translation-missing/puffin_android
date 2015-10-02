@@ -13,6 +13,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 
+import java.util.Date;
+
 /**
  * Helper class for showing and canceling tension input
  * notifications.
@@ -54,6 +56,9 @@ public class TensionInputNotification {
     final String text =
       res.getString(R.string.tension_input_notification_placeholder_text_template);
 
+    Intent intent = new Intent(context, StressActivity_.class);
+    intent.putExtra("notificationShownAt", new Date());
+
     final NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
       .setDefaults(Notification.DEFAULT_ALL)
       .setSmallIcon(R.drawable.ic_notification_small_icon)
@@ -88,12 +93,8 @@ public class TensionInputNotification {
 
         // Set the pending intent to be initiated when the user touches
         // the notification.
-      .setContentIntent(
-        PendingIntent.getActivity(
-          context,
-          0,
-          new Intent(context, StressActivity_.class),
-          PendingIntent.FLAG_CANCEL_CURRENT))
+      .setContentIntent(PendingIntent.getActivity(
+        context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT))
 
         // Show expanded text content on devices running Android 4.1 or
         // later.

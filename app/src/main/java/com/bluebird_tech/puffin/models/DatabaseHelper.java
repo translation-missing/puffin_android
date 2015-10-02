@@ -18,7 +18,7 @@ import java.sql.SQLException;
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
   /* c&p start */
   private static final String DATABASE_NAME = "puffin.db";
-  private static final int DATABASE_VERSION = 8;
+  private static final int DATABASE_VERSION = 9;
 
   private Dao<Event, Integer> eventDao;
 
@@ -42,15 +42,15 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
   @Override
   public void onUpgrade(SQLiteDatabase sqliteDatabase,
                         ConnectionSource connectionSource, int oldVer, int newVer) {
-//    try {
-//      // TODO: migrate, don't drop!
-//      TableUtils.dropTable(connectionSource, Event.class, true);
-//      onCreate(sqliteDatabase, connectionSource);
-//    } catch (SQLException e) {
-//      Log.e(DatabaseHelper.class.getName(),
-//        "Unable to upgrade database from version " + oldVer + " to new "
-//          + newVer, e);
-//    }
+    try {
+      // TODO: migrate, don't drop!
+      TableUtils.dropTable(connectionSource, Event.class, true);
+      onCreate(sqliteDatabase, connectionSource);
+    } catch (SQLException e) {
+      Log.e(DatabaseHelper.class.getName(),
+        "Unable to upgrade database from version " + oldVer + " to new "
+          + newVer, e);
+    }
   }
 
   public Dao<Event, Integer> getEventDao() throws SQLException {
