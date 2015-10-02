@@ -57,7 +57,11 @@ public class TensionInputNotification {
       res.getString(R.string.tension_input_notification_placeholder_text_template);
 
     Intent intent = new Intent(context, StressActivity_.class);
-    intent.putExtra("notificationShownAt", new Date());
+    intent.putExtra("notificationShownAt", new Date().getTime());
+
+    Intent delete_intent =
+      new Intent(context, TensionInputNotificationDeleteReceiver_.class);
+    delete_intent.putExtra("notificationShownAt", new Date().getTime());
 
     final NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
       .setDefaults(Notification.DEFAULT_ALL)
@@ -95,6 +99,8 @@ public class TensionInputNotification {
         // the notification.
       .setContentIntent(PendingIntent.getActivity(
         context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT))
+      .setDeleteIntent(PendingIntent.getBroadcast(
+        context, 0, delete_intent, PendingIntent.FLAG_CANCEL_CURRENT))
 
         // Show expanded text content on devices running Android 4.1 or
         // later.

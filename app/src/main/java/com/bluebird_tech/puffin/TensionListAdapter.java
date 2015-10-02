@@ -51,6 +51,7 @@ public class TensionListAdapter extends BaseAdapter {
     try {
       QueryBuilder<Event, Integer> queryBuilder = eventDao.queryBuilder();
       queryBuilder.where().eq(Event.FIELD_MEASUREMENT, "tension").and()
+        .isNull(Event.FIELD_NOTIFICATION_DISMISSED_AT).and()
         .raw("substr(measured_at, 0, 11) = '" + df.format(date) + "'");
       queryBuilder.orderBy(Event.FIELD_MEASURED_AT, false);
       events = queryBuilder.query();

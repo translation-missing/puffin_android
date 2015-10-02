@@ -28,7 +28,7 @@
             android:enabled="true"
             android:exported="true" >
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" >
+                <action android:name="android.intent.action.boot_completed" >
                 </action>
             </intent-filter>
         </receiver>
@@ -42,6 +42,7 @@
             android:enabled="true"
             android:exported="true" >
         </receiver>
+        <receiver android:name=".TensionInputNotificationDeleteReceiver_" />
 
         <activity
             android:name=".TensionListActivity_"

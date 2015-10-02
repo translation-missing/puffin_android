@@ -33,8 +33,8 @@ android {
 
         debug {
             buildConfigField BOOLEAN, LOG_HTTP_REQUESTS, TRUE
-            buildConfigField STRING, TENSION_INPUT_REPEATING_MINUTES, "\"2\""
-            buildConfigField INTEGER, TENSION_INPUT_RANDOM_MINUTES, "2"
+            buildConfigField STRING, TENSION_INPUT_REPEATING_MINUTES, "\"1\""
+            buildConfigField INTEGER, TENSION_INPUT_RANDOM_MINUTES, "1"
             buildConfigField STRING, API_URL, "\"https://glacial-lake-1827.herokuapp.com\""
         }
 
