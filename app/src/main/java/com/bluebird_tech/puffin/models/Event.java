@@ -3,8 +3,11 @@ package com.bluebird_tech.puffin.models;
 import java.util.Date;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 
+import com.bluebird_tech.puffin.BuildConfig;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -48,6 +51,15 @@ public class Event {
     );
 
     return android_id;
+  }
+
+  @JsonProperty("notificationIntervalMinutes")
+  public Integer getNotificationIntervalMinutes() {
+    if (ctx == null)
+      return 0;
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+    return Integer.parseInt(prefs.getString("tension_input_interval",
+      BuildConfig.TENSION_INPUT_REPEATING_MINUTES));
   }
 
   @DatabaseField(generatedId = true)
