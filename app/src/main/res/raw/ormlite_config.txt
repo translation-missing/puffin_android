@@ -1,5 +1,5 @@
 #
-# generated on 2015/09/08 05:30:22
+# generated on 2015/10/02 11:34:34
 #
 # --table-start--
 dataClass=com.bluebird_tech.puffin.models.Event
@@ -37,6 +37,21 @@ canBeNull=false
 fieldName=measuredAt
 columnName=measured_at
 indexName=events_measured_at_idx
+# --field-end--
+# --field-start--
+fieldName=notificationShownAt
+columnName=notification_shown_at
+indexName=events_notification_shown_at_idx
+# --field-end--
+# --field-start--
+fieldName=notificationAcceptedAt
+columnName=notification_accepted_at
+indexName=events_notification_accepted_at_idx
+# --field-end--
+# --field-start--
+fieldName=notificationDismissedAt
+columnName=notification_dismissed_at
+indexName=events_notification_dismissed_at_idx
 # --field-end--
 # --field-start--
 fieldName=uploadedAt

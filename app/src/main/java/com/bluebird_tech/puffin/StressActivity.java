@@ -18,6 +18,7 @@ import com.j256.ormlite.dao.Dao;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.OrmLiteDao;
@@ -27,6 +28,7 @@ import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.rest.RestService;
 
 import java.sql.SQLException;
+import java.util.Date;
 
 @OptionsMenu(R.menu.menu_stress)
 @EActivity(R.layout.activity_stress)
@@ -38,6 +40,11 @@ public class StressActivity extends AppCompatActivity {
 
   @OrmLiteDao(helper = DatabaseHelper.class)
   Dao<Event, Integer> eventDao;
+
+  @Extra
+  Long notificationShownAt;
+
+  private Date notificationAcceptedAt;
 
   @ViewById(R.id.stress_seek_level)
   VerticalSeekBar bar;
@@ -59,6 +66,9 @@ public class StressActivity extends AppCompatActivity {
     actionBar = getSupportActionBar();
     actionBar.setDisplayHomeAsUpEnabled(true);
     colorize(0);
+
+    if (notificationShownAt != null)
+      this.notificationAcceptedAt = new Date();
   }
 
   @OptionsItem
@@ -95,6 +105,14 @@ public class StressActivity extends AppCompatActivity {
   @Background
   void saveTensionInBackground(Float tension, String theNote) {
     Event event = Event.fromTensionAndNote(this, tension, theNote);
+
+    if (notificationShownAt != null) {
+      Date date = new Date();
+      date.setTime(notificationShownAt);
+      event.setNotificationShownAt(date);
+      event.setNotificationAcceptedAt(notificationAcceptedAt);
+    }
+
     saveEventInDatabase(event);
     loadTensionListActivity();
     EventUploaderService_.intent(getApplication()).start();

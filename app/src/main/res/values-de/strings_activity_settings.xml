@@ -8,5 +8,5 @@
     <string name="preferences_tension_input_end_summary">19:00</string>
     <string name="preferences_tension_input_interval_title">Interval</string>
     <string name="preferences_tension_input_interval_summary">90 Minuten</string>
-    <string name="preferences_tension_input_interval">preferences_tension_input_interval</string>
+    <string name="tension_input_interval">tension_input_interval</string>
 </resources>

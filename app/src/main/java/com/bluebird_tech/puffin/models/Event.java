@@ -3,8 +3,11 @@ package com.bluebird_tech.puffin.models;
 import java.util.Date;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 
+import com.bluebird_tech.puffin.BuildConfig;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -20,6 +23,9 @@ public class Event {
   public static final String FIELD_MEASUREMENT = "measurement";
   public static final String FIELD_MEASURED_AT = "measured_at";
   public static final String FIELD_UPLOADED_AT = "uploaded_at";
+  public static final String FIELD_NOTIFICATION_SHOWN_AT = "notification_shown_at";
+  public static final String FIELD_NOTIFICATION_ACCEPTED_AT = "notification_accepted_at";
+  public static final String FIELD_NOTIFICATION_DISMISSED_AT = "notification_dismissed_at";
 
   public static Event fromTensionAndNote(
         Context ctx, Float tension, String note) {
@@ -48,6 +54,15 @@ public class Event {
     );
 
     return android_id;
+  }
+
+  @JsonProperty("notificationIntervalMinutes")
+  public Integer getNotificationIntervalMinutes() {
+    if (ctx == null)
+      return 0;
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ctx);
+    return Integer.parseInt(prefs.getString("tension_input_interval",
+      BuildConfig.TENSION_INPUT_REPEATING_MINUTES));
   }
 
   @DatabaseField(generatedId = true)
@@ -80,6 +95,18 @@ public class Event {
   @DatabaseField(index = true, columnName = Event.FIELD_MEASURED_AT)
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
   private Date measuredAt;
+
+  @DatabaseField(canBeNull = true, index = true, columnName = Event.FIELD_NOTIFICATION_SHOWN_AT)
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+  private Date notificationShownAt;
+
+  @DatabaseField(canBeNull = true, index = true, columnName = Event.FIELD_NOTIFICATION_ACCEPTED_AT)
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+  private Date notificationAcceptedAt;
+
+  @DatabaseField(canBeNull = true, index = true, columnName = Event.FIELD_NOTIFICATION_DISMISSED_AT)
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+  private Date notificationDismissedAt;
 
   @DatabaseField(canBeNull = true, index = true, columnName = FIELD_UPLOADED_AT)
   private Date uploadedAt;
@@ -166,4 +193,27 @@ public class Event {
     this.note = note;
   }
 
+  public Date getNotificationAcceptedAt() {
+    return notificationAcceptedAt;
+  }
+
+  public void setNotificationAcceptedAt(Date notificationAcceptedAt) {
+    this.notificationAcceptedAt = notificationAcceptedAt;
+  }
+
+  public Date getNotificationShownAt() {
+    return notificationShownAt;
+  }
+
+  public void setNotificationShownAt(Date notificationShownAt) {
+    this.notificationShownAt = notificationShownAt;
+  }
+
+  public Date getNotificationDismissedAt() {
+    return notificationDismissedAt;
+  }
+
+  public void setNotificationDismissedAt(Date notificationDismissedAt) {
+    this.notificationDismissedAt = notificationDismissedAt;
+  }
 }
