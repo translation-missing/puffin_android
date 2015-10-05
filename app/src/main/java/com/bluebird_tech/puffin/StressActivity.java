@@ -1,9 +1,12 @@
 package com.bluebird_tech.puffin;
 
+import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -26,6 +29,7 @@ import org.androidannotations.annotations.SeekBarProgressChange;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.rest.RestService;
+import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -40,6 +44,8 @@ public class StressActivity extends AppCompatActivity {
 
   @OrmLiteDao(helper = DatabaseHelper.class)
   Dao<Event, Integer> eventDao;
+
+  SharedPreferences prefs;
 
   @Extra
   Long notificationShownAt;
@@ -63,12 +69,19 @@ public class StressActivity extends AppCompatActivity {
   @Override
   protected void onStart() {
     super.onStart();
+    prefs = PreferenceManager.getDefaultSharedPreferences(this);
     actionBar = getSupportActionBar();
     actionBar.setDisplayHomeAsUpEnabled(true);
     colorize(0);
 
     if (notificationShownAt != null)
       this.notificationAcceptedAt = new Date();
+
+    Log.d(TAG, "" + prefs.getBoolean("tension_input_help_show", true));
+    if (prefs.getBoolean("tension_input_help_show", true)) {
+      prefs.edit().putBoolean("tension_input_help_show", false).commit();
+      actionInfo();
+    }
   }
 
   @OptionsItem
