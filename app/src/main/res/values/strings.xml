@@ -38,4 +38,6 @@
     </string>
     <string name="tension_yesterday">yesterday</string>
     <string name="tension_tomorrow">tomorrow</string>
+    <string name="tension_input_help_show" translatable="false">tension_input_help_show</string>
+    <string name="internal_settings" translatable="false">internal_settings</string>
 </resources>

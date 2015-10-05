@@ -21,4 +21,10 @@
             android:entries="@array/tension_input_interval_keys"
             android:entryValues="@array/tension_input_interval_values" />
     </PreferenceCategory>
+    <PreferenceCategory
+        android:key="internal_settings">
+        <CheckBoxPreference
+            android:key="tension_input_help_show"
+            android:defaultValue="true" />
+    </PreferenceCategory>
 </PreferenceScreen>
