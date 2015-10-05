@@ -40,4 +40,11 @@
     <string name="tension_tomorrow">tomorrow</string>
     <string name="tension_input_help_show" translatable="false">tension_input_help_show</string>
     <string name="internal_settings" translatable="false">internal_settings</string>
+
+    <string name="preferences_tension_input_vibrate_title">Vibrate</string>
+    <string name="preferences_tension_input_vibrate_off">Vibration is off</string>
+    <string name="preferences_tension_input_vibrate_on">Vibration is on</string>
+    <string name="preferences_tension_input_sound_title">Sound</string>
+    <string name="preferences_tension_input_sound_off">Sound is off</string>
+    <string name="preferences_tension_input_sound_on">Sound is on</string>
 </resources>

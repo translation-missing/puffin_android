@@ -6,11 +6,14 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 
 import java.util.Date;
@@ -56,6 +59,14 @@ public class TensionInputNotification {
     final String text =
       res.getString(R.string.tension_input_notification_placeholder_text_template);
 
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+    int notificationDefaults = 0;
+    if (prefs.getBoolean("tension_input_sound", true))
+      notificationDefaults |= Notification.DEFAULT_SOUND;
+    if (prefs.getBoolean("tension_input_vibrate", true))
+      notificationDefaults |= Notification.DEFAULT_VIBRATE;
+
     Intent intent = new Intent(context, StressActivity_.class);
     intent.putExtra("notificationShownAt", new Date().getTime());
 
@@ -64,7 +75,8 @@ public class TensionInputNotification {
     delete_intent.putExtra("notificationShownAt", new Date().getTime());
 
     final NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
-      .setDefaults(Notification.DEFAULT_ALL)
+      .setDefaults(notificationDefaults)
+      .setLights(0xff0000ff, 1000, 400)
       .setSmallIcon(R.drawable.ic_notification_small_icon)
       .setContentTitle(title)
       .setContentText(text)
