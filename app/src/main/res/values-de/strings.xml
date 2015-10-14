@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Puffin</string>
+    <string name="app_name">Blue Bird</string>
     <string name="action_calendar">Kalender</string>
     <string name="action_settings">Einstellungen</string>
 
@@ -8,7 +8,7 @@
     <string name="stress_button_save">Speichern</string>
     <string name="stress_note_hint">Notiz</string>
 
-    <string name="tension_input_notification_title_template">Puffin</string>
+    <string name="tension_input_notification_title_template">Blue Bird</string>
     <string name="tension_input_notification_placeholder_text_template">Wie geht\'s?</string>
     <string name="title_activity_tension_list">Übersicht</string>
     <string name="dialog_message">
