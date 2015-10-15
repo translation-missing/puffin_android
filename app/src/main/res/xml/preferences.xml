@@ -37,6 +37,35 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="tension_input_meta"
+        android:title="@string/preferences_tension_input_meta">
+
+        <PreferenceScreen
+            android:key="tension_input_about"
+            android:title="@string/preferences_tension_input_about"
+            android:persistent="false">
+
+            <Preference
+                android:key="tension_input_version"
+                android:title="@string/preferences_tension_input_version" />
+
+            <com.bluebird_tech.puffin.TextViewDialogPreference
+                android:title="@string/preferences_tension_input_privacy_title"
+                android:negativeButtonText=""
+                android:dialogMessage="@string/preferences_tension_input_privacy_message" />
+
+            <!--android:dialogTitle=""-->
+            <com.bluebird_tech.puffin.TextViewDialogPreference
+                android:title="@string/preferences_tension_input_imprint_title"
+                android:negativeButtonText=""
+                android:dialogMessage="@string/preferences_tension_input_imprint_message" />
+
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+    <!-- Hidden -->
+    <PreferenceCategory
         android:key="internal_settings">
 
         <CheckBoxPreference

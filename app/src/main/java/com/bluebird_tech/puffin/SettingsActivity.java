@@ -20,6 +20,9 @@ public class SettingsActivity extends PreferenceActivity {
   @PreferenceByKey(R.string.internal_settings)
   PreferenceCategory internalSettings;
 
+  @PreferenceByKey(R.string.tension_input_version)
+  Preference version;
+
   @PreferenceChange
   void tensionInputInterval(Preference _pref, Integer value) {
     RepeatingAlarmScheduler scheduler = new RepeatingAlarmScheduler();
@@ -31,5 +34,6 @@ public class SettingsActivity extends PreferenceActivity {
   void initPrefs() {
 //    internalSettings.removePreference(tensionInputHelpShow);
     internalSettings.removeAll();
+    version.setSummary(BuildConfig.VERSION_NAME);
   }
 }

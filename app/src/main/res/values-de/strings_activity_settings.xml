@@ -9,4 +9,40 @@
     <string name="preferences_tension_input_interval_title">Interval</string>
     <string name="preferences_tension_input_interval_summary">90 Minuten</string>
     <string name="tension_input_interval">tension_input_interval</string>
+    <string name="preferences_tension_input_imprint_title">Impressum</string>
+    <string name="preferences_tension_input_version">Version</string>
+    <string name="preferences_tension_input_meta">Meta</string>
+    <string name="preferences_tension_input_about">Über</string>
+
+    <!-- TODO: english?! -->
+    <string name="preferences_tension_input_imprint_message">
+      <![CDATA[
+      <p>Die Blue Bird App wird betrieben von:</p>
+      <p>Blue Bird Technologies UG (haftungsbeschränkt)<br>
+        Kurfürstenstraße 114<br>10787 Berlin</p>
+      <p>Tel.: +49-(0)30-6500506-8 (Mo.-Fr. 10:00-16:00 Uhr)<br>Email: <a href="mailto:info@blue-bird-tech.com">info@blue-bird-tech.com</a></p>
+      <p>Geschäftsführung: Frank C. Eckert, Benjamin Vahle<br>Amtsgericht Charlottenburg, HRB 166642 B<br>Sitz der Gesellschaft: Berlin<br>USt. ID-Nr. DE299829838</p>
+      ]]>
+    </string>
+    <string name="preferences_tension_input_privacy_title">Datenschutz</string>
+    <string name="preferences_tension_input_privacy_message">
+      <![CDATA[
+      <h3>1 Datenschutz und Datensicherheit</h3>
+      <p>Die Sicherheit deiner Daten hat für uns höchste Priorität. Selbstverständlich halten wir uns an die Bestimmungen des Bundesdatenschutzgesetzes (BDSG) sowie allen anderen datenschutzrechtlichen Vorschriften. Es werden anerkannte Standards zum Schutz deiner Daten angewandt, die dem Stand der aktuellen Technik entsprechen. Deine personenbezogenen Daten werden absolut vertraulich behandelt. Natürlich kannst du zu jeder Zeit die Löschung deiner personenbezogenen Daten veranlassen (siehe Ziffer 4).</p>
+      <h3>2 Art, Umfang und Zweck der Datenerhebung</h3>
+      <p>Bei den personenbezogenen Daten, die im Rahmen der Nutzung der App erhoben, verarbeitet und genutzt werden, handelt es sich um die von dir angegebenen Registrierungsdaten, die Gerätenummer sowie bei der Nutzung der App eingegebene Daten wie Emotionen, Anspannung, Kognition, Intentionen und Notizen. Die Daten werden gespeichert, damit du sie jederzeit einsehen und analysieren kannst.</p>
+      <p>Daten werden sowohl auf dem Endgerät, auf dem die App installiert ist, gespeichert als auch auf den App-Server übertragen und gespeichert, damit du von verschiedenen Endgeräten auf die Daten zugreifen kannst.</p>
+      <p>Wir behalten uns vor, Daten in vollständig anonymisierter Form zum Zweck medizinischer Forschung zu nutzen. Anonymisiert im Sinne dieser Vereinbarung bedeutet, dass von den Einzelangaben nicht mehr oder nur mit unverhältnismäßigem Aufwand an Zeit, Kosten und Arbeitskraft auf den Nutzer als Person geschlossen werden kann.</p>
+      <h3>3 Speicherdauer</h3>
+      <p>Personenbezogene Daten werden solange gespeichert wie dein Nutzerkonto aktiv ist. Mit der Löschung deines Nutzerkontos werden alle personenbezogenen Daten gelöscht. Anonymisierte Daten können auch nach Löschung des Kontos für Forschungszwecke verwendet werden.</p>
+      <h3>4 Auskunft, Korrektur und Löschung</h3>
+      <p>Du hast das Recht auf Auskunft, Korrektur und Löschung deiner personenbezogenen Daten. Zur Ausübung dieses Rechtes kannst du uns eine E-Mail an datenschutz@blue-bird-tech.com oder einen Brief an Blue Bird Technologies UG (haftungsbeschränkt), Kurfürstenstr. 114, 10787 Berlin schicken. Die Löschung deiner personenbezogenen Daten kannst du auch veranlassen, indem du dein Nutzerkonto löschst.</p>
+      <h3>5 Kontakt</h3>
+      <p>Du kannst dich per Email oder postalisch an uns wenden, wenn du Fragen hast oder eine Auskunft, Korrektur oder Löschung deiner Daten veranlassen möchtest:</p>
+      <p>Email: <a href="mailto:datenschutz@blue-bird-tech.com">datenschutz@blue-bird-tech.com</a></p>
+      <p>Blue Bird Technologies UG (haftungsbeschränkt), Kurfürstenstr. 114, 10787 Berlin</p>
+      <p>&nbsp;</p>
+      <p>Stand: 07.10.2015</p>
+      ]]>
+    </string>
 </resources>
