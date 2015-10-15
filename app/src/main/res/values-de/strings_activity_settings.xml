@@ -45,4 +45,68 @@
       <p>Stand: 07.10.2015</p>
       ]]>
     </string>
+
+    <string name="preferences_tension_input_terms_title">Nutzungsbedingungen</string>
+    <string name="preferences_tension_input_terms_message">
+      <![CDATA[
+
+      <!-- Nutzungsbedingungen für die Blue Bird App -->
+      <h3>1 Geltungsbereich</h3>
+      <p>Die App „Blue Bird“ (nachfolgend: Blue Bird App oder App) ist ein Produkt von Blue Bird Technologies UG (haftungsbeschränkt) (Kurfürstenstr. 114, 10787 Berlin) (nachfolgend: Blue Bird Tech oder Anbieter).</p>
+      <p>Diese Nutzungsbedingungen regeln das Verhältnis zwischen Blue Bird und Nutzern der App. Sie regeln die Rechte und Pflichten der Nutzer bei der Nutzung der App und der darin erhältlichen Funktionalitäten/Dienste und Inhalte. Durch die Verwendung der App erkennt der Nutzer diese Nutzungsbedingungen an. Akzeptiert der Nutzer diese Bedingungen nicht, ist er nicht berechtigt, die App zu verwenden.</p>
+      <p>Die Nutzungsbedingungen gelten als angenommen, wenn</p>
+      <ul>
+        <li>der Nutzer im Registrierungsprozess die entsprechende Schaltfläche für die Annahmen der Nutzungsbedingungen anklickt oder</li>
+        <li>der Nutzer die App tatsächlich nutzt. In diesem Fall erkennt der Nutzer an, dass der Anbieter die Nutzung der App als Anerkennung dieser Nutzungsbedingungen ansieht.</li>
+      </ul>
+      <p>Diese Nutzungsbedingungen sind ab dem 07.10.2015 und aktuell gültig und können jederzeit unter <a href="http://www.is.gd/blue_bird_agb">http://www.is.gd/blue_bird_agb</a> abgerufen werden. Ergänzend gelten die Datenschutzbestimmungen [<a href="http://www.is.gd/blue_bird_datenschutz">http://www.is.gd/blue_bird_datenschutz</a>].</p>
+      <h3>2 Leistungsbeschreibung</h3>
+      <p>(1) Die Blue Bird App ist eine Software, die auf mobilen Endgeräten (z.B. Smartphone, Tablet) mit kompatiblem Android-Betriebssystem genutzt werden kann. Bei der App handelt es sich in der aktuellen Version nicht um ein Medizinprodukt.</p>
+      <p>(2) Die App bietet Nutzern die Möglichkeit ihr Befinden, d.h. z.B. Stress, Emotionen, Gedanken zu protokolieren und mithilfe grafischer Darstellungen vereinfacht auszuwerten. Der Nutzer kann sich per Benachrichtigung an die Eingabe von Daten erinnern lassen. Die Daten werden über eine verschlüsselte Verbindung auf den Blue Bird Server übertragen, damit der Nutzer von verschiedenen Endgeräten aus auf seine Daten zugreifen kann.</p>
+      <p>(3) Die App ist ausdrücklich nicht zum Zwecke der Erkennung, Verhütung, Überwachung, Behandlung oder Linderung von Krankheiten bestimmt.</p>
+      <p>(4) Die App wird über die betriebssystemabhängigen App-Stores (z.B. Google Play) bereitgestellt.</p>
+      <p>(5) Das Leistungsanbot kann jederzeit ohne vorherige Ankündigung und ohne Nennung von Gründen durch den Anbieter geändert und auch eingeschränkt werden.</p>
+      <h3>3 Nutzungsvoraussetzungen</h3>
+      <p>Nutzungsberechtigt ist jede natürliche Person, die das 14. Lebensjahr abgeschlossen hat. Jugendliche unter 18 Jahren haben vor der Nutzung und Registrierung die Zustimmung ihrer Eltern einzuholen. Voraussetzung für die Nutzung ist ferner die Annahme dieser Nutzungsbedingungen sowie der Datenschutzbestimmungen.</p>
+      <h3>4 Registrierung</h3>
+      <p>(1) Um ein Nutzerkonto zu eröffnen und zu nutzen, muss der Nutzer sich registriert und diesen Nutzungsbedingungen zugestimmt haben. Die Registrierung kann nur erfolgen, wenn der Nutzer durch Markieren des Feldes „Ich habe die Nutzungsbedingungen und Datenschutzerklärung gelesen und stimme ihnen zu.“ diese Nutzungsbedingungen und die Datenschutzerklärung akzeptiert und dadurch in seine Registrierung aufgenommen hat. </p>
+      <p>(2) Die Registrierung als Nutzer ist kostenfrei. Bestimmte Vorteile/Funktionalitäten stehen nur angemeldeten Nutzern zur Verfügung. Hierzu gehört zum Beispiel der Zugriff auf die eingegebenen Daten von verschiedenen Endgeräten.</p>
+      <p>(3) Jede Person darf nur ein Nutzerkonto eröffnen. Der Nutzer verpflichtet sich, bei der Registrierung ausschließlich wahre Angaben zu machen, insbesondere was seine Identität betrifft. </p>
+      <p>(4) Blue Bird ist berechtigt, den Antrag zur Eröffnung eines Nutzerkontos und zur Nutzung der App ohne Angaben von Gründen abzulehnen oder nicht anzunehmen. Der Anbieter ist unter den in Ziffer 8 genannten Gründen berechtigt, das Nutzerkonto zu schließen und den Nutzer von der Teilnahme auszuschließen. </p>
+      <h3>5 Pflichten des Nutzers</h3>
+      <p>(1) Der Nutzer darf das Leistungsangebot nur sachgerecht nutzen, das Angebot nicht missbrauchen oder Blue Bird in anderer Weise schaden.</p>
+      <p>(2) Der Nutzer hat für sein Nutzerkonto ein möglichst sicheres Passwort zu wählen und dies sowie andere Zugangsdaten streng geheim zu halten. Blue Bird ist unverzüglich zu informieren (per Email an info@blue-bird-tech.com oder postalisch), sofern der Nutzer Hinweise darauf hat, dass Dritte unbefugt Zugriff auf die Zugangsdaten oder das Konto erhalten haben. </p>
+      <p>(3) Sofern ein Nutzer gegen die genannten Pflichten verstößt, behält der Anbieter sich vor, den Nutzer von der Nutzung der App auszuschließen und sein Konto zu löschen (siehe auch Ziffer 8). Des Weiteren behält Blue Bird sich vor, Schadenersatz geltend zu machen und/oder Strafanzeige zu erstatten. </p>
+
+      <h3>6 Nutzungsrechte</h3>
+      <p>(1) Die Inhalte der App sind urheberrechtlich geschützt und im Normalfall Eigentum oder lizensiert durch den Anbieter. Die Inhalte dürfen nur für private und ohne ausdrückliche Einwilligung nicht für gewerbliche Zwecke verwendet werden. Eine Weitergabe der Inhalte ist ohne ausdrückliche Zustimmung des Anbieters untersagt.</p>
+      <p>(2) Die Erlaubnis zur Nutzung der App und deren Inhalte ist auf die Dauer des Nutzungsverhältnisses beschränkt. Mit Beendigung des Nutzungsverhältnisses, gleichgültig ob durch den Nutzer oder den Anbieter, erlöschen die Nutzungsrechte.</p>
+
+      <h3>7 Kosten</h3>
+      <p>Die Nutzung der App ist kostenfrei.</p>
+      <p>Das Herunterladen und die Nutzung der App können abhängig vom Mobilfunkvertrag des Nutzers durch den Datentransfer Kosten beim Netzbetreiber verursachen, auf die Blue Bird keinen Einfluss hat. Diese Kosten müssen vom Nutzer selbst getragen werden. Der Nutzer kann über die Einstellungen an seinem Endgerät steuern, unter welchen Umständen die App Daten übertragen darf, um eventuelle Kosten zu vermeiden.</p>
+
+      <h3>8 Sperrung des Zugangs / Kündigung</h3>
+      <p>(1) Das Nutzungsverhältnis kann vom Nutzer jederzeit vom Nutzer über die App selbst oder per schriftliche Mitteilung (z.B. per Email) fristlos gekündigt werden. Daraufhin werden alle seine personenbezogenen Daten gelöscht. </p>
+      <p>(2) Blue Bird kann das Nutzungsverhältnis jederzeit mit einer Frist von 14 Tagen ordentlich kündigen. </p>
+      <p>(3) Das Recht zur außerordentlichen Kündigung bei Vorliegen eines wichtigen Grundes bleibt unberührt. Ein wichtiger Grund für eine Kündigung durch den Anbieter ist vor allem ein Verstoß gegen die Ziffer 5 dieser Nutzungsbedingungen. Vor endgültiger Löschung des Nutzerkontos soll dem Nutzer die Möglichkeit zur Stellungnahme gegeben werden. </p>
+      <p>(4) Der Anbieter kann dem Nutzer jederzeit einzelne oder alle Funktionalitäten der App sperren.</p>
+
+      <h3>9 Haftung</h3>
+      <p>(1) Die Haftung des Anbieters wird für alle Schadensersatzansprüche und Haftungsfälle unabhängig von ihrem Rechtsgrund ausgeschlossen. Der vorstehende Haftungsausschluss gilt auch zugunsten der gesetzlichen Vertreter und Erfüllungsgehilfen des Anbieters, sofern der Nutzer Ansprüche gegen diese geltend macht. </p>
+      <p>(2) Vom unter vorgenannten Haftungsausschluss ausgenommen sind Ansprüche</p>
+      <ul>
+        <li>aufgrund einer Verletzung von Leben, Körper oder Gesundheit</li>
+        <li>aus vorsätzlichem oder grob fahrlässigem Pflichtverletzung des Anbieters, der gesetzlichen Vertreter oder Erfüllungsgehilfen</li>
+        <li>wegen Arglist oder aus Garantie</li>
+        <li>nach dem Produkthaftungsgesetz (ProdHaftG)</li>
+      <p>(3) Die vorgenannte Haftungsbeschränkungen gelten für sämtliche vertraglichen und nichtvertraglichen Ansprüche.</p>
+
+      <h3>10 Schlussbestimmungen</h3>
+      <p>(1) Diese Nutzungsbedingungen können von Seite der Gesellschaft ohne Nennung von Gründen jederzeit geändert werden. Registrierte Nutzer werden mindestens zwei Wochen vor Inkrafttreten per E-Mail über die geänderten Bedingungen informiert. Die geänderten Bedingungen gelten als angenommen, wenn der Nutzer ihr nicht innerhalb von zwei Wochen nach Absendung der E-Mail widerspricht oder wenn der Nutzer der Änderung in der App durch Markieren der entsprechenden Schaltfläche zustimmt. Widerspricht der Nutzer, wird das Nutzerkonto inklusive aller persönlichen Daten gelöscht und das Nutzungsverhältnis endet.  </p>
+      <p>(2) Soweit rechtlich zulässig ist Gerichtsstand der Sitz von Blue Bird. Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. </p>
+      <p>&nbsp;</p>
+      <p>Stand: 07.10.2015</p>
+      ]]>
+    </string>
 </resources>

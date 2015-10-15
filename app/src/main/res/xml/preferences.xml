@@ -54,6 +54,11 @@
                 android:negativeButtonText=""
                 android:dialogMessage="@string/preferences_tension_input_privacy_message" />
 
+            <com.bluebird_tech.puffin.TextViewDialogPreference
+                android:title="@string/preferences_tension_input_terms_title"
+                android:negativeButtonText=""
+                android:dialogMessage="@string/preferences_tension_input_terms_message" />
+
             <!--android:dialogTitle=""-->
             <com.bluebird_tech.puffin.TextViewDialogPreference
                 android:title="@string/preferences_tension_input_imprint_title"
