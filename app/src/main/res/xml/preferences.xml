@@ -6,11 +6,13 @@
         <com.bluebird_tech.puffin.TimePreference
             android:key="tension_input_start"
             android:title="@string/preferences_tension_input_start_title"
+            android:defaultValue="07:00"
             android:summary="@string/preferences_tension_input_start_summary"/>
 
         <com.bluebird_tech.puffin.TimePreference
             android:key="tension_input_end"
             android:title="@string/preferences_tension_input_end_title"
+            android:defaultValue="19:00"
             android:summary="@string/preferences_tension_input_end_summary"/>
 
         <ListPreference
