@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title_activity_settings">Einstellungen</string>
-    <string name="preferences_tension_input_reminders">Reminders</string>
+    <string name="preferences_tension_input_reminders">Benachrichtigungen</string>
     <string name="preferences_tension_input_start_title">Start</string>
     <string name="preferences_tension_input_end_title">Ende</string>
     <string name="preferences_tension_input_start_summary">07:00</string>
