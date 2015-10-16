@@ -180,7 +180,7 @@ public class TensionListActivity extends AppCompatActivity
 //    Snackbar.make(tensionList, msg, Snackbar.LENGTH_SHORT).show();
   }
 
-  @Receiver(actions="com.bluebird_tech.puffin.TENSION_EVENT_CREATED")
+  @Receiver(actions = "com.bluebird_tech.puffin.TENSION_EVENT_CREATED")
   void tensionEventCreated(@Receiver.Extra("tensionEventCreated") boolean value) {
     showTensionEventCreated(value);
   }
@@ -238,23 +238,36 @@ public class TensionListActivity extends AppCompatActivity
   }
 
   @Override
-  public boolean dispatchTouchEvent(MotionEvent ev){
+  public boolean dispatchTouchEvent(MotionEvent ev) {
     super.dispatchTouchEvent(ev);
     return detector.onTouchEvent(ev);
   }
 
   class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
-    @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2,
-                           float _velocityX, float _velocityY) {
-      int x_max = tensionList.getWidth();
+    private boolean newScroll = false;
 
-      if (e1.getX() < 40.0f && e1.getX() < e2.getX()) {
-        yesterdayButtonClicked(); return true;
-      } else if (e1.getX() > (x_max - 40.0f) && e1.getX() > e2.getX()) {
-        tomorrowButtonClicked(); return true;
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2,
+                            float _velocityX, float _velocityY) {
+      if (!newScroll)
+        return false;
+
+      if ((_velocityX < -40f) && e1.getX() < e2.getX()) {
+        newScroll = false;
+        yesterdayButtonClicked();
+        return true;
+      } else if ((_velocityX > 40.0f) && e1.getX() > e2.getX()) {
+        newScroll = false;
+        tomorrowButtonClicked();
+        return true;
       }
       return false;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+      newScroll = true;
+      return true;
     }
   }
 }
