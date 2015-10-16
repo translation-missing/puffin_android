@@ -11,7 +11,7 @@
     <string name="tension_input_interval">tension_input_interval</string>
     <string name="preferences_tension_input_imprint_title">Impressum</string>
     <string name="preferences_tension_input_version">Version</string>
-    <string name="preferences_tension_input_meta">Meta</string>
+    <string name="preferences_tension_input_meta">Info</string>
     <string name="preferences_tension_input_about">Über</string>
 
     <!-- TODO: english?! -->
