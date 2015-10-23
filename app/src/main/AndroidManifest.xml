@@ -11,7 +11,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="a510f225c4cfac6ebc7eb21d408a7bb9dbbf263e" />
@@ -19,8 +18,8 @@
         <activity
             android:name=".StressActivity_"
             android:label="@string/app_name"
-            android:parentActivityName="com.bluebird_tech.puffin.TensionListActivity_"
-            android:windowSoftInputMode="adjustResize">
+            android:parentActivityName=".TensionListActivity_"
+            android:windowSoftInputMode="adjustResize" >
         </activity>
 
         <receiver
@@ -49,6 +48,7 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -61,7 +61,15 @@
         <activity
             android:name=".SettingsActivity_"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".TensionListActivity_" >
+            android:parentActivityName=".TensionListActivity_">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bluebird_tech.puffin.TensionListActivity_" />
+        </activity>
+        <activity
+            android:name=".EmotionInputActivity_"
+            android:label="@string/title_activity_emotion_input"
+            android:parentActivityName=".TensionListActivity_">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.bluebird_tech.puffin.TensionListActivity_" />

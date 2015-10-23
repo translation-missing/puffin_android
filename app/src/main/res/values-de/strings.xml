@@ -38,10 +38,13 @@
     </string>
     <string name="tension_yesterday">Gestern</string>
     <string name="tension_tomorrow">Morgen</string>
-    <string name="preferences_tension_input_vibrate_title">Vibrieren</string>
-    <string name="preferences_tension_input_vibrate_off">Vibrieren ist aus</string>
-    <string name="preferences_tension_input_vibrate_on">Vibrieren ist an</string>
-    <string name="preferences_tension_input_sound_title">Ton</string>
-    <string name="preferences_tension_input_sound_off">Ton ist aus</string>
-    <string name="preferences_tension_input_sound_on">Ton ist an</string>
+    <string name="action_save">Save</string>
+    <string name="emotion_sadness_label">Traurigkeit</string>
+    <string name="emotion_anger_label">Wut</string>
+    <string name="emotion_emptiness_label">Leere</string>
+    <string name="emotion_joy_label">Freude</string>
+    <string name="emotion_shame_label">Scham</string>
+    <string name="emotion_guilt_label">Schuld</string>
+    <string name="emotion_fear_label">Angst</string>
+    <string name="emotion_disgust_label">Ekel</string>
 </resources>

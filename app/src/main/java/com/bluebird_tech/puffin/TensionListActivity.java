@@ -1,5 +1,7 @@
 package com.bluebird_tech.puffin;
 
+import android.graphics.drawable.ColorDrawable;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -73,6 +75,8 @@ public class TensionListActivity extends AppCompatActivity
   protected void onStart() {
     super.onStart();
     Fabric.with(this, new Crashlytics()); /* TODO: user opt-in... */
+    PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+
     RepeatingAlarmScheduler scheduler = new RepeatingAlarmScheduler();
     scheduler.setupAlarms(this);
     getSupportActionBar().setTitle(R.string.title_activity_tension_list);
@@ -148,11 +152,15 @@ public class TensionListActivity extends AppCompatActivity
     leftAxis.setAxisMaxValue(100);
     leftAxis.setValueFormatter(new IntegerFormatter());
     leftAxis.setLabelCount(10, false);
+//    leftAxis.setDrawGridLines(false); // customize...
 
     YAxis rightAxis = chart.getAxisRight();
     rightAxis.setEnabled(false);
 
     chart.setDescription("");
+    chart.setGridBackgroundColor(
+      ContextCompat.getColor(this, R.color.window_background));
+
 
     // refresh
     chart.invalidate();

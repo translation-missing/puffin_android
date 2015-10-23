@@ -39,6 +39,19 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/preferences_emotions_category">
+
+        <MultiSelectListPreference
+            android:title="@string/preferences_emotions_title"
+            android:key="emotions"
+            android:summary="%s"
+            android:entries="@array/emotions_entries"
+            android:entryValues="@array/emotions_values"
+            android:defaultValue="@array/emotions_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="tension_input_meta"
         android:title="@string/preferences_tension_input_meta">
 

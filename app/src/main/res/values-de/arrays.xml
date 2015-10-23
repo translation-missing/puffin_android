@@ -14,4 +14,14 @@
         <item>120</item>
         <item>180</item>
     </string-array>
+    <string-array name="emotions_entries">
+        <item>Freude</item>
+        <item>Wut</item>
+        <item>Traurigkeit</item>
+        <item>Scham</item>
+        <item>Leere</item>
+        <item>Schuld</item>
+        <item>Angst</item>
+        <item>Ekel</item>
+    </string-array>
 </resources>

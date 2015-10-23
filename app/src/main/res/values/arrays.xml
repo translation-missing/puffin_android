@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string-array name="tension_input_interval_keys">
-    <item>30 minutes</item>
-    <item>hourly</item>
-    <item>90 minutes</item>
-    <item>every 2 hours</item>
-    <item>every 3 hours</item>
-  </string-array>
-  <string-array name="tension_input_interval_values">
-    <item>30</item>
-    <item>60</item>
-    <item>90</item>
-    <item>120</item>
-    <item>180</item>
-  </string-array>
+    <string-array name="tension_input_interval_keys">
+        <item>30 minutes</item>
+        <item>hourly</item>
+        <item>90 minutes</item>
+        <item>every 2 hours</item>
+        <item>every 3 hours</item>
+    </string-array>
+    <string-array name="tension_input_interval_values">
+        <item>30</item>
+        <item>60</item>
+        <item>90</item>
+        <item>120</item>
+        <item>180</item>
+    </string-array>
+
+    <string-array name="empty_array" />
+
+    <string-array name="emotions_entries">
+        <item>Joy</item>
+        <item>Anger</item>
+        <item>Sadness</item>
+        <item>Shame</item>
+        <item>Emptiness</item>
+        <item>Guilt</item>
+        <item>Fear</item>
+        <item>Disgust</item>
+    </string-array>
+    <string-array translatable="false" name="emotions_values">
+        <item>joy</item>
+        <item>anger</item>
+        <item>sadness</item>
+        <item>shame</item>
+        <item>emptiness</item>
+        <item>guilt</item>
+        <item>fear</item>
+        <item>disgust</item>
+    </string-array>
 </resources>

@@ -15,7 +15,8 @@ import android.widget.TextView;
 public class TensionInfoFragment extends DialogFragment {
   @Override
   public Dialog onCreateDialog(Bundle savedInstanceState) {
-    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+    AlertDialog.Builder builder =
+      new AlertDialog.Builder(getActivity(), R.style.StyledDialog);
     builder
       .setMessage(
         Html.fromHtml(getResources().getString(R.string.dialog_message)))
