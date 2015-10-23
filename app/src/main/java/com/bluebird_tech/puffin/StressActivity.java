@@ -102,11 +102,13 @@ public class StressActivity extends AppCompatActivity {
     actionBar.setBackgroundDrawable(new ColorDrawable(color));
 
     // status bar color (http://stackoverflow.com/a/22192691)
-    Window window = getWindow();
-    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-    window.setStatusBarColor(color);
-    window.setNavigationBarColor(color);
+    if (android.os.Build.VERSION.SDK_INT >= 21) {
+      Window window = getWindow();
+      window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+      window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+      window.setStatusBarColor(color);
+      window.setNavigationBarColor(color);
+    }
   }
 
   @SeekBarProgressChange(R.id.stress_seek_level)
