@@ -43,6 +43,9 @@
                 android:id="@+id/stress_seek_level"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:paddingTop="80dp"
+                android:paddingBottom="80dp"
+                android:paddingLeft="80dp"
                 app:seekBarRotation="CW270" /> <!-- Rotation: CW90 or CW270 -->
         </com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper>
     </LinearLayout>
