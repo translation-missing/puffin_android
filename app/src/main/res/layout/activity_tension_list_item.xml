@@ -4,36 +4,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="85dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/separator"
-        android:visibility="gone"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="16dp"/>
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="8dp"
-        android:paddingLeft="16dp"
-        android:paddingBottom="8dp">
+        android:layout_height="match_parent" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
+            android:background="@drawable/tension_border"
             android:layout_height="wrap_content"
             android:text="23"
             android:id="@+id/value"
-            android:background="@drawable/tension_circle"
-            android:height="40dp"
             android:gravity="center"
-            android:width="40dp"
-            android:textColor="@android:color/white"/>
+            android:textSize="30dp"
+            android:textColor="@color/tension_level_middle"
+            android:layout_centerVertical="true"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,16 +32,51 @@
             android:layout_marginRight="16dp"
             android:layout_marginLeft="10dp"
             android:id="@+id/measuredAt"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <LinearLayout
             android:layout_toRightOf="@id/value"
             android:layout_toLeftOf="@id/measuredAt"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:text="note blud die dub die dub die dub dasdf lorem ipsum"
-            android:id="@+id/note"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true">
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:requiresFadingEdge="horizontal"
+                android:id="@+id/horizontalScrollView">
+
+                <LinearLayout
+                    android:id="@+id/emotion_layout"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="hallo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <ScrollView
+                android:requiresFadingEdge="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="note blud die dub die dub die dub dasdf lorem ipsum"
+                    android:id="@+id/note"/>
+            </ScrollView>
+        </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

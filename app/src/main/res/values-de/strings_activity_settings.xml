@@ -13,6 +13,16 @@
     <string name="preferences_tension_input_version">Version</string>
     <string name="preferences_tension_input_meta">Info</string>
     <string name="preferences_tension_input_about">Über</string>
+    <string name="preferences_tension_input_vibrate_title">Vibrieren</string>
+    <string name="preferences_tension_input_vibrate_off">Vibrieren ist aus</string>
+    <string name="preferences_tension_input_vibrate_on">Vibrieren ist an</string>
+    <string name="preferences_tension_input_sound_title">Ton</string>
+    <string name="preferences_tension_input_sound_off">Ton ist aus</string>
+    <string name="preferences_tension_input_sound_on">Ton ist an</string>
+    <string name="preferences_emotions_category">Emotionen</string>
+    <string name="preferences_emotions_title">Emotionen</string>
+    <string name="preferences_emotions_summary">%d ausgewählt</string>
+    <string name="title_activity_emotion_input">Emotionen</string>
 
     <!-- TODO: english?! -->
     <string name="preferences_tension_input_imprint_message">

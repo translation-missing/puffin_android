@@ -42,10 +42,14 @@
     <string name="internal_settings" translatable="false">internal_settings</string>
     <string name="tension_input_version" translatable="false">tension_input_version</string>
 
-    <string name="preferences_tension_input_vibrate_title">Vibrate</string>
-    <string name="preferences_tension_input_vibrate_off">Vibration is off</string>
-    <string name="preferences_tension_input_vibrate_on">Vibration is on</string>
-    <string name="preferences_tension_input_sound_title">Sound</string>
-    <string name="preferences_tension_input_sound_off">Sound is off</string>
-    <string name="preferences_tension_input_sound_on">Sound is on</string>
+    <string name="emotion_sadness_label">Sadness</string>
+    <string name="emotion_anger_label">Anger</string>
+    <string name="emotion_emptiness_label">Emptiness</string>
+    <string name="emotion_joy_label">Joy</string>
+    <string name="emotion_shame_label">Shame</string>
+    <string name="emotion_guilt_label">Guilt</string>
+    <string name="emotion_fear_label">Fear</string>
+    <string name="emotion_disgust_label">Disgust</string>
+
+    <string name="action_save">Save</string>
 </resources>

@@ -8,11 +8,23 @@
     <string name="preferences_tension_input_interval_title">Interval</string>
     <string name="preferences_tension_input_interval_summary">90 minutes</string>
     <string name="tension_input_interval">tension_input_interval</string>
+    <string name="emotions" translatable="false">emotions</string>
 
     <string name="preferences_tension_input_version">Version</string>
     <string name="preferences_tension_input_meta">Info</string>
     <string name="preferences_tension_input_about">About</string>
     <string name="preferences_tension_input_imprint_title">Imprint</string>
+
+    <string name="preferences_tension_input_vibrate_title">Vibrate</string>
+    <string name="preferences_tension_input_vibrate_off">Vibration is off</string>
+    <string name="preferences_tension_input_vibrate_on">Vibration is on</string>
+    <string name="preferences_tension_input_sound_title">Sound</string>
+    <string name="preferences_tension_input_sound_off">Sound is off</string>
+    <string name="preferences_tension_input_sound_on">Sound is on</string>
+    <string name="preferences_emotions_category">Emotions</string>
+    <string name="preferences_emotions_title">Emotions</string>
+    <string name="title_activity_emotion_input">Emotions</string>
+    <string name="preferences_emotions_summary">%d selected</string>
 
     <!-- TODO: english?! -->
     <string name="preferences_tension_input_imprint_message">

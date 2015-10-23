@@ -6,7 +6,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -29,7 +30,6 @@ import org.androidannotations.annotations.SeekBarProgressChange;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 import org.androidannotations.annotations.rest.RestService;
-import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import java.sql.SQLException;
 import java.util.Date;
@@ -51,6 +51,7 @@ public class StressActivity extends AppCompatActivity {
   Long notificationShownAt;
 
   private Date notificationAcceptedAt;
+  private Integer eventId;
 
   @ViewById(R.id.stress_seek_level)
   VerticalSeekBar bar;
@@ -77,7 +78,6 @@ public class StressActivity extends AppCompatActivity {
     if (notificationShownAt != null)
       this.notificationAcceptedAt = new Date();
 
-    Log.d(TAG, "" + prefs.getBoolean("tension_input_help_show", true));
     if (prefs.getBoolean("tension_input_help_show", true)) {
       prefs.edit().putBoolean("tension_input_help_show", false).commit();
       actionInfo();
@@ -100,6 +100,13 @@ public class StressActivity extends AppCompatActivity {
     bar.getProgressDrawable().setColorFilter(color, PorterDuff.Mode.SRC_IN);
     bar.getThumb().setColorFilter(color, PorterDuff.Mode.SRC_IN);
     actionBar.setBackgroundDrawable(new ColorDrawable(color));
+
+    // status bar color (http://stackoverflow.com/a/22192691)
+    Window window = getWindow();
+    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+    window.setStatusBarColor(color);
+    window.setNavigationBarColor(color);
   }
 
   @SeekBarProgressChange(R.id.stress_seek_level)
@@ -127,21 +134,23 @@ public class StressActivity extends AppCompatActivity {
     }
 
     saveEventInDatabase(event);
-    loadTensionListActivity();
+    loadEmotionInputActivity();
     EventUploaderService_.intent(getApplication()).start();
   }
 
   @UiThread
-  void loadTensionListActivity() {
+  void loadEmotionInputActivity() {
+    finish();
+    EmotionInputActivity_.intent(this).eventId(this.eventId).start();
 //    TensionListActivity_.intent(this)
 //      .flags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
 //      .start();
-    finish();
   }
 
   private void saveEventInDatabase(Event event) {
     try {
       eventDao.create(event);
+      this.eventId = event.getId().intValue();
     } catch (SQLException e) {
       throw new RuntimeException(e);
     }

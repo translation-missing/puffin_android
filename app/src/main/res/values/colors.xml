@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="primary">#9cb9e2</color>
-  <color name="primary_dark">#103758</color>
-  <color name="accent">#e59464</color>
+  <color name="primary">#8BC34A</color>
+  <color name="primary_dark">#7CB342</color>
+  <color name="accent">#FFB74D</color>
   <color name="text_primary">#D9FFFFFF</color>
   <color name="text_secondary">#D9000000</color>
+  <color name="window_background">#ffffffff</color>
 
-  <color name="tension_level_low">#ff81c784</color> <!-- green 300 -->
-  <color name="tension_level_middle">#ffffb74d</color> <!-- orange 300 -->
-  <color name="tension_level_high">#ffe53935</color> <!-- red 600 -->
+  <color name="tension_level_low">#ff8BC34A</color>
+  <color name="tension_level_middle">#ffFFB74D</color>
+  <color name="tension_level_high">#ffe53935</color>
 </resources>
