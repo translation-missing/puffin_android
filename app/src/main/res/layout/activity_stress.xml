@@ -70,14 +70,6 @@
                 android:ems="10"
                 android:id="@+id/note"/>
         </android.support.design.widget.TextInputLayout>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/stress_button_save"
-            android:id="@+id/stress_button_save"
-            android:layout_gravity="bottom|right" />
-
     </LinearLayout>
 
 </LinearLayout>

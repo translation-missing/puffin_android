@@ -45,7 +45,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
   protected void onStart() {
     super.onStart();
     ActionBar actionBar = getSupportActionBar();
-    actionBar.setDisplayHomeAsUpEnabled(true);
+    actionBar.setDisplayHomeAsUpEnabled(false);
   }
 
   @AfterPreferences

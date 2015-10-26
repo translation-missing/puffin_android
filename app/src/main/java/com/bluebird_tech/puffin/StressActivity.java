@@ -62,9 +62,6 @@ public class StressActivity extends AppCompatActivity {
   @ViewById
   EditText note;
 
-  @ViewById(R.id.stress_button_save)
-  Button save_button;
-
   private ActionBar actionBar;
 
   @Override
@@ -117,11 +114,6 @@ public class StressActivity extends AppCompatActivity {
     colorize(progress);
   }
 
-  @Click(R.id.stress_button_save)
-  void clickSaveTension() {
-    handleClickSaveTension();
-  }
-
   @OptionsItem
   void actionSave() {
     handleClickSaveTension();
@@ -129,7 +121,6 @@ public class StressActivity extends AppCompatActivity {
 
   private void handleClickSaveTension() {
     Float tension = (float) bar.getProgress();
-    save_button.setEnabled(false);
     saveTensionInBackground(tension, note.getText().toString());
   }
 
