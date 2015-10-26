@@ -10,9 +10,12 @@
 
     <string name="tension_input_notification_title_template">Blue Bird</string>
     <string name="tension_input_notification_placeholder_text_template">How are you?</string>
-    <string name="title_activity_tension_list">Overview</string>
+    <string name="title_activity_tension_list">Your day</string>
     <string name="dialog_message">
       <![CDATA[
+      <h2>Why Blue Bird?</h2>
+      <p>With Blue Bird you easily keep an eye on your inner tension and your emotions. Track your condition several times per day and find out what does you good and what doesn’t.</p>
+      
       <h2>Tension scale</h2>
       <h4><font color="#e53935">70-100 - High tension</font></h4>
       <p>You can barely stand the tension. Clear thinking is not possible. Loss of control.</p>
