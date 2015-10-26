@@ -23,11 +23,13 @@ public class RandomAlarmScheduler {
 
   AlarmManager alarmManager;
   SharedPreferences prefs;
+  Context context;
 
   /**
    * Schedule an alarm sometime between now and in 60 minutes.
    */
   void scheduleAlarm(Context context) {
+    this.context = context;
     prefs = PreferenceManager.getDefaultSharedPreferences(context);
     alarmManager =
       (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -73,10 +75,21 @@ public class RandomAlarmScheduler {
 
   private int millis_from_now() {
     int minutes_from_now =
-      1 + new Random().nextInt(BuildConfig.TENSION_INPUT_RANDOM_MINUTES);
+      1 + new Random().nextInt(maxRandomMinutes());
     int millis_from_now = minutes_from_now * 60 * 1000;
     Log.d(TAG, "min = " + minutes_from_now + ", millis: " + millis_from_now);
     return millis_from_now;
+  }
+
+  private int maxRandomMinutes() {
+    if (repeatingMinutes() <= 15)
+      return 5;
+    return BuildConfig.TENSION_INPUT_RANDOM_MINUTES;
+  }
+
+  private int repeatingMinutes() {
+    return Integer.parseInt(prefs.getString("tension_input_interval",
+      BuildConfig.TENSION_INPUT_REPEATING_MINUTES));
   }
 
   private Intent notificationIntent(Context context) {
