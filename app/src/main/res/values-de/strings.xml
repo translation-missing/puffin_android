@@ -10,14 +10,17 @@
 
     <string name="tension_input_notification_title_template">Blue Bird</string>
     <string name="tension_input_notification_placeholder_text_template">Wie geht\'s?</string>
-    <string name="title_activity_tension_list">Übersicht</string>
+    <string name="title_activity_tension_list">Dein Tag</string>
     <string name="dialog_message">
       <![CDATA[
+      <h2>Warum Blue Bird?</h2>
+      <p>Mit Blue Bird behältst du deine Anspannung und Emotionen im Blick. Gib mehrfach am Tag ein, wie du dich fühlst und finde so heraus, was dir gut tut oder dich stresst.</p>
+      
       <h2>Anspannungsskala</h2>
       <h4><font color="#e53935">70-100 - Hochspannung</font></h4>
       <p>Die Anspannung ist nicht länger aushaltbar, kein klares Denken möglich, Kontrollverlust</p>
 
-      <h4><font color="#ffb74d">69-30 - mittlere Anspannung</font></h4>
+      <h4><font color="#ffb74d">30-69 - mittlere Anspannung</font></h4>
       <p>Du kannst deine Anspannung deutlich wahrnehmen, fühlst dich leicht bis sehr unruhig</p>
 
       <h4><font color="#81c784">0-29 - niedrige Anspannung</font></h4>
