@@ -22,6 +22,7 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.renderer.YAxisRenderer;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
@@ -152,7 +153,27 @@ public class TensionListActivity extends AppCompatActivity
     leftAxis.setAxisMaxValue(100);
     leftAxis.setValueFormatter(new IntegerFormatter());
     leftAxis.setLabelCount(10, false);
-//    leftAxis.setDrawGridLines(false); // customize...
+    leftAxis.setDrawAxisLine(true);
+    leftAxis.setGridLineWidth(2.0f);
+
+    // custom grid lines
+    YAxisRenderer rendererLeftYAxis = chart.getRendererLeftYAxis();
+    ColorYAxisRenderer renderer = new ColorYAxisRenderer(this,
+      chart.getViewPortHandler(), leftAxis, rendererLeftYAxis.getTransformer());
+    renderer.setGridColors(new int[]{
+      R.color.tension_level_low,
+      android.R.color.transparent,
+      android.R.color.transparent,
+      R.color.tension_level_middle,
+      android.R.color.transparent,
+      android.R.color.transparent,
+      android.R.color.transparent,
+      R.color.tension_level_high,
+      android.R.color.transparent,
+      android.R.color.transparent,
+      android.R.color.transparent,
+    });
+    chart.setRendererLeftYAxis(renderer);
 
     YAxis rightAxis = chart.getAxisRight();
     rightAxis.setEnabled(false);
