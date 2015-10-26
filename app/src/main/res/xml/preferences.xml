@@ -47,7 +47,7 @@
             android:summary="%s"
             android:entries="@array/emotions_entries"
             android:entryValues="@array/emotions_values"
-            android:defaultValue="@array/emotions_values" />
+            android:defaultValue="@array/emotions_default_values" />
 
     </PreferenceCategory>
 

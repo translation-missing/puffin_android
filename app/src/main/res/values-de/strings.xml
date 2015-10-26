@@ -47,4 +47,10 @@
     <string name="emotion_guilt_label">Schuld</string>
     <string name="emotion_fear_label">Angst</string>
     <string name="emotion_disgust_label">Ekel</string>
+    <string name="emotion_confidence_label">Zuversicht</string>
+    <string name="emotion_worry_label">Sorge</string>
+    <string name="emotion_boredom_label">Langeweile</string>
+    <string name="emotion_loneliness_label">Einsamkeit</string>
+    <string name="emotion_desperation_label">Verzweiflung</string>
+    <string name="emotion_fatigue_label">Müdigkeit</string>
 </resources>

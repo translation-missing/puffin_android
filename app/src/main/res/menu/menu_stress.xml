@@ -6,4 +6,10 @@
         android:id="@+id/action_info" android:title="Info"
         android:icon="@drawable/ic_action_action_help"
         android:orderInCategory="100" app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_save" android:title="@string/action_save"
+        android:icon="@drawable/ic_done"
+        android:orderInCategory="101"
+        app:showAsAction="ifRoom" />
 </menu>

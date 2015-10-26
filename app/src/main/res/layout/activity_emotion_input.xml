@@ -20,13 +20,19 @@
             android:layout_height="match_parent">
 
             <include android:id="@+id/joy" layout="@layout/emotion_seekbar_layout" />
-            <include android:id="@+id/shame" layout="@layout/emotion_seekbar_layout" />
             <include android:id="@+id/anger" layout="@layout/emotion_seekbar_layout" />
             <include android:id="@+id/sadness" layout="@layout/emotion_seekbar_layout" />
+            <include android:id="@+id/shame" layout="@layout/emotion_seekbar_layout" />
             <include android:id="@+id/emptiness" layout="@layout/emotion_seekbar_layout" />
-            <include android:id="@+id/guilt" layout="@layout/emotion_seekbar_layout" />
             <include android:id="@+id/fear" layout="@layout/emotion_seekbar_layout" />
+            <include android:id="@+id/loneliness" layout="@layout/emotion_seekbar_layout" />
             <include android:id="@+id/disgust" layout="@layout/emotion_seekbar_layout" />
+            <include android:id="@+id/boredom" layout="@layout/emotion_seekbar_layout" />
+            <include android:id="@+id/fatigue" layout="@layout/emotion_seekbar_layout" />
+            <include android:id="@+id/guilt" layout="@layout/emotion_seekbar_layout" />
+            <include android:id="@+id/worry" layout="@layout/emotion_seekbar_layout" />
+            <include android:id="@+id/desperation" layout="@layout/emotion_seekbar_layout" />
+            <include android:id="@+id/confidence" layout="@layout/emotion_seekbar_layout" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

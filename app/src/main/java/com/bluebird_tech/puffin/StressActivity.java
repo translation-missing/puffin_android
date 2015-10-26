@@ -119,6 +119,15 @@ public class StressActivity extends AppCompatActivity {
 
   @Click(R.id.stress_button_save)
   void clickSaveTension() {
+    handleClickSaveTension();
+  }
+
+  @OptionsItem
+  void actionSave() {
+    handleClickSaveTension();
+  }
+
+  private void handleClickSaveTension() {
     Float tension = (float) bar.getProgress();
     save_button.setEnabled(false);
     saveTensionInBackground(tension, note.getText().toString());

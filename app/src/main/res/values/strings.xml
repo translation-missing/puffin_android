@@ -50,6 +50,12 @@
     <string name="emotion_guilt_label">Guilt</string>
     <string name="emotion_fear_label">Fear</string>
     <string name="emotion_disgust_label">Disgust</string>
+    <string name="emotion_confidence_label">Confidence</string>
+    <string name="emotion_worry_label">Worry</string>
+    <string name="emotion_boredom_label">Boredom</string>
+    <string name="emotion_loneliness_label">Loneliness</string>
+    <string name="emotion_desperation_label">Desperation</string>
+    <string name="emotion_fatigue_label">Fatigue</string>
 
     <string name="action_save">Save</string>
 </resources>

@@ -16,12 +16,18 @@
     </string-array>
     <string-array name="emotions_entries">
         <item>Freude</item>
-        <item>Wut</item>
+        <item>Wut/Ärger</item>
         <item>Traurigkeit</item>
         <item>Scham</item>
         <item>Leere</item>
-        <item>Schuld</item>
         <item>Angst</item>
+        <item>Einsamkeit</item>
         <item>Ekel</item>
+        <item>Langeweile</item>
+        <item>Müdigkeit</item>
+        <item>Schuld</item>
+        <item>Sorge</item>
+        <item>Verzweiflung</item>
+        <item>Zuversicht</item>
     </string-array>
 </resources>

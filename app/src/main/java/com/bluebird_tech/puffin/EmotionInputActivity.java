@@ -63,6 +63,18 @@ public class EmotionInputActivity extends AppCompatActivity {
   LinearLayout fear;
   @ViewById
   LinearLayout disgust;
+  @ViewById
+  LinearLayout confidence;
+  @ViewById
+  LinearLayout worry;
+  @ViewById
+  LinearLayout boredom;
+  @ViewById
+  LinearLayout loneliness;
+  @ViewById
+  LinearLayout desperation;
+  @ViewById
+  LinearLayout fatigue;
 
   private Map<String, LinearLayout> emotionLayouts;
 
@@ -91,6 +103,12 @@ public class EmotionInputActivity extends AppCompatActivity {
     emotionLayouts.put("guilt", guilt);
     emotionLayouts.put("fear", fear);
     emotionLayouts.put("disgust", disgust);
+    emotionLayouts.put("confidence", confidence);
+    emotionLayouts.put("worry", worry);
+    emotionLayouts.put("boredom", boredom);
+    emotionLayouts.put("loneliness", loneliness);
+    emotionLayouts.put("desperation", desperation);
+    emotionLayouts.put("fatigue", fatigue);
   }
 
   void setupEmoBars() {
