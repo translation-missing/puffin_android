@@ -44,6 +44,7 @@
     <string name="tension_input_help_show" translatable="false">tension_input_help_show</string>
     <string name="internal_settings" translatable="false">internal_settings</string>
     <string name="tension_input_version" translatable="false">tension_input_version</string>
+    <string name="preference_device_id" translatable="false">preference_device_id</string>
 
     <string name="emotion_sadness_label">Sadness</string>
     <string name="emotion_anger_label">Anger</string>
@@ -61,4 +62,5 @@
     <string name="emotion_fatigue_label">Fatigue</string>
 
     <string name="action_save">Save</string>
+    <string name="preferences_device_id">Device ID</string>
 </resources>

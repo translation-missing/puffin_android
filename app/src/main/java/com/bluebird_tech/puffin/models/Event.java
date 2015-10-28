@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.provider.Settings;
 
 import com.bluebird_tech.puffin.BuildConfig;
+import com.bluebird_tech.puffin.Utility;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -47,13 +48,7 @@ public class Event {
   public String getDeviceId() {
     if (ctx == null)
       return "unknown";
-
-    String android_id = Settings.Secure.getString(
-      ctx.getApplicationContext().getContentResolver(),
-      Settings.Secure.ANDROID_ID
-    );
-
-    return android_id;
+    return Utility.getDeviceId(ctx);
   }
 
   @JsonProperty("notificationIntervalMinutes")
