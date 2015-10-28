@@ -76,6 +76,9 @@ public class TensionListActivity extends AppCompatActivity
   protected void onStart() {
     super.onStart();
     Fabric.with(this, new Crashlytics()); /* TODO: user opt-in... */
+    if (!BuildConfig.HAS_CONFIG_EMOTIONS) {
+      // TODO: remove old/stale/non-editable preferences...
+    }
     PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
     RepeatingAlarmScheduler scheduler = new RepeatingAlarmScheduler();

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tension_input_interval_keys">
+        <item>15 Minuten</item>
+    </string-array>
+</resources>

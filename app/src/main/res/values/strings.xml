@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Blue Bird</string>
+    <string name="app_name">Blue Bird (Charite)</string>
 
     <string name="action_calendar">Calendar</string>
     <string name="action_settings">Settings</string>
@@ -45,6 +45,7 @@
     <string name="internal_settings" translatable="false">internal_settings</string>
     <string name="tension_input_version" translatable="false">tension_input_version</string>
     <string name="preference_device_id" translatable="false">preference_device_id</string>
+    <string name="preference_category_emotions" translatable="false">preference_category_emotions</string>
 
     <string name="emotion_sadness_label">Sadness</string>
     <string name="emotion_anger_label">Anger</string>
