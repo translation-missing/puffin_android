@@ -56,4 +56,5 @@
     <string name="emotion_loneliness_label">Einsamkeit</string>
     <string name="emotion_desperation_label">Verzweiflung</string>
     <string name="emotion_fatigue_label">Müdigkeit</string>
+    <string name="preferences_device_id">Geräte ID</string>
 </resources>

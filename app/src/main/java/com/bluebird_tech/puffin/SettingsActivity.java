@@ -26,6 +26,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
   @PreferenceByKey(R.string.tension_input_version)
   Preference version;
 
+  @PreferenceByKey(R.string.preference_device_id)
+  Preference deviceId;
+
   @PreferenceByKey(R.string.emotions)
   MultiSelectListPreference emotions;
 
@@ -53,6 +56,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 //    internalSettings.removePreference(tensionInputHelpShow);
     internalSettings.removeAll();
     version.setSummary(BuildConfig.VERSION_NAME);
+    deviceId.setSummary(Utility.getDeviceId(this));
     updateEmotionsSummary();
   }
 

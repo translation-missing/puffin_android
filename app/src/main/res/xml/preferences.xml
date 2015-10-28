@@ -75,6 +75,10 @@
             android:key="tension_input_version"
             android:title="@string/preferences_tension_input_version" />
 
+        <Preference
+            android:key="preference_device_id"
+            android:title="@string/preferences_device_id" />
+
     </PreferenceCategory>
 
     <!-- Hidden -->
