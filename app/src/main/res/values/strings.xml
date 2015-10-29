@@ -46,6 +46,8 @@
     <string name="tension_input_version" translatable="false">tension_input_version</string>
     <string name="preference_device_id" translatable="false">preference_device_id</string>
     <string name="preference_category_emotions" translatable="false">preference_category_emotions</string>
+    <string name="preference_interval" translatable="false">tension_input_interval</string>
+    <string name="preference_category_reminders" translatable="false">tension_input_reminders</string>
 
     <string name="emotion_sadness_label">Sadness</string>
     <string name="emotion_anger_label">Anger</string>
@@ -64,4 +66,5 @@
 
     <string name="action_save">Save</string>
     <string name="preferences_device_id">Device ID</string>
+    <string name="tension_input_interval_default" translatable="false">90</string>
 </resources>

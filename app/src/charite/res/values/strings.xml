@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Blue Bird (Charite)</string>
+    <string name="tension_input_interval_default" translatable="false">15</string>
 </resources>

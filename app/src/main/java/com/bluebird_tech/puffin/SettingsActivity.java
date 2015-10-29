@@ -5,7 +5,6 @@ import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.support.v7.app.ActionBar;
-import android.util.Log;
 
 import org.androidannotations.annotations.AfterPreferences;
 import org.androidannotations.annotations.EActivity;
@@ -36,6 +35,12 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
   @PreferenceByKey(R.string.preference_category_emotions)
   PreferenceCategory emotionCategory;
 
+  @PreferenceByKey(R.string.preference_interval)
+  Preference tensionInputInterval;
+
+  @PreferenceByKey(R.string.preference_category_reminders)
+  PreferenceCategory tensionInputReminders;
+
   @PreferenceChange
   void tensionInputInterval(Preference _pref, Integer value) {
     RepeatingAlarmScheduler scheduler = new RepeatingAlarmScheduler();
@@ -61,6 +66,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     internalSettings.removeAll();
     if (!BuildConfig.HAS_CONFIG_EMOTIONS) {
       getPreferenceScreen().removePreference(emotionCategory);
+      tensionInputReminders.removePreference(tensionInputInterval);
     } else {
       updateEmotionsSummary();
     }
