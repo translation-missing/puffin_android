@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tension_input_interval_keys">
+        <item>15 minutes</item>
+    </string-array>
+    <string-array name="tension_input_interval_values" translatable="false">
+        <item>15</item>
+    </string-array>
+    <string-array translatable="false" name="emotions_default_values">
+        <item>sadness</item>
+        <item>emptiness</item>
+        <item>joy</item>
+        <item>anger</item>
+    </string-array>
+</resources>

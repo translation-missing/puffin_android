@@ -26,8 +26,10 @@ import org.androidannotations.annotations.rest.RestService;
 import org.json.JSONObject;
 
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -117,7 +119,12 @@ public class EmotionInputActivity extends AppCompatActivity {
   }
 
   private Set<String> activeEmotions() {
-    return prefs.getStringSet("emotions", null);
+    if (!BuildConfig.HAS_CONFIG_EMOTIONS) {
+      return new HashSet<String>(Arrays.asList(
+        getResources().getStringArray(R.array.emotions_default_values)));
+    } else {
+      return prefs.getStringSet("emotions", null);
+    }
   }
 
   private void setupSeekBar(String emotion, LinearLayout layout) {

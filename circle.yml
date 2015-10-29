@@ -13,13 +13,29 @@ dependencies:
 test:
   pre:
     - mksdcard 256M ~/circleci-android22-sdcard
-  override:
     - emulator -avd circleci-android22 -no-audio -no-window -dns-server 8.8.4.4 -sdcard ~/circleci-android22-sdcard:
         background: true
         parallel: true
+  override:
+    # build
+    - TERM=dumb ./gradlew app:assembleDebug
+
+    # Unit tests
+    - TERM=dumb ./gradlew app:test
+
     - circle-android wait-for-boot
-    # - TERM=dumb ./gradlew connectedAndroidTest --continue --info -PdisablePreDex:
+    - sleep 60
+    - adb shell input keyevent 82 # remove lock screen
+
+    # run tests on emulator
     - TERM=dumb ./gradlew connectedAndroidTest --continue:
         timeout: 1200
+
     - cp -r app/build/reports $CIRCLE_ARTIFACTS
     - cp -r app/build/outputs $CIRCLE_ARTIFACTS
+
+    - mkdir $CIRCLE_TEST_REPORTS/junit
+    - find */build/test-results -name "*.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+
+    # collect emulator logs
+    - adb logcat -d > $CIRCLE_ARTIFACTS/logcat_emulator.txt

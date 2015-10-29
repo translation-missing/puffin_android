@@ -39,6 +39,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="preference_category_emotions"
         android:title="@string/preferences_emotions_category">
 
         <MultiSelectListPreference
