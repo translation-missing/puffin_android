@@ -5,7 +5,7 @@
 
     <string name="stress_text_tension">Anspannung</string>
     <string name="stress_button_save">Speichern</string>
-    <string name="stress_note_hint">Notiz</string>
+    <string name="stress_note_hint">Notiz (Situation)</string>
 
     <string name="tension_input_notification_title_template">Puffin</string>
     <string name="tension_input_notification_placeholder_text_template">
